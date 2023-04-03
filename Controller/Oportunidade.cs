@@ -125,5 +125,10 @@ namespace CareerConnect.Controller{
                 MessageBox.Show("Vaga editada com sucesso!");
             }
         }
+
+        //metodo pra pesquisar o nome de uma empresa e ir atualizando
+        public static List<Oportunidade> ProcurarEmpresaPorNome(string nome, List<Oportunidade> oportunidades){
+            return oportunidades.Where(u => u.NomeFantasia.Contains(nome)).ToList();
+        }
     }
 }

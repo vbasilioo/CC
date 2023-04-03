@@ -97,8 +97,8 @@ namespace CareerConnect.Controller{
                 numero = numero.Replace(" ", "");
                 System.Diagnostics.Process.Start("https://web.whatsapp.com/send?phone=" + numero); // abre o zap web e o número selecionado
 
-                // espera 5s e dps envia a mensagem automaticamente
-                Thread.Sleep(5000); 
+                // espera 15s e dps envia a mensagem automaticamente (15s por ter internets mais lentas)
+                Thread.Sleep(15000); 
 
                 SendKeys.SendWait("Olá, Eu sou a Cecília, a Assistente Virtual do CareerConnect, e estou aqui para te ajudar a recuperar sua senha!\nEssa é a sua nova senha: " 
                     + mensagem + "\nFique atento, anote em algum lugar e não passe para mais ninguém!\nAgradecemos por escolher a gente no auxílio na busca de emprego!"

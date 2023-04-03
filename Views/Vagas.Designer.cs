@@ -41,6 +41,8 @@
             this.btnAttCandidatura = new System.Windows.Forms.Button();
             this.btnExcluirCandidatura = new System.Windows.Forms.Button();
             this.btnListarCandidaturas = new System.Windows.Forms.Button();
+            this.campoPesquisarEmpresa = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridOportunidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,9 +64,9 @@
             this.GridOportunidades.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.GridOportunidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridOportunidades.GridColor = System.Drawing.Color.White;
-            this.GridOportunidades.Location = new System.Drawing.Point(206, 12);
+            this.GridOportunidades.Location = new System.Drawing.Point(168, 47);
             this.GridOportunidades.Name = "GridOportunidades";
-            this.GridOportunidades.Size = new System.Drawing.Size(1324, 685);
+            this.GridOportunidades.Size = new System.Drawing.Size(1362, 630);
             this.GridOportunidades.TabIndex = 3;
             this.GridOportunidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridOportunidades_CellContentClick);
             this.GridOportunidades.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridOportunidades_RowValidated);
@@ -172,12 +174,31 @@
             this.btnListarCandidaturas.Text = "Listar Candidaturas";
             this.btnListarCandidaturas.UseVisualStyleBackColor = true;
             // 
+            // campoPesquisarEmpresa
+            // 
+            this.campoPesquisarEmpresa.Location = new System.Drawing.Point(1074, 15);
+            this.campoPesquisarEmpresa.Name = "campoPesquisarEmpresa";
+            this.campoPesquisarEmpresa.Size = new System.Drawing.Size(291, 20);
+            this.campoPesquisarEmpresa.TabIndex = 15;
+            this.campoPesquisarEmpresa.TextChanged += new System.EventHandler(this.campoPesquisarEmpresa_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(971, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Pesquisar Empresa";
+            // 
             // Vagas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1542, 709);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.campoPesquisarEmpresa);
             this.Controls.Add(this.btnListarCandidaturas);
             this.Controls.Add(this.btnExcluirCandidatura);
             this.Controls.Add(this.btnAttCandidatura);
@@ -196,6 +217,7 @@
             this.Text = "Vagas";
             ((System.ComponentModel.ISupportInitialize)(this.GridOportunidades)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -214,5 +236,7 @@
         private System.Windows.Forms.Button btnAttCandidatura;
         private System.Windows.Forms.Button btnExcluirCandidatura;
         private System.Windows.Forms.Button btnListarCandidaturas;
+        private System.Windows.Forms.TextBox campoPesquisarEmpresa;
+        private System.Windows.Forms.Label label1;
     }
 }

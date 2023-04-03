@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace CareerConnect.Views{
     public partial class Vagas : Form{
+
+        List<Oportunidade> oportunidadesFiltradas = Oportunidade.ListarOportunidades();
+
         public Vagas(){
             InitializeComponent();
             AtualizarGridView(); // atualiza a GridView no construtor
@@ -60,7 +63,7 @@ namespace CareerConnect.Views{
         }
 
         public void AtualizarGridView(){
-            GridOportunidades.DataSource = Oportunidade.ListarOportunidades(); //pega lista predefindia na Oportunidade e leva pra grid
+            GridOportunidades.DataSource = oportunidadesFiltradas;
             GridOportunidades.Columns[0].HeaderText = "ID";
             GridOportunidades.Columns[0].Width = 40;
             GridOportunidades.Columns[0].HeaderCell.Style.Font = new Font("Arial", 10, FontStyle.Bold);
@@ -143,5 +146,22 @@ namespace CareerConnect.Views{
         }
 
         private void button2_Click(object sender, EventArgs e){}
+
+        private void campoPesquisarEmpresa_TextChanged(object sender, EventArgs e){
+            if(campoPesquisarEmpresa.Text == ""){
+                oportunidadesFiltradas = Oportunidade.ListarOportunidades();
+            }else{
+                /*// filtra oportunidades de acordo com nome da empresa
+                if (!string.IsNullOrEmpty(campoPesquisarEmpresa.Text)){
+                    oportunidadesFiltradas = oportunidadesFiltradas
+                        .Where(oportunidade => oportunidade.NomeFantasia.ToLower().StartsWith(campoPesquisarEmpresa.Text.ToLower())).ToList();
+                }
+
+                // atualiza a grid com as oportunidade q o usuario pesquisou
+                GridOportunidades.DataSource = oportunidadesFiltradas;*/
+                oportunidadesFiltradas = Oportunidade.ProcurarEmpresaPorNome(campoPesquisarEmpresa.Text, oportunidadesFiltradas);
+            }
+            AtualizarGridView();
+        }
     }
 }
