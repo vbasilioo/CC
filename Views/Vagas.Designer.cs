@@ -100,6 +100,7 @@
             this.btnListarCandidatos.TabIndex = 6;
             this.btnListarCandidatos.Text = "Listar Candidatos";
             this.btnListarCandidatos.UseVisualStyleBackColor = true;
+            this.btnListarCandidatos.Click += new System.EventHandler(this.btnListarCandidatos_Click);
             // 
             // btnBuscarCandidato
             // 

@@ -13,6 +13,7 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace CareerConnect{
     public partial class Login : KryptonForm{
+
         public Login(){
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;

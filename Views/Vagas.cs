@@ -163,5 +163,28 @@ namespace CareerConnect.Views{
             }
             AtualizarGridView();
         }
+
+        private void btnListarCandidatos_Click(object sender, EventArgs e){
+            List<Usuario> candidatos = Usuario.BuscarCandidatos();
+            GridOportunidades.DataSource = candidatos;
+            
+            GridOportunidades.Columns["Senha"].Visible = false;
+            GridOportunidades.Columns["Cargo"].Visible = false;
+            GridOportunidades.Columns["ID"].HeaderText = "ID";
+            GridOportunidades.Columns["ID"].Width = 40;
+            GridOportunidades.Columns["ID"].HeaderCell.Style.Font = new Font("Arial", 10, FontStyle.Bold);
+            GridOportunidades.Columns["Nome"].HeaderText = "Nome";
+            GridOportunidades.Columns["Nome"].Width = 250;
+            GridOportunidades.Columns["Nome"].HeaderCell.Style.Font = new Font("Arial", 10, FontStyle.Bold);
+            GridOportunidades.Columns["Email"].HeaderText = "E-mail";
+            GridOportunidades.Columns["Email"].Width = 300;
+            GridOportunidades.Columns["Email"].HeaderCell.Style.Font = new Font("Arial", 10, FontStyle.Bold);
+            GridOportunidades.Columns["DataNascimento"].HeaderText = "Idade";
+            GridOportunidades.Columns["DataNascimento"].Width = 80;
+            GridOportunidades.Columns["DataNascimento"].HeaderCell.Style.Font = new Font("Arial", 10, FontStyle.Bold);
+            GridOportunidades.Columns["Endereco"].HeaderText = "Endereço";
+            GridOportunidades.Columns["Endereco"].Width = 300;
+            GridOportunidades.Columns["Endereco"].HeaderCell.Style.Font = new Font("Arial", 10, FontStyle.Bold);
+        }
     }
 }

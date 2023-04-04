@@ -193,6 +193,7 @@
             this.Controls.Add(this.campoNome);
             this.DoubleBuffered = true;
             this.Name = "Login_CadastrarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login_CadastrarUsuario";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,12 +15,12 @@ namespace CareerConnect.Controller{
         public string Cargo { get; set; }
         public int DataNascimento { get; set; }
         public string Endereco { get; set; }
-        public static Usuario usuarioLogado { get; set; }
+        public static Usuario usuarioLogado { get; private set; }
 
         // lista estatica com usuarios cadastrados
         private static List<Usuario> usuariosCadastrados = new List<Usuario>(){
             new Usuario(){
-                Nome = "Vinicius",
+                Nome = "Vinicius Gonçalves Basílio",
                 Email = "vinicius@gmail.com",
                 Senha = "vinicius",
                 Cargo = "Candidato",
@@ -29,20 +29,38 @@ namespace CareerConnect.Controller{
             },
 
             new Usuario(){
-                Nome = "Maria",
+                Nome = "Maria Clara Rocha",
                 Email = "maria@gmail.com",
                 Senha = "maria",
                 Cargo = "Coordenador",
-                DataNascimento = 21,
+                DataNascimento = 19,
                 Endereco = "Itagacaba, Cruzeiro"
             },
 
             new Usuario(){
-                Nome = "Eric",
+                Nome = "Eric Mendes",
                 Email = "eric@gmail.com",
                 Senha = "eric",
                 Cargo = "Empresa",
-                DataNascimento = 21,
+                DataNascimento = 19,
+                Endereco = "Centro, Cruzeiro"
+            },
+
+            new Usuario(){
+                Nome = "Maria Clara Conde",
+                Email = "mcconde@gmail.com",
+                Senha = "conde",
+                Cargo = "Candidato",
+                DataNascimento = 19,
+                Endereco = "Centro, Cruzeiro"
+            },
+
+            new Usuario(){
+                Nome = "Gustavo Coutinho",
+                Email = "gustavocoutinho@gmail.com",
+                Senha = "gustavo",
+                Cargo = "Empresa",
+                DataNascimento = 19,
                 Endereco = "Centro, Cruzeiro"
             }
         };
@@ -57,7 +75,7 @@ namespace CareerConnect.Controller{
 
         // adiciona um novo usuario na lista
         public static void AdicionarUsuario(Usuario usuario){
-            usuariosCadastrados.Add(usuario);
+                usuariosCadastrados.Add(usuario);
         }
 
         // verificando se o email existe na hora de cadastra, pra evita cadastro de 2 ocnta cm msm email
@@ -97,8 +115,8 @@ namespace CareerConnect.Controller{
                 numero = numero.Replace(" ", "");
                 System.Diagnostics.Process.Start("https://web.whatsapp.com/send?phone=" + numero); // abre o zap web e o número selecionado
 
-                // espera 15s e dps envia a mensagem automaticamente (15s por ter internets mais lentas)
-                Thread.Sleep(15000); 
+                // espera 40s e dps envia a mensagem automaticamente (15s por ter internets mais lentas)
+                Thread.Sleep(40000); 
 
                 SendKeys.SendWait("Olá, Eu sou a Cecília, a Assistente Virtual do CareerConnect, e estou aqui para te ajudar a recuperar sua senha!\nEssa é a sua nova senha: " 
                     + mensagem + "\nFique atento, anote em algum lugar e não passe para mais ninguém!\nAgradecemos por escolher a gente no auxílio na busca de emprego!"
@@ -152,8 +170,16 @@ namespace CareerConnect.Controller{
                     return "Coordenador";
                 case "Empresa":
                     return "Empresa";
+                case "Selecione":
+                    return "";
+                default:
+                    return "Outros";
             }
-            return "Outros";
+        }
+
+        //metodo q busca (cria a lista) de candidatos
+        public static List<Usuario> BuscarCandidatos(){
+            return usuariosCadastrados.FindAll(usuario => usuario.Cargo == "Candidato");
         }
     }
 }

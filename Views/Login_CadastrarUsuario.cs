@@ -28,29 +28,42 @@ namespace CareerConnect.Views{
 
         private void BotaoCadastrar_Click(object sender, EventArgs e){
 
+            ComboboxCargo.DropDownStyle = ComboBoxStyle.DropDownList;
             var dataNascimento = dateTimePicker1.Value.ToString("dd/MM/yyyy");
             DateTime dataNascimentoConvertida = DateTime.ParseExact(dataNascimento, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
 
+            if(ComboboxCargo.SelectedItem.ToString() == "Selecione"){
+                MessageBox.Show("Selecione um cargo válido.");
+            }else{
             Usuario novoUsuario = new Usuario{
                 Nome = campoNome.Text,
                 Email = campoCadastrarEmail1.Text,
                 Senha = campoCadastrarSenha.Text,
+                Cargo = ComboboxCargo.SelectedItem.ToString(),
                 DataNascimento = Usuario.CalcularIdade(dataNascimentoConvertida), //calculando idade
-                Endereco = campoEndereco.Text,
+                Endereco = campoEndereco.Text
             };
 
-            //verificando se email existe, pra nao cadastra 2 contas cm msm email
-            if(Usuario.VerificarEmailExiste(campoCadastrarEmail1.Text)){
-                MessageBox.Show("E-mail já cadastrado.");
-            }else{
-                // cadastrando usuario caso ele aind nao exista
-                Usuario.AdicionarUsuario(novoUsuario);
-                MessageBox.Show("Usuário cadastrado com sucesso!");
+                //verificando se email existe, pra nao cadastra 2 contas cm msm email
+                if(Usuario.VerificarEmailExiste(campoCadastrarEmail1.Text)){
+                    MessageBox.Show("E-mail já cadastrado.");
+                }else if(string.IsNullOrEmpty(campoNome.Text) || string.IsNullOrEmpty(campoCadastrarEmail1.Text) || string.IsNullOrEmpty(campoCadastrarSenha.Text)
+                 || string.IsNullOrEmpty(campoEndereco.Text)){
+                    MessageBox.Show("Há um campo não preenchido.");
+                }else{
+                    // cadastrando usuario caso ele aind nao exista
+                    Usuario.AdicionarUsuario(novoUsuario);
+                    MessageBox.Show("Usuário cadastrado com sucesso!");
 
-                campoNome.Clear();
-                campoCadastrarEmail1.Clear();
-                campoCadastrarSenha.Clear();
-                campoEndereco.Clear();
+                    campoNome.Clear();
+                    campoCadastrarEmail1.Clear();
+                    campoCadastrarSenha.Clear();
+                    campoEndereco.Clear();
+
+                    Login login = new Login();
+                    login.Show();
+                    this.Hide();
+                }
             }
         }
 

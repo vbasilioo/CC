@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CareerConnect.Controller{
     internal class Cargo{
-        public static string[] Cargos = {"Aluno", "Coordenador", "Empresa" };
+        public static string[] Cargos = {"Selecione", "Candidato", "Coordenador", "Empresa" };
         public static string[] GetCargos() { return Cargos; }
     }
 }

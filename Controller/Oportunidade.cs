@@ -17,7 +17,7 @@ namespace CareerConnect.Controller{
         public string CNPJ { get; set; }
 
         private static List<Oportunidade> oportunidades = new List<Oportunidade>();
-
+        private static List<Usuario> usuariosCadastrados = new List<Usuario>();
 
         public Oportunidade(){}
 
