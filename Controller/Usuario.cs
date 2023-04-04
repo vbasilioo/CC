@@ -20,6 +20,7 @@ namespace CareerConnect.Controller{
         // lista estatica com usuarios cadastrados
         private static List<Usuario> usuariosCadastrados = new List<Usuario>(){
             new Usuario(){
+                ID = 0,
                 Nome = "Vinicius Gonçalves Basílio",
                 Email = "vinicius@gmail.com",
                 Senha = "vinicius",
@@ -29,6 +30,7 @@ namespace CareerConnect.Controller{
             },
 
             new Usuario(){
+                ID = 1,
                 Nome = "Maria Clara Rocha",
                 Email = "maria@gmail.com",
                 Senha = "maria",
@@ -38,6 +40,7 @@ namespace CareerConnect.Controller{
             },
 
             new Usuario(){
+                ID = 2,
                 Nome = "Eric Mendes",
                 Email = "eric@gmail.com",
                 Senha = "eric",
@@ -47,6 +50,7 @@ namespace CareerConnect.Controller{
             },
 
             new Usuario(){
+                ID = 3,
                 Nome = "Maria Clara Conde",
                 Email = "mcconde@gmail.com",
                 Senha = "conde",
@@ -56,6 +60,7 @@ namespace CareerConnect.Controller{
             },
 
             new Usuario(){
+                ID = 4,
                 Nome = "Gustavo Coutinho",
                 Email = "gustavocoutinho@gmail.com",
                 Senha = "gustavo",
@@ -180,6 +185,15 @@ namespace CareerConnect.Controller{
         //metodo q busca (cria a lista) de candidatos
         public static List<Usuario> BuscarCandidatos(){
             return usuariosCadastrados.FindAll(usuario => usuario.Cargo == "Candidato");
+        }
+
+        //buscar usuario pro email ou id
+        public static Usuario BuscarUsuarioEmailOuID(string emailOuID){
+             if (int.TryParse(emailOuID, out int id)){ //verificando se é int
+                return usuariosCadastrados.FirstOrDefault(u => u.ID == id); // busca por ID
+            }else{
+                return usuariosCadastrados.FirstOrDefault(u => u.Email.ToLower() == emailOuID.ToLower()); // busca o email td minusculo pra evitar erros
+            }
         }
     }
 }

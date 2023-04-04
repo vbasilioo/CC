@@ -49,6 +49,8 @@ namespace CareerConnect.Views{
                 btnAttCandidatura.Visible = false;
                 btnListarCandidaturas.Visible = false;
                 btnExcluirCandidatura.Visible = false;
+                label1.Visible = false;
+                campoPesquisarEmpresa.Visible = false;
             }else if(Usuario.VerificarCargoUsuario() == "Empresa"){
                 btnBuscarCandidato.Visible = false;
                 btnAssociarCandidato.Visible = false;
@@ -59,6 +61,8 @@ namespace CareerConnect.Views{
                 btnAttCandidatura.Visible = false;
                 btnListarCandidaturas.Visible = false;
                 btnExcluirCandidatura.Visible = false;
+                label1.Visible = false;
+                campoPesquisarEmpresa.Visible = false;
             }
         }
 
@@ -145,7 +149,26 @@ namespace CareerConnect.Views{
             }
         }
 
-        private void button2_Click(object sender, EventArgs e){}
+        private void button2_Click(object sender, EventArgs e){
+            string idOuEmail = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o nome do candidato que você quer encontrar:");
+            int id;
+
+            if(int.TryParse(idOuEmail, out id)){ //verificando se o informado é INT ou STRING
+                Usuario usuario = Usuario.BuscarUsuarioEmailOuID(idOuEmail); //buscando a oportunidade caso for ID
+                if(usuario != null){ //se encontrar algo, abre a tela aq
+                    MessageBox.Show("Usuário encontrado, agr tem que relacionar com o cargo de candidatos :p");
+                }else{
+                    MessageBox.Show("O usuário não foi encontrada.");
+                }
+            }else{
+                Usuario usuario = Usuario.BuscarUsuarioEmailOuID(idOuEmail);
+                if(usuario != null){ 
+                    MessageBox.Show("Usuário encontrado, agr tem que relacionar com o cargo de candidatos :p");
+                }else{
+                    MessageBox.Show("O usuário não foi encontrada.");
+                }
+            }
+        }
 
         private void campoPesquisarEmpresa_TextChanged(object sender, EventArgs e){
             if(campoPesquisarEmpresa.Text == ""){
