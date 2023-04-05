@@ -15,6 +15,7 @@ namespace CareerConnect.Controller{
         public string Cargo { get; set; }
         public int DataNascimento { get; set; }
         public string Endereco { get; set; }
+        public string CNPJEmpresa { get; set; }
         public static Usuario usuarioLogado { get; private set; }
 
         // lista estatica com usuarios cadastrados
@@ -26,7 +27,7 @@ namespace CareerConnect.Controller{
                 Senha = "vinicius",
                 Cargo = "Candidato",
                 DataNascimento = 21,
-                Endereco = "Jardim da Fonte, Cachoeira Paulista"
+                Endereco = "Jardim da Fonte, Cachoeira Paulista",
             },
 
             new Usuario(){
@@ -46,7 +47,8 @@ namespace CareerConnect.Controller{
                 Senha = "eric",
                 Cargo = "Empresa",
                 DataNascimento = 19,
-                Endereco = "Centro, Cruzeiro"
+                Endereco = "Centro, Cruzeiro",
+                CNPJEmpresa = "45.186.994/0001-10"
             },
 
             new Usuario(){
@@ -66,7 +68,8 @@ namespace CareerConnect.Controller{
                 Senha = "gustavo",
                 Cargo = "Empresa",
                 DataNascimento = 19,
-                Endereco = "Centro, Cruzeiro"
+                Endereco = "Centro, Cruzeiro",
+                CNPJEmpresa = "34.466.957/0001-40"
             }
         };
 
@@ -120,8 +123,8 @@ namespace CareerConnect.Controller{
                 numero = numero.Replace(" ", "");
                 System.Diagnostics.Process.Start("https://web.whatsapp.com/send?phone=" + numero); // abre o zap web e o número selecionado
 
-                // espera 40s e dps envia a mensagem automaticamente (15s por ter internets mais lentas)
-                Thread.Sleep(40000); 
+                // espera 35s e dps envia a mensagem automaticamente (35s por ter internets mais lentas)
+                Thread.Sleep(35000); 
 
                 SendKeys.SendWait("Olá, Eu sou a Cecília, a Assistente Virtual do CareerConnect, e estou aqui para te ajudar a recuperar sua senha!\nEssa é a sua nova senha: " 
                     + mensagem + "\nFique atento, anote em algum lugar e não passe para mais ninguém!\nAgradecemos por escolher a gente no auxílio na busca de emprego!"
@@ -189,10 +192,32 @@ namespace CareerConnect.Controller{
 
         //buscar usuario pro email ou id
         public static Usuario BuscarUsuarioEmailOuID(string emailOuID){
-             if (int.TryParse(emailOuID, out int id)){ //verificando se é int
+            if(int.TryParse(emailOuID, out int id)){ //verificando se é int
                 return usuariosCadastrados.FirstOrDefault(u => u.ID == id); // busca por ID
             }else{
                 return usuariosCadastrados.FirstOrDefault(u => u.Email.ToLower() == emailOuID.ToLower()); // busca o email td minusculo pra evitar erros
+            }
+        }
+
+        //verificar se CNPJ do usuario ja existe
+        public static bool VerificarCNPJExiste(string cnpj){
+            return usuariosCadastrados.Any(u => u.CNPJEmpresa == cnpj);
+        }
+
+        //metodo que busca o usuario na grid oportunidades e retorna se achou ou nao
+        public static void BuscarUsuarioNaGrid(string nomeOuID){
+            Usuario usuarioEncontrado = null;
+            if(int.TryParse(nomeOuID, out int id)){ //verificando se é int{
+                usuarioEncontrado = usuariosCadastrados.FirstOrDefault(u => u.ID == id); // busca por ID
+            }else{
+                usuarioEncontrado = usuariosCadastrados.FirstOrDefault(u => u.Nome.ToLower() == nomeOuID.ToLower()); // busca o nome todo minúsculo pra evitar erros
+            }
+
+            if(usuarioEncontrado != null){
+                Buscar_Candidato formBuscarCandidato = new Buscar_Candidato(usuarioEncontrado);
+                formBuscarCandidato.Show();
+            }else{
+                MessageBox.Show("Candidato não encontrado!");
             }
         }
     }

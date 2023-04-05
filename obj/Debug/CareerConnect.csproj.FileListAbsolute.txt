@@ -33,3 +33,4 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Cadastrar_Oportunidade.resources
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Editar_Oportunidade.resources
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Dashboard_Content.resources
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Buscar_Candidato.resources

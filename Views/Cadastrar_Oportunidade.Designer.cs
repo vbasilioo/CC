@@ -123,7 +123,7 @@
             // 
             // BotaoCadastrarVaga
             // 
-            this.BotaoCadastrarVaga.Location = new System.Drawing.Point(373, 370);
+            this.BotaoCadastrarVaga.Location = new System.Drawing.Point(373, 372);
             this.BotaoCadastrarVaga.Name = "BotaoCadastrarVaga";
             this.BotaoCadastrarVaga.Size = new System.Drawing.Size(173, 23);
             this.BotaoCadastrarVaga.TabIndex = 11;

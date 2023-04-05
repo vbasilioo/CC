@@ -14,6 +14,7 @@ namespace CareerConnect.Views{
 
         private static List<Oportunidade> listaDeOportunidades = new List<Oportunidade>();
         public static Vagas FormVagas { get; set; }
+        private Usuario usuario;
 
         public Cadastrar_Oportunidade(){
             InitializeComponent();
@@ -29,13 +30,19 @@ namespace CareerConnect.Views{
             string salarioString = campoSalario.Text;
             double salario;
 
-            if(double.TryParse(salarioString, out salario)) {
-                Oportunidade.CadastrarOportunidadeNova(campoTitulo.Text, campoDesc.Text, salario, campoNomeFantasia.Text, campoCNPJ.Text);
-                this.Close();
-            }else{
-                MessageBox.Show("Salário inválido, por favor insira um valor numérico.");
+            if(Usuario.usuarioLogado.Cargo == "Empresa"){
+                if(Usuario.usuarioLogado.CNPJEmpresa == campoCNPJ.Text){
+                    if(double.TryParse(salarioString, out salario)) {
+                        Oportunidade.CadastrarOportunidadeNova(campoTitulo.Text, campoDesc.Text, salario, campoNomeFantasia.Text, campoCNPJ.Text);
+                        this.Close();
+                    }else{
+                        MessageBox.Show("Salário inválido, por favor insira um valor numérico.");
+                    }
+                }else{
+                    MessageBox.Show("CNPJ inválido");
+                    return;
+                } 
             }
-            
         }
     }
 }

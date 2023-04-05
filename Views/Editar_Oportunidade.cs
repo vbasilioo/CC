@@ -11,10 +11,6 @@ using System.Windows.Forms;
 
 namespace CareerConnect.Views{
     public partial class Editar_Oportunidade : Form{
-
-        private Oportunidade _oportunidade;
-        private Vagas _vagas;
-
         public Editar_Oportunidade(string idOuTitulo){
             InitializeComponent();
 

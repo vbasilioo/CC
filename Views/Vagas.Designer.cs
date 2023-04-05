@@ -43,6 +43,7 @@
             this.btnListarCandidaturas = new System.Windows.Forms.Button();
             this.campoPesquisarEmpresa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnVerAssociados = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridOportunidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             this.GridOportunidades.GridColor = System.Drawing.Color.White;
             this.GridOportunidades.Location = new System.Drawing.Point(168, 47);
             this.GridOportunidades.Name = "GridOportunidades";
-            this.GridOportunidades.Size = new System.Drawing.Size(1362, 630);
+            this.GridOportunidades.Size = new System.Drawing.Size(1399, 653);
             this.GridOportunidades.TabIndex = 3;
             this.GridOportunidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridOportunidades_CellContentClick);
             this.GridOportunidades.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridOportunidades_RowValidated);
@@ -192,12 +193,22 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Pesquisar Empresa";
             // 
+            // btnVerAssociados
+            // 
+            this.btnVerAssociados.Location = new System.Drawing.Point(13, 126);
+            this.btnVerAssociados.Name = "btnVerAssociados";
+            this.btnVerAssociados.Size = new System.Drawing.Size(116, 23);
+            this.btnVerAssociados.TabIndex = 17;
+            this.btnVerAssociados.Text = "Associados";
+            this.btnVerAssociados.UseVisualStyleBackColor = true;
+            // 
             // Vagas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1542, 709);
+            this.ClientSize = new System.Drawing.Size(1579, 712);
+            this.Controls.Add(this.btnVerAssociados);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.campoPesquisarEmpresa);
             this.Controls.Add(this.btnListarCandidaturas);
@@ -239,5 +250,6 @@
         private System.Windows.Forms.Button btnListarCandidaturas;
         private System.Windows.Forms.TextBox campoPesquisarEmpresa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnVerAssociados;
     }
 }
