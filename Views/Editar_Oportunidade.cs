@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace CareerConnect.Views{
     public partial class Editar_Oportunidade : Form{
@@ -23,6 +24,9 @@ namespace CareerConnect.Views{
                 campoSalario.Text = oportunidade.SalarioVaga.ToString();
                 campoEmpresa.Text = oportunidade.NomeFantasia;
                 campoCNPJ.Text = oportunidade.CNPJ;
+
+                //preenche o combobox
+                ComboboxStatus.DataSource = EnumItem.GetStatusVaga();
             }else{
                 MessageBox.Show("A vaga não foi encontrada.");
                 this.Close(); // fecha a tela de edição caso não encontre a vaga
@@ -32,16 +36,19 @@ namespace CareerConnect.Views{
         private void campoTituloVaga_TextChanged(object sender, EventArgs e){ }
 
         private void btnEditar_Click(object sender, EventArgs e){
-            int id;
-            bool parsed = int.TryParse(campoID.Text, out id);
+            int id = int.Parse(campoID.Text);
+            string status = ComboboxStatus.Text;
 
-            if(parsed){
-                Oportunidade.EditarVaga(id.ToString(), campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text);
+            if (Oportunidade.EditarVaga(id, campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text, status)){
+                MessageBox.Show("Vaga editada com sucesso!");
                 this.Close();
             }else{
-                Oportunidade.EditarVaga(campoID.Text, campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text);
-                this.Close();
+                MessageBox.Show("Não foi possível editar a vaga.");
             }
+        }
+
+        private void btnRetornar_Click(object sender, EventArgs e){
+            this.Hide();
         }
     }
 }

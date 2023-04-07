@@ -139,6 +139,7 @@
             this.btnListarEmpresas.TabIndex = 10;
             this.btnListarEmpresas.Text = "Listar Empresas";
             this.btnListarEmpresas.UseVisualStyleBackColor = true;
+            this.btnListarEmpresas.Click += new System.EventHandler(this.btnListarEmpresas_Click);
             // 
             // btnCandidatar
             // 
@@ -148,6 +149,7 @@
             this.btnCandidatar.TabIndex = 11;
             this.btnCandidatar.Text = "Candidatar-se";
             this.btnCandidatar.UseVisualStyleBackColor = true;
+            this.btnCandidatar.Click += new System.EventHandler(this.btnCandidatar_Click);
             // 
             // btnAttCandidatura
             // 

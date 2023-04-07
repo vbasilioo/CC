@@ -18,7 +18,7 @@ namespace CareerConnect.Views{
 
         public Login_CadastrarUsuario(){
             InitializeComponent();
-            ComboboxCargo.DataSource = Cargo.GetCargos();
+            ComboboxCargo.DataSource = EnumItem.GetCargos();
             VerificarCargoCombobox();
             this.Text = string.Empty;
             this.ControlBox = false;

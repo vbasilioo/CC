@@ -81,6 +81,14 @@ namespace CareerConnect.Controller{
             //Console.WriteLine("ID: " + ID);
         }
 
+        //construtor que esta sendo passado para a classe Candidato
+        public Usuario(string nome, string endereco, int idade, string email){
+            this.Nome = nome;
+            this.Endereco = endereco;
+            this.DataNascimento = idade;
+            this.Email = email;
+        }
+
         // adiciona um novo usuario na lista
         public static void AdicionarUsuario(Usuario usuario){
                 usuariosCadastrados.Add(usuario);
@@ -187,7 +195,7 @@ namespace CareerConnect.Controller{
 
         //metodo q busca (cria a lista) de candidatos
         public static List<Usuario> BuscarCandidatos(){
-            return usuariosCadastrados.FindAll(usuario => usuario.Cargo == "Candidato");
+            return usuariosCadastrados.FindAll(u => u.Cargo == "Candidato");
         }
 
         //buscar usuario pro email ou id
@@ -219,6 +227,52 @@ namespace CareerConnect.Controller{
             }else{
                 MessageBox.Show("Candidato não encontrado!");
             }
+        }
+
+        //metodo q busca (cria a lista) de empresas
+        public static List<Usuario> ListarEmpresas(){
+            return usuariosCadastrados.FindAll(u => u.Cargo == "Empresa");
+        }
+
+        //buscar usuario por cnpj
+        public static Usuario BuscarUsuarioPorCNPJ(string cnpj){
+            return usuariosCadastrados.FirstOrDefault(u => u.CNPJEmpresa == cnpj);
+        }
+
+        //metodo pra obter o usuario logado
+        public static Usuario GetUsuarioLogado(string cnpj){
+            int idUsuarioLogado = ObterIDUsuarioLogado(cnpj);
+            
+            if(idUsuarioLogado == -1) return null;
+
+            foreach(Usuario usuario in usuariosCadastrados){
+                if(usuario.ID == idUsuarioLogado) return usuario;
+            }
+
+            return null;
+        }
+
+        //metodo pra obter ID do usuario logado
+        public static int ObterIDUsuarioLogado(string cnpj){
+            int idUsuarioLogado = -1;
+
+            foreach(Usuario usuario in usuariosCadastrados){
+                if(usuario.CNPJEmpresa == cnpj){
+                    idUsuarioLogado = usuariosCadastrados.IndexOf(usuario);
+                    break;
+                }
+            }
+
+            return idUsuarioLogado;
+        }
+        
+        public bool VerificarEmpresa(string cnpj, int id){
+            Usuario usuarioLogado = GetUsuarioLogado(cnpj);
+    
+            // ve se o cnpj do usuariologado é igual o informado
+            if (usuarioLogado.CNPJEmpresa == cnpj) if (this.ID == id) return true;
+
+            return false;
         }
     }
 }

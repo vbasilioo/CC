@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CareerConnect.Controller{
     class Oportunidade{
@@ -15,38 +16,37 @@ namespace CareerConnect.Controller{
         public int ClassificacaoVaga { get; set; }
         public string NomeFantasia { get; set; }
         public string CNPJ { get; set; }
+        public string StatusVaga { get; set; }
 
         private static List<Oportunidade> oportunidades = new List<Oportunidade>();
         private static List<Usuario> usuariosCadastrados = new List<Usuario>();
+        private Usuario usuario;
 
         public Oportunidade(){}
 
-        public Oportunidade(string tituloVaga, string descricaoVaga, double salarioVaga, string nomeEmpresa, string cNPJ){
+        public Oportunidade(string tituloVaga, string descricaoVaga, double salarioVaga, string nomeEmpresa, string cNPJ, string status){
             ID = contadorID++;
             TituloVaga = tituloVaga;
             DescricaoVaga = descricaoVaga;
             SalarioVaga = salarioVaga;
             NomeFantasia = nomeEmpresa;
             CNPJ = cNPJ;
+            StatusVaga = status;
         }
 
         //criando vagas pre definidas
         static Oportunidade(){
-            AdicionarOportunidade(new Oportunidade("Desenvolvedor Backend", "Desenvolvimento de sistemas na plataforma .NET", 5000.0, "Google", "49.239.703/0001-66"));
-            AdicionarOportunidade(new Oportunidade("Desenvolvedor Frontend", "Desenvolvimento de interfaces utilizando AngularJS", 4000.0, "Google", "49.239.703/0001-66"));
-            AdicionarOportunidade(new Oportunidade("Analista de Banco de Dados", "Análise de dados e manutenção de bancos de dados SQL Server", 6000.0, "Google", "49.239.703/0001-66"));
-            AdicionarOportunidade(new Oportunidade("Engenheiro Civil", "Planejamento e execução de projetos de construção civil", 8000.0, "Construtora XYZ", "12.345.678/0001-90"));
-            AdicionarOportunidade(new Oportunidade("Engenheiro Eletricista", "Desenvolvimento e implementação de projetos elétricos", 7000.0, "Empresa de Energia ABC", "23.456.789/0001-12"));
-            AdicionarOportunidade(new Oportunidade("Assistente Administrativo", "Rotinas administrativas como atendimento telefônico, recepção, arquivo e controle de documentos", 2500.0, "Empresa de Consultoria XYZ", "34.567.890/0001-23"));
-            AdicionarOportunidade(new Oportunidade("Auxiliar de Limpeza", "Limpeza e organização de ambientes corporativos", 1500.0, "Empresa de Limpeza ABC", "45.678.901/0001-34"));
-            AdicionarOportunidade(new Oportunidade("Estagiário de Marketing", "Apoio na criação e execução de campanhas de marketing", 1000.0, "Agência de Publicidade XYZ", "56.789.012/0001-45"));
-            AdicionarOportunidade(new Oportunidade("Estagiário de TI", "Apoio no desenvolvimento e manutenção de sistemas", 1200.0, "Empresa de Tecnologia ABC", "67.890.123/0001-56"));
-            AdicionarOportunidade(new Oportunidade("Desenvolvedor Mobile", "Desenvolvimento de aplicativos mobile para Android e iOS", 6000.0, "Empresa de Tecnologia XYZ", "78.901.234/0001-67"));
-            AdicionarOportunidade(new Oportunidade("Assistente de Recursos Humanos", "Atividades relacionadas a recrutamento e seleção, treinamento e desenvolvimento, entre outras", 3000.0, "Empresa de RH ABC", "89.012.345/0001-78"));
-            AdicionarOportunidade(new Oportunidade("Analista Contábil", "Análise e controle de contas e documentos contábeis", 5000.0, "Escritório de Contabilidade XYZ", "90.123.456/0001-89"));
-            AdicionarOportunidade(new Oportunidade("Atendente de Telemarketing", "Atendimento ao cliente via telefone e suporte em demandas relacionadas ao serviço", 2000.0, "Empresa de Telecomunicações ABC", "01.234.567/0001-90"));
-            AdicionarOportunidade(new Oportunidade("Recepcionista", "Atendimento ao público, recepção e encaminhamento de visitantes", 2500.0, "Hotel XYZ", "12.345.678/0001-12"));
-            AdicionarOportunidade(new Oportunidade("Assistente Financeiro", "Atividades relacionadas ao controle financeiro da empresa, como contas a pagar e a receber, conciliação bancária, entre outras", 3500.0, "Empresa de Serviços Financeiros ABC", "23.456.789/0001-23"));
+            AdicionarOportunidade(new Oportunidade("Desenvolvedor Backend", "Desenvolvimento de sistemas na plataforma .NET", 5000.0, "Google", "49.239.703/0001-66", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Desenvolvedor Frontend", "Desenvolvimento de interfaces utilizando AngularJS", 4000.0, "Google", "49.239.703/0001-66", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Engenheiro Civil", "Planejamento e execução de projetos de construção civil", 8000.0, "Construtora XYZ", "12.345.678/0001-90", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Engenheiro Eletricista", "Desenvolvimento e implementação de projetos elétricos", 7000.0, "Empresa de Energia ABC", "23.456.789/0001-12", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Assistente Administrativo", "Rotinas administrativas como atendimento telefônico, recepção, arquivo e controle de documentos", 2500.0, "Empresa de Consultoria XYZ", "34.567.890/0001-23", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Auxiliar de Limpeza", "Limpeza e organização de ambientes corporativos", 1500.0, "Empresa de Limpeza ABC", "45.678.901/0001-34", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Estagiário de Marketing", "Apoio na criação e execução de campanhas de marketing", 1000.0, "Agência de Publicidade XYZ", "56.789.012/0001-45", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Estagiário de TI", "Apoio no desenvolvimento e manutenção de sistemas", 1200.0, "Empresa de Tecnologia ABC", "67.890.123/0001-56", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Desenvolvedor Mobile", "Desenvolvimento de aplicativos mobile para Android e iOS", 6000.0, "Empresa de Tecnologia XYZ", "78.901.234/0001-67", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Assistente de Recursos Humanos", "Atividades relacionadas a recrutamento e seleção, treinamento e desenvolvimento, entre outras", 3000.0, "Empresa de RH ABC", "89.012.345/0001-78", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Recepcionista", "Atendimento ao público, recepção e encaminhamento de visitantes", 2500.0, "Hotel XYZ", "12.345.678/0001-12", "Aberta"));
         }
 
         //adiciona oportu na lista
@@ -95,8 +95,8 @@ namespace CareerConnect.Controller{
         }
 
         //cadastra a oportunidade verificando se ja existe um TITULO ou CNPJ igual [ate entao]
-        public static void CadastrarOportunidadeNova(string titulo, string descricao, double salario, string empresa, string cnpj){
-            Oportunidade novaOportunidade = new Oportunidade(titulo, descricao, salario, empresa, cnpj);
+        public static void CadastrarOportunidadeNova(string titulo, string descricao, double salario, string empresa, string cnpj, string status){
+            Oportunidade novaOportunidade = new Oportunidade(titulo, descricao, salario, empresa, cnpj, status);
             Oportunidade.AdicionarOportunidade(novaOportunidade);
             MessageBox.Show("A oportunidade foi cadastrada com sucesso!");
             Cadastrar_Oportunidade.FormVagas.AtualizarGridView();
@@ -112,7 +112,7 @@ namespace CareerConnect.Controller{
         }
         
         //metodo void para ser usado dentro do EditarVaga estatico
-        public static void EditarVaga(string tituloOuId, string titulo, string descricao, double salario, string nome, string cnpj){
+        /*public static void EditarVaga(string tituloOuId, string titulo, string descricao, double salario, string nome, string cnpj, string status){
             Oportunidade oportunidade = null;
 
             //busca vaga pelo ID na lista de vagas
@@ -130,8 +130,19 @@ namespace CareerConnect.Controller{
                 oportunidade.SalarioVaga = salario;
                 oportunidade.NomeFantasia = nome;
                 oportunidade.CNPJ = cnpj;
+                oportunidade.StatusVaga = status;
                 MessageBox.Show("Vaga editada com sucesso!");
             }
+        }*/
+
+        public static bool EditarVaga(int id, string titulo, string descricao, double salario, string empresa, string cnpj, string status){
+            for(int i=0;i<oportunidades.Count;i++){
+                if(oportunidades[i].ID == id && oportunidades[i].CNPJ == Usuario.usuarioLogado.CNPJEmpresa){
+                    oportunidades[i] = new Oportunidade(titulo, descricao, salario, empresa, cnpj, status);
+                    return true;
+                }
+            }
+            return false;
         }
 
         //metodo pra pesquisar o nome de uma empresa e ir atualizando
@@ -185,6 +196,51 @@ namespace CareerConnect.Controller{
                     MessageBox.Show("A vaga não foi encontrada.");
                 }
             }
+        }
+
+        //metodo para contar quantas vagas tao cadastrar nesse CNPJ
+        public static int ContarVagasNesseCNPJ(string cnpj){
+            int contador = 0;
+
+            foreach(Oportunidade oportunidade in oportunidades){
+                if(oportunidade.CNPJ == cnpj){
+                    contador++;
+                }
+            }
+            return contador;
+        }
+
+        //verificando se uma empresa é valida e possui oportunidade cadastrada
+        // para o usuario poder se cadastrar
+        public bool VerificarEmpresa(string nomeOuID){
+            return this.NomeFantasia == nomeOuID || this.ID.ToString() == nomeOuID;
+        }
+
+
+       /* //busca vaga atraves do id
+        public static Oportunidade BuscarVaga(int idVaga){
+            foreach(Oportunidade oportunidade in oportunidades){
+                if (oportunidade.ID == idVaga){
+                    return oportunidade;
+                }
+            }
+            return null;
+        }
+
+        //verifica empresa informando o cnpj
+        public static bool VerificarEmpresaCNPJ(string cnpjVaga, string cnpjEmpresaLogada){
+            if(cnpjVaga == cnpjEmpresaLogada) return true;
+            else return false;
+        }
+       */
+
+        public static Oportunidade BuscarVagaPorIdOuNomeECNPJ(string idOuNome, string cnpjEmpresa){
+            foreach (Oportunidade u in oportunidades){
+                if ((u.ID.ToString() == idOuNome || u.TituloVaga == idOuNome) && u.CNPJ == cnpjEmpresa){
+                    return u;
+                }
+            }
+            return null;
         }
     }
 }
