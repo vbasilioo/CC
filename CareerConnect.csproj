@@ -83,7 +83,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Candidato.cs" />
+    <Compile Include="Controller\Candidatura.cs" />
     <Compile Include="Controller\EnumItem.cs" />
     <Compile Include="Controller\Oportunidade.cs" />
     <Compile Include="Controller\Usuario.cs" />

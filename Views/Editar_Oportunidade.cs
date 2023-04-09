@@ -36,14 +36,16 @@ namespace CareerConnect.Views{
         private void campoTituloVaga_TextChanged(object sender, EventArgs e){ }
 
         private void btnEditar_Click(object sender, EventArgs e){
-            int id = int.Parse(campoID.Text);
+            int id;
+            bool parsed = int.TryParse(campoID.Text, out id);
             string status = ComboboxStatus.Text;
 
-            if (Oportunidade.EditarVaga(id, campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text, status)){
-                MessageBox.Show("Vaga editada com sucesso!");
+            if(parsed){
+                Oportunidade.EditarVaga(id.ToString(), campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text, status);
                 this.Close();
             }else{
-                MessageBox.Show("Não foi possível editar a vaga.");
+                Oportunidade.EditarVaga(campoID.Text, campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text, status);
+                this.Close();
             }
         }
 

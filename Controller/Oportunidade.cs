@@ -20,7 +20,6 @@ namespace CareerConnect.Controller{
 
         private static List<Oportunidade> oportunidades = new List<Oportunidade>();
         private static List<Usuario> usuariosCadastrados = new List<Usuario>();
-        private Usuario usuario;
 
         public Oportunidade(){}
 
@@ -112,7 +111,7 @@ namespace CareerConnect.Controller{
         }
         
         //metodo void para ser usado dentro do EditarVaga estatico
-        /*public static void EditarVaga(string tituloOuId, string titulo, string descricao, double salario, string nome, string cnpj, string status){
+        public static void EditarVaga(string tituloOuId, string titulo, string descricao, double salario, string nome, string cnpj, string status){
             Oportunidade oportunidade = null;
 
             //busca vaga pelo ID na lista de vagas
@@ -133,17 +132,18 @@ namespace CareerConnect.Controller{
                 oportunidade.StatusVaga = status;
                 MessageBox.Show("Vaga editada com sucesso!");
             }
-        }*/
+        }
 
-        public static bool EditarVaga(int id, string titulo, string descricao, double salario, string empresa, string cnpj, string status){
+        /*public static bool EditarVaga(int id, string titulo, string descricao, double salario, string empresa, string cnpj, string status){
             for(int i=0;i<oportunidades.Count;i++){
                 if(oportunidades[i].ID == id && oportunidades[i].CNPJ == Usuario.usuarioLogado.CNPJEmpresa){
                     oportunidades[i] = new Oportunidade(titulo, descricao, salario, empresa, cnpj, status);
+
                     return true;
                 }
             }
             return false;
-        }
+        }*/
 
         //metodo pra pesquisar o nome de uma empresa e ir atualizando
         public static List<Oportunidade> ProcurarEmpresaPorNome(string nome, List<Oportunidade> oportunidades){
@@ -241,6 +241,17 @@ namespace CareerConnect.Controller{
                 }
             }
             return null;
+        }
+
+        //verificando se a vaga está aberta
+        public static bool VerificarVagaAberta(string nomeOuID){
+            Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(nomeOuID);
+
+            if(oportunidade != null && oportunidade.StatusVaga == "Aberta"){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 }

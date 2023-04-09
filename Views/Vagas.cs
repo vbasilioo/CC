@@ -15,7 +15,8 @@ namespace CareerConnect.Views{
 
         private List<Usuario> candidatos;
         private List<Usuario> empresas;
-        private Oportunidade oportunidade;
+        List<Candidatura> candidaturas;
+        //private Candidato candidato;
         List<Oportunidade> oportunidadesFiltradas = Oportunidade.ListarOportunidades();
 
         public Vagas(){
@@ -78,6 +79,7 @@ namespace CareerConnect.Views{
             GridOportunidades.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             GridOportunidades.RowTemplate.Height = 45;
             GridOportunidades.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            if(GridOportunidades.Columns.Contains("filaInscritos")) GridOportunidades.Columns["filaInscritos"].Visible = false;
             GridOportunidades.Columns[0].HeaderText = "ID";
             GridOportunidades.Columns[0].Width = 40;
             GridOportunidades.Columns[0].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
@@ -166,6 +168,7 @@ namespace CareerConnect.Views{
             GridOportunidades.RowTemplate.Height = 25;
             if(GridOportunidades.Columns.Contains("VagasRegistradas")) GridOportunidades.Columns["VagasRegistradas"].Visible = false;
             if(GridOportunidades.Columns.Contains("CNPJEmpresa")) GridOportunidades.Columns["CNPJEmpresa"].Visible = false;
+            if(GridOportunidades.Columns.Contains("filaInscritos")) GridOportunidades.Columns["filaInscritos"].Visible = false;
             GridOportunidades.Columns["Senha"].Visible = false;
             GridOportunidades.Columns["Cargo"].Visible = false;
             GridOportunidades.Columns["ID"].HeaderText = "ID";
@@ -198,6 +201,7 @@ namespace CareerConnect.Views{
             GridOportunidades.Columns["CNPJEmpresa"].Visible = true;
             GridOportunidades.Columns["Nome"].Visible = false;
             GridOportunidades.Columns["DataNascimento"].Visible = false;
+            GridOportunidades.Columns.Remove("filaInscritos");
             GridOportunidades.Columns["ID"].HeaderText = "ID";
             GridOportunidades.Columns["ID"].Width = 40;
             GridOportunidades.Columns["ID"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
@@ -230,6 +234,20 @@ namespace CareerConnect.Views{
         private void btnCandidatar_Click(object sender, EventArgs e){
             Oportunidade_Inscricao opoi = new Oportunidade_Inscricao();
             opoi.Show();
+        }
+
+        private void btnListarCandidaturas_Click(object sender, EventArgs e){
+            GridOportunidades.Columns.Clear();
+            GridOportunidades.DataSource = Candidatura.ListarVagasInscritas();
+            GridOportunidades.Columns["NomeSocial"].HeaderText = "Nome Social";
+            GridOportunidades.Columns["NomeSocial"].Width = 120;
+            GridOportunidades.Columns["NomeSocial"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
+            GridOportunidades.Columns["Telefone"].HeaderText = "Telefone";
+            GridOportunidades.Columns["Telefone"].Width = 90;
+            GridOportunidades.Columns["Telefone"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
+            GridOportunidades.Columns["Comentarios"].HeaderText = "Comentários";
+            GridOportunidades.Columns["Comentarios"].Width = 200;
+            GridOportunidades.Columns["Comentarios"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
         }
     }
 }

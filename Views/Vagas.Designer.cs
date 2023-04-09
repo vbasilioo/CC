@@ -177,6 +177,7 @@
             this.btnListarCandidaturas.TabIndex = 14;
             this.btnListarCandidaturas.Text = "Listar Candidaturas";
             this.btnListarCandidaturas.UseVisualStyleBackColor = true;
+            this.btnListarCandidaturas.Click += new System.EventHandler(this.btnListarCandidaturas_Click);
             // 
             // campoPesquisarEmpresa
             // 
