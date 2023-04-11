@@ -235,8 +235,8 @@ namespace CareerConnect.Controller{
        */
 
         public static Oportunidade BuscarVagaPorIdOuNomeECNPJ(string idOuNome, string cnpjEmpresa){
-            foreach (Oportunidade u in oportunidades){
-                if ((u.ID.ToString() == idOuNome || u.TituloVaga == idOuNome) && u.CNPJ == cnpjEmpresa){
+            foreach(Oportunidade u in oportunidades){
+                if((u.ID.ToString() == idOuNome || u.TituloVaga == idOuNome) && u.CNPJ == cnpjEmpresa){
                     return u;
                 }
             }
@@ -252,6 +252,26 @@ namespace CareerConnect.Controller{
             }else{
                 return false;
             }
+        }
+
+        //tuple serve pra armazenar diversos tipos de referencias de diferentes tipos (string, int, double) ou (string, string, float)
+        public static Tuple<string, string, string> GetTituloCNPJeNomeFantasiaById(int id){
+            foreach(Oportunidade oportunidade in oportunidades){
+                if(oportunidade.ID == id){
+                    return Tuple.Create(oportunidade.TituloVaga, oportunidade.CNPJ, oportunidade.NomeFantasia); //armazena no tuple o necessario pra retorna
+                }
+            }
+            return null; // ou levante uma exceção caso não encontre a oportunidade
+        }
+
+        //verifica o id da vaga q o usuario qer editar ou excluir e se pertence a ele
+        public static Oportunidade VerificandoUsuarioParaAlteracoes(string id, string usuario){
+            foreach(Oportunidade u in oportunidades){
+                if((u.ID.ToString() == id || u.TituloVaga == id) && Usuario.usuarioLogado.Nome == usuario){
+                    return u;
+                }
+            }
+            return null;
         }
     }
 }

@@ -87,6 +87,12 @@
     <Compile Include="Controller\EnumItem.cs" />
     <Compile Include="Controller\Oportunidade.cs" />
     <Compile Include="Controller\Usuario.cs" />
+    <Compile Include="Views\Atualizar_Candidatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Atualizar_Candidatura.Designer.cs">
+      <DependentUpon>Atualizar_Candidatura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Buscar_Candidato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Atualizar_Candidatura.resx">
+      <DependentUpon>Atualizar_Candidatura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Buscar_Candidato.resx">
       <DependentUpon>Buscar_Candidato.cs</DependentUpon>
     </EmbeddedResource>

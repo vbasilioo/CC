@@ -23,12 +23,22 @@ namespace CareerConnect.Views{
             int telefone;
 
             if(int.TryParse(campoTelefone.Text, out telefone)){
-                Candidatura.AdicionarVagaInscrita(campoNomeSocial.Text, telefone, campoComentarios.Text);
+                try{
+                    Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(campoNomeEmpresa.Text);
+                    Candidatura.AdicionarVagaInscrita(oportunidade.ID, campoNomeSocial.Text, telefone, campoComentarios.Text);
+                    this.Hide();
+                }catch(System.NullReferenceException){
+                    MessageBox.Show("exceçao no cadastrar");
+                }
+            }else{
+                MessageBox.Show("Insira apenas números para o seu telefone.");
             }
         }
 
         private void btnRetornar_Click(object sender, EventArgs e){
             this.Hide();
         }
+
+        private void campoNomeEmpresa_TextChanged(object sender, EventArgs e){}
     }
 }

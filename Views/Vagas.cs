@@ -141,7 +141,14 @@ namespace CareerConnect.Views{
 
         private void btnDeletarVaga_Click(object sender, EventArgs e){
             string idOuNome = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o nome da vaga que você quer excluir:", "Excluir vaga", "");
-            Oportunidade.DeletarVagaNaTela(idOuNome);
+            Oportunidade oportunidade = Oportunidade.BuscarVagaPorIdOuNomeECNPJ(idOuNome, Usuario.usuarioLogado.CNPJEmpresa);
+
+            if(oportunidade == null){
+                MessageBox.Show("Essa vaga não está cadastrada nesse CNPJ.");
+            }else{
+                Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
+                edo.Show();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e){
@@ -239,6 +246,9 @@ namespace CareerConnect.Views{
         private void btnListarCandidaturas_Click(object sender, EventArgs e){
             GridOportunidades.Columns.Clear();
             GridOportunidades.DataSource = Candidatura.ListarVagasInscritas();
+            GridOportunidades.Columns["Nome"].HeaderText = "Nome";
+            GridOportunidades.Columns["Nome"].Width = 200;
+            GridOportunidades.Columns["Nome"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
             GridOportunidades.Columns["NomeSocial"].HeaderText = "Nome Social";
             GridOportunidades.Columns["NomeSocial"].Width = 120;
             GridOportunidades.Columns["NomeSocial"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
@@ -248,6 +258,41 @@ namespace CareerConnect.Views{
             GridOportunidades.Columns["Comentarios"].HeaderText = "Comentários";
             GridOportunidades.Columns["Comentarios"].Width = 200;
             GridOportunidades.Columns["Comentarios"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
+            GridOportunidades.Columns["TituloVaga"].HeaderText = "Título";
+            GridOportunidades.Columns["TituloVaga"].Width = 200;
+            GridOportunidades.Columns["TituloVaga"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
+            GridOportunidades.Columns["CNPJ"].HeaderText = "CNPJ";
+            GridOportunidades.Columns["CNPJ"].Width = 120;
+            GridOportunidades.Columns["CNPJ"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
+            GridOportunidades.Columns["NomeFantasia"].HeaderText = "Empresa";
+            GridOportunidades.Columns["NomeFantasia"].Width = 200;
+            GridOportunidades.Columns["NomeFantasia"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
+        }
+
+        private void btnVerAssociados_Click(object sender, EventArgs e){}
+
+        private void btnAssociarCandidato_Click(object sender, EventArgs e){}
+
+        private void btnAttCandidatura_Click(object sender, EventArgs e){
+            string idOuNome = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o nome da inscrição que você quer atualizar:");
+            Candidatura.BuscarInscricao(idOuNome);
+
+            if(idOuNome==null) MessageBox.Show("A inscrição não foi localizada.");
+            else{
+                Atualizar_Candidatura attcand = new Atualizar_Candidatura(idOuNome);
+                attcand.Show();
+            }
+        }
+
+        private void btnExcluirCandidatura_Click(object sender, EventArgs e){
+            string idOuNome = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o nome da inscrição que você quer excluir:");
+            Oportunidade oportunidade = Oportunidade.VerificandoUsuarioParaAlteracoes(idOuNome, Usuario.usuarioLogado.Nome);
+
+            if(oportunidade == null){
+                MessageBox.Show("Essa vaga não está cadastrada nesse CNPJ.");
+            }else{
+                Candidatura.RemoverVagaInscrita(idOuNome);
+            }
         }
     }
 }

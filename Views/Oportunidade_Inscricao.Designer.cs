@@ -94,6 +94,7 @@
             this.campoNomeEmpresa.Name = "campoNomeEmpresa";
             this.campoNomeEmpresa.Size = new System.Drawing.Size(336, 20);
             this.campoNomeEmpresa.TabIndex = 6;
+            this.campoNomeEmpresa.TextChanged += new System.EventHandler(this.campoNomeEmpresa_TextChanged);
             // 
             // label4
             // 

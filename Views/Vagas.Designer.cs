@@ -121,6 +121,7 @@
             this.btnAssociarCandidato.TabIndex = 8;
             this.btnAssociarCandidato.Text = "Associar Candidato";
             this.btnAssociarCandidato.UseVisualStyleBackColor = true;
+            this.btnAssociarCandidato.Click += new System.EventHandler(this.btnAssociarCandidato_Click);
             // 
             // btnDesassociarCandidato
             // 
@@ -159,6 +160,7 @@
             this.btnAttCandidatura.TabIndex = 12;
             this.btnAttCandidatura.Text = "Atualizar Candidatura";
             this.btnAttCandidatura.UseVisualStyleBackColor = true;
+            this.btnAttCandidatura.Click += new System.EventHandler(this.btnAttCandidatura_Click);
             // 
             // btnExcluirCandidatura
             // 
@@ -168,6 +170,7 @@
             this.btnExcluirCandidatura.TabIndex = 13;
             this.btnExcluirCandidatura.Text = "Excluir Candidatura";
             this.btnExcluirCandidatura.UseVisualStyleBackColor = true;
+            this.btnExcluirCandidatura.Click += new System.EventHandler(this.btnExcluirCandidatura_Click);
             // 
             // btnListarCandidaturas
             // 
@@ -175,7 +178,7 @@
             this.btnListarCandidaturas.Name = "btnListarCandidaturas";
             this.btnListarCandidaturas.Size = new System.Drawing.Size(116, 23);
             this.btnListarCandidaturas.TabIndex = 14;
-            this.btnListarCandidaturas.Text = "Listar Candidaturas";
+            this.btnListarCandidaturas.Text = "Minhas Candidaturas";
             this.btnListarCandidaturas.UseVisualStyleBackColor = true;
             this.btnListarCandidaturas.Click += new System.EventHandler(this.btnListarCandidaturas_Click);
             // 
@@ -204,6 +207,7 @@
             this.btnVerAssociados.TabIndex = 17;
             this.btnVerAssociados.Text = "Associados";
             this.btnVerAssociados.UseVisualStyleBackColor = true;
+            this.btnVerAssociados.Click += new System.EventHandler(this.btnVerAssociados_Click);
             // 
             // Vagas
             // 
