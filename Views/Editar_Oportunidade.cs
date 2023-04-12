@@ -41,10 +41,10 @@ namespace CareerConnect.Views{
             string status = ComboboxStatus.Text;
 
             if(parsed){
-                Oportunidade.EditarVaga(id.ToString(), campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text, status);
+                Oportunidade.EditarVaga(id.ToString(), campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoRequisitos.Text, campoEmpresa.Text, campoCNPJ.Text, status);
                 this.Close();
             }else{
-                Oportunidade.EditarVaga(campoID.Text, campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text, status);
+                Oportunidade.EditarVaga(campoID.Text, campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoRequisitos.Text, campoEmpresa.Text, campoCNPJ.Text, status);
                 this.Close();
             }
         }

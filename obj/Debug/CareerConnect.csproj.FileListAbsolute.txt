@@ -73,3 +73,6 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-staging\obj\Debug\Career
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-staging\obj\Debug\CareerConnect.exe
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-staging\obj\Debug\CareerConnect.pdb
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-staging\obj\Debug\CareerConnect.Views.Atualizar_Candidatura.resources
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Atualizar_Candidatura.resources
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Associar_Candidato.resources
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Desassociar_Candidato.resources

@@ -92,8 +92,8 @@ namespace CareerConnect.Views{
             GridOportunidades.Columns[3].HeaderText = "Salário";
             GridOportunidades.Columns[3].Width = 80;
             GridOportunidades.Columns[3].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
-            GridOportunidades.Columns[4].HeaderText = "Classificação";
-            GridOportunidades.Columns[4].Width = 130;
+            GridOportunidades.Columns[4].HeaderText = "Requisitos";
+            GridOportunidades.Columns[4].Width = 150;
             GridOportunidades.Columns[4].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
             GridOportunidades.Columns[5].HeaderText = "Empresa";
             GridOportunidades.Columns[5].Width = 120;
@@ -146,8 +146,7 @@ namespace CareerConnect.Views{
             if(oportunidade == null){
                 MessageBox.Show("Essa vaga não está cadastrada nesse CNPJ.");
             }else{
-                Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
-                edo.Show();
+                Oportunidade.DeletarVagaNaTela(idOuNome);
             }
         }
 
@@ -208,7 +207,7 @@ namespace CareerConnect.Views{
             GridOportunidades.Columns["CNPJEmpresa"].Visible = true;
             GridOportunidades.Columns["Nome"].Visible = false;
             GridOportunidades.Columns["DataNascimento"].Visible = false;
-            GridOportunidades.Columns.Remove("filaInscritos");
+            //GridOportunidades.Columns.Remove("filaInscritos");
             GridOportunidades.Columns["ID"].HeaderText = "ID";
             GridOportunidades.Columns["ID"].Width = 40;
             GridOportunidades.Columns["ID"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
@@ -246,6 +245,9 @@ namespace CareerConnect.Views{
         private void btnListarCandidaturas_Click(object sender, EventArgs e){
             GridOportunidades.Columns.Clear();
             GridOportunidades.DataSource = Candidatura.ListarVagasInscritas();
+            GridOportunidades.Columns["ID"].HeaderText = "ID";
+            GridOportunidades.Columns["ID"].Width = 80;
+            GridOportunidades.Columns["ID"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
             GridOportunidades.Columns["Nome"].HeaderText = "Nome";
             GridOportunidades.Columns["Nome"].Width = 200;
             GridOportunidades.Columns["Nome"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
@@ -271,7 +273,16 @@ namespace CareerConnect.Views{
 
         private void btnVerAssociados_Click(object sender, EventArgs e){}
 
-        private void btnAssociarCandidato_Click(object sender, EventArgs e){}
+        private void btnAssociarCandidato_Click(object sender, EventArgs e){
+            string idOuNome = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o e-mail do usuário que você quer associar:");
+            Usuario usuario = Usuario.BuscarUsuarioEmailOuID(idOuNome);
+
+            if(usuario == null) MessageBox.Show("Esse usuário não foi localizado.");
+            else{
+                Associar_Candidato asscand = new Associar_Candidato(idOuNome);
+                asscand.Show();
+            }
+        }
 
         private void btnAttCandidatura_Click(object sender, EventArgs e){
             string idOuNome = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o nome da inscrição que você quer atualizar:");
@@ -280,7 +291,6 @@ namespace CareerConnect.Views{
             if(idOuNome==null) MessageBox.Show("A inscrição não foi localizada.");
             else{
                 Atualizar_Candidatura attcand = new Atualizar_Candidatura(idOuNome);
-                attcand.Show();
             }
         }
 
@@ -293,6 +303,11 @@ namespace CareerConnect.Views{
             }else{
                 Candidatura.RemoverVagaInscrita(idOuNome);
             }
+        }
+
+        private void btnDesassociarCandidato_Click(object sender, EventArgs e){
+            Desassociar_Candidato descand = new Desassociar_Candidato();
+            descand.Show();
         }
     }
 }

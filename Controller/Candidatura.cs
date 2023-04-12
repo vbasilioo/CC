@@ -8,7 +8,7 @@ using System.Windows;
 namespace CareerConnect.Controller{
     class Candidatura{
 
-        public int ContarInscricoes = 1;
+        public static int ContarInscricoes = 1;
         public int ID { get; set; }
         public string Nome { get; set; }
         public string NomeSocial { get; set; }
@@ -18,7 +18,7 @@ namespace CareerConnect.Controller{
         public string CNPJ { get; set; }
         public string TituloVaga { get; set; }
 
-        public static List<Candidatura> VagasInscritas { get; } = new List<Candidatura>();
+        public static List<Candidatura> VagasInscritas = new List<Candidatura>();
      
         public Candidatura(){}
 
@@ -48,7 +48,25 @@ namespace CareerConnect.Controller{
 
 
         public static void RemoverVagaInscrita(string idounome){
-            MessageBox.Show("acabar o remover vaga inscrita");
+            if(int.TryParse(idounome, out int id)){ 
+                Candidatura candidatura = Candidatura.BuscarInscricao(id.ToString());
+                if(candidatura != null){
+                    string opcao = Microsoft.VisualBasic.Interaction.InputBox("Certeza que deseja excluir essa inscrição? (sim ou nao)");
+                    if(opcao.ToLower() == "sim") Candidatura.RemoverVaga(candidatura);
+                    else MessageBox.Show("A ação foi cancelada.");
+                }else MessageBox.Show("A vaga não foi localizada!");
+            }else{
+                Candidatura candidatura = Candidatura.BuscarInscricao(id.ToString());
+                if(candidatura != null){
+                    string opcao = Microsoft.VisualBasic.Interaction.InputBox("Certeza que deseja excluir essa inscrição? (sim ou nao)");
+                    if(opcao.ToLower() == "sim") Candidatura.RemoverVaga(candidatura);
+                    else MessageBox.Show("A ação foi cancelada.");
+                }else MessageBox.Show("A vaga não foi localizada!");
+            }
+        }
+
+        public static void RemoverVaga(Candidatura candidatura){
+            VagasInscritas.Remove(candidatura);
         }
 
         public static Candidatura BuscarInscricao(string idOuTitulo){
@@ -83,6 +101,30 @@ namespace CareerConnect.Controller{
 
         public static List<Candidatura> ListarVagasInscritas(){
             return VagasInscritas.FindAll(u => u.Nome == Usuario.usuarioLogado.Nome);
+        }
+
+        public static void AssociarCandidato(int id, string nomeSocial, int telefone, string comentarios){
+            Tuple<string, string, string> dadosOportunidade = Oportunidade.GetTituloCNPJeNomeFantasiaById(id);
+            Candidatura novaCandidatura = new Candidatura(Usuario.usuarioLogado.Nome, nomeSocial, dadosOportunidade, telefone, comentarios);
+            VagasInscritas.Add(novaCandidatura);
+        }
+
+        public static void DessasociarCandidato(string idounome){
+            if(int.TryParse(idounome, out int id)){ 
+                Candidatura candidatura = Candidatura.BuscarInscricao(id.ToString());
+                if(candidatura != null){
+                    string opcao = Microsoft.VisualBasic.Interaction.InputBox("Certeza que deseja desassociar esse candidato? (sim ou nao)");
+                    if(opcao.ToLower() == "sim") Candidatura.RemoverVaga(candidatura);
+                    else MessageBox.Show("A ação foi cancelada.");
+                }else MessageBox.Show("A vaga não foi localizada!");
+            }else{
+                Candidatura candidatura = Candidatura.BuscarInscricao(id.ToString());
+                if(candidatura != null){
+                    string opcao = Microsoft.VisualBasic.Interaction.InputBox("Certeza que deseja desassociar esse candidato? (sim ou nao)");
+                    if(opcao.ToLower() == "sim") Candidatura.RemoverVaga(candidatura);
+                    else MessageBox.Show("A ação foi cancelada.");
+                }else MessageBox.Show("A vaga não foi localizada!");
+            }
         }
     }
 }

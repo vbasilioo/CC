@@ -37,7 +37,7 @@ namespace CareerConnect.Views{
             if(Usuario.usuarioLogado.Cargo == "Empresa"){
                 if(Usuario.usuarioLogado.CNPJEmpresa == campoCNPJ.Text){
                     if(double.TryParse(salarioString, out salario)) {
-                        Oportunidade.CadastrarOportunidadeNova(campoTitulo.Text, campoDesc.Text, salario, campoNomeFantasia.Text, campoCNPJ.Text, status);
+                        Oportunidade.CadastrarOportunidadeNova(campoTitulo.Text, campoDesc.Text, salario, campoRequisitos.Text, campoNomeFantasia.Text, campoCNPJ.Text, status);
                         int qntVagas = Oportunidade.ContarVagasNesseCNPJ(campoCNPJ.Text);
                         //Console.WriteLine("" + qntVagas);
                         this.Close();

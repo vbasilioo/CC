@@ -8,21 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace CareerConnect.Views{
-    public partial class Oportunidade_Inscricao : Form{
-        public Oportunidade_Inscricao(){
+    public partial class Associar_Candidato : Form{
+        public Associar_Candidato(string idOuNome){
             InitializeComponent();
+
+            Usuario usuario = Usuario.BuscarUsuarioEmailOuID(idOuNome);
+            
+            if(usuario != null){
+                campoUsuario.Text = usuario.Nome.ToString();
+                campoEmail.Text = usuario.Email.ToString();
+            }
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e){
-            //Candidato.AdicionarInscricao(campoNomeSocial.Text, campoTelefone.Text, campoComentarios.Text, campoNomeEmpresa.Text);
-            //MessageBox.Show("Inscrição feita");
-            //Candidato.ListarCandidatosInscritos();
-            int telefone;
-
-            if(int.TryParse(campoTelefone.Text, out telefone)){
+        private void btnAssociar_Click(object sender, EventArgs e){
+            if(int.TryParse(campoTelefone.Text, out int telefone)){
                 if(campoComentarios.Text == "" || campoNomeSocial.Text == "" || campoComentarios.Text == "" && campoNomeSocial.Text == ""){
                     
                     campoComentarios.Text = "-";
@@ -31,6 +32,7 @@ namespace CareerConnect.Views{
                     try{
                         Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(campoNomeEmpresa.Text);
                         Candidatura.AdicionarVagaInscrita(oportunidade.ID, campoNomeSocial.Text, telefone, campoComentarios.Text);
+                        MessageBox.Show("Candidato associado com sucesso!");
                         this.Hide();
                     }catch(System.NullReferenceException){
                         MessageBox.Show("exceçao no cadastrar");
@@ -39,6 +41,7 @@ namespace CareerConnect.Views{
                     try{
                         Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(campoNomeEmpresa.Text);
                         Candidatura.AdicionarVagaInscrita(oportunidade.ID, campoNomeSocial.Text, telefone, campoComentarios.Text);
+                        MessageBox.Show("Candidato associado com sucesso!");
                         this.Hide();
                     }catch(System.NullReferenceException){
                         MessageBox.Show("exceçao no cadastrar");
@@ -52,7 +55,5 @@ namespace CareerConnect.Views{
         private void btnRetornar_Click(object sender, EventArgs e){
             this.Hide();
         }
-
-        private void campoNomeEmpresa_TextChanged(object sender, EventArgs e){}
     }
 }

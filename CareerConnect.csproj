@@ -87,6 +87,12 @@
     <Compile Include="Controller\EnumItem.cs" />
     <Compile Include="Controller\Oportunidade.cs" />
     <Compile Include="Controller\Usuario.cs" />
+    <Compile Include="Views\Associar_Candidato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Associar_Candidato.Designer.cs">
+      <DependentUpon>Associar_Candidato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Atualizar_Candidatura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="Views\Dashboard_Content.Designer.cs">
       <DependentUpon>Dashboard_Content.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Desassociar_Candidato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Desassociar_Candidato.Designer.cs">
+      <DependentUpon>Desassociar_Candidato.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Editar_Oportunidade.cs">
       <SubType>Form</SubType>
@@ -165,6 +177,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Associar_Candidato.resx">
+      <DependentUpon>Associar_Candidato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Atualizar_Candidatura.resx">
       <DependentUpon>Atualizar_Candidatura.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Dashboard_Content.resx">
       <DependentUpon>Dashboard_Content.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Desassociar_Candidato.resx">
+      <DependentUpon>Desassociar_Candidato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Editar_Oportunidade.resx">
       <DependentUpon>Editar_Oportunidade.cs</DependentUpon>

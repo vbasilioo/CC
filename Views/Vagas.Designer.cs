@@ -131,6 +131,7 @@
             this.btnDesassociarCandidato.TabIndex = 9;
             this.btnDesassociarCandidato.Text = "Desassociar Candidato";
             this.btnDesassociarCandidato.UseVisualStyleBackColor = true;
+            this.btnDesassociarCandidato.Click += new System.EventHandler(this.btnDesassociarCandidato_Click);
             // 
             // btnListarEmpresas
             // 
