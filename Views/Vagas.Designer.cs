@@ -43,6 +43,7 @@
             this.btnListarCandidaturas = new System.Windows.Forms.Button();
             this.campoPesquisarEmpresa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnVerAssociados = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridOportunidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,10 +67,11 @@
             this.GridOportunidades.GridColor = System.Drawing.Color.White;
             this.GridOportunidades.Location = new System.Drawing.Point(168, 47);
             this.GridOportunidades.Name = "GridOportunidades";
-            this.GridOportunidades.Size = new System.Drawing.Size(1362, 630);
+            this.GridOportunidades.Size = new System.Drawing.Size(1399, 653);
             this.GridOportunidades.TabIndex = 3;
             this.GridOportunidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridOportunidades_CellContentClick);
             this.GridOportunidades.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridOportunidades_RowValidated);
+            this.GridOportunidades.Click += new System.EventHandler(this.GridOportunidades_Click);
             // 
             // btnEditarVaga
             // 
@@ -120,6 +122,7 @@
             this.btnAssociarCandidato.TabIndex = 8;
             this.btnAssociarCandidato.Text = "Associar Candidato";
             this.btnAssociarCandidato.UseVisualStyleBackColor = true;
+            this.btnAssociarCandidato.Click += new System.EventHandler(this.btnAssociarCandidato_Click);
             // 
             // btnDesassociarCandidato
             // 
@@ -129,6 +132,7 @@
             this.btnDesassociarCandidato.TabIndex = 9;
             this.btnDesassociarCandidato.Text = "Desassociar Candidato";
             this.btnDesassociarCandidato.UseVisualStyleBackColor = true;
+            this.btnDesassociarCandidato.Click += new System.EventHandler(this.btnDesassociarCandidato_Click);
             // 
             // btnListarEmpresas
             // 
@@ -138,6 +142,7 @@
             this.btnListarEmpresas.TabIndex = 10;
             this.btnListarEmpresas.Text = "Listar Empresas";
             this.btnListarEmpresas.UseVisualStyleBackColor = true;
+            this.btnListarEmpresas.Click += new System.EventHandler(this.btnListarEmpresas_Click);
             // 
             // btnCandidatar
             // 
@@ -147,6 +152,7 @@
             this.btnCandidatar.TabIndex = 11;
             this.btnCandidatar.Text = "Candidatar-se";
             this.btnCandidatar.UseVisualStyleBackColor = true;
+            this.btnCandidatar.Click += new System.EventHandler(this.btnCandidatar_Click);
             // 
             // btnAttCandidatura
             // 
@@ -156,6 +162,7 @@
             this.btnAttCandidatura.TabIndex = 12;
             this.btnAttCandidatura.Text = "Atualizar Candidatura";
             this.btnAttCandidatura.UseVisualStyleBackColor = true;
+            this.btnAttCandidatura.Click += new System.EventHandler(this.btnAttCandidatura_Click);
             // 
             // btnExcluirCandidatura
             // 
@@ -165,6 +172,7 @@
             this.btnExcluirCandidatura.TabIndex = 13;
             this.btnExcluirCandidatura.Text = "Excluir Candidatura";
             this.btnExcluirCandidatura.UseVisualStyleBackColor = true;
+            this.btnExcluirCandidatura.Click += new System.EventHandler(this.btnExcluirCandidatura_Click);
             // 
             // btnListarCandidaturas
             // 
@@ -172,8 +180,9 @@
             this.btnListarCandidaturas.Name = "btnListarCandidaturas";
             this.btnListarCandidaturas.Size = new System.Drawing.Size(116, 23);
             this.btnListarCandidaturas.TabIndex = 14;
-            this.btnListarCandidaturas.Text = "Listar Candidaturas";
+            this.btnListarCandidaturas.Text = "Minhas Candidaturas";
             this.btnListarCandidaturas.UseVisualStyleBackColor = true;
+            this.btnListarCandidaturas.Click += new System.EventHandler(this.btnListarCandidaturas_Click);
             // 
             // campoPesquisarEmpresa
             // 
@@ -192,12 +201,23 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Pesquisar Empresa";
             // 
+            // btnVerAssociados
+            // 
+            this.btnVerAssociados.Location = new System.Drawing.Point(13, 126);
+            this.btnVerAssociados.Name = "btnVerAssociados";
+            this.btnVerAssociados.Size = new System.Drawing.Size(116, 23);
+            this.btnVerAssociados.TabIndex = 17;
+            this.btnVerAssociados.Text = "Associados";
+            this.btnVerAssociados.UseVisualStyleBackColor = true;
+            this.btnVerAssociados.Click += new System.EventHandler(this.btnVerAssociados_Click);
+            // 
             // Vagas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1542, 709);
+            this.ClientSize = new System.Drawing.Size(1579, 712);
+            this.Controls.Add(this.btnVerAssociados);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.campoPesquisarEmpresa);
             this.Controls.Add(this.btnListarCandidaturas);
@@ -239,5 +259,6 @@
         private System.Windows.Forms.Button btnListarCandidaturas;
         private System.Windows.Forms.TextBox campoPesquisarEmpresa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnVerAssociados;
     }
 }

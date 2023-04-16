@@ -8,13 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace CareerConnect.Views{
     public partial class Editar_Oportunidade : Form{
-
-        private Oportunidade _oportunidade;
-        private Vagas _vagas;
-
         public Editar_Oportunidade(string idOuTitulo){
             InitializeComponent();
 
@@ -27,6 +24,9 @@ namespace CareerConnect.Views{
                 campoSalario.Text = oportunidade.SalarioVaga.ToString();
                 campoEmpresa.Text = oportunidade.NomeFantasia;
                 campoCNPJ.Text = oportunidade.CNPJ;
+
+                //preenche o combobox
+                ComboboxStatus.DataSource = EnumItem.GetStatusVaga();
             }else{
                 MessageBox.Show("A vaga não foi encontrada.");
                 this.Close(); // fecha a tela de edição caso não encontre a vaga
@@ -38,14 +38,19 @@ namespace CareerConnect.Views{
         private void btnEditar_Click(object sender, EventArgs e){
             int id;
             bool parsed = int.TryParse(campoID.Text, out id);
+            string status = ComboboxStatus.Text;
 
             if(parsed){
-                Oportunidade.EditarVaga(id.ToString(), campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text);
+                Oportunidade.EditarVaga(id.ToString(), campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoRequisitos.Text, campoEmpresa.Text, campoCNPJ.Text, status);
                 this.Close();
             }else{
-                Oportunidade.EditarVaga(campoID.Text, campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoEmpresa.Text, campoCNPJ.Text);
+                Oportunidade.EditarVaga(campoID.Text, campoTituloVaga.Text, campoDescricao.Text, double.Parse(campoSalario.Text), campoRequisitos.Text, campoEmpresa.Text, campoCNPJ.Text, status);
                 this.Close();
             }
+        }
+
+        private void btnRetornar_Click(object sender, EventArgs e){
+            this.Hide();
         }
     }
 }

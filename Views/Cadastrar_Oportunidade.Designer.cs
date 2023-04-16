@@ -39,6 +39,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.BotaoCadastrarVaga = new System.Windows.Forms.Button();
+            this.ComboboxStatus = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnRetornar = new System.Windows.Forms.Button();
+            this.campoRequisitos = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // campoTitulo
@@ -100,6 +105,7 @@
             // 
             this.campoCNPJ.Location = new System.Drawing.Point(373, 289);
             this.campoCNPJ.Name = "campoCNPJ";
+            this.campoCNPJ.ReadOnly = true;
             this.campoCNPJ.Size = new System.Drawing.Size(173, 20);
             this.campoCNPJ.TabIndex = 8;
             // 
@@ -123,7 +129,7 @@
             // 
             // BotaoCadastrarVaga
             // 
-            this.BotaoCadastrarVaga.Location = new System.Drawing.Point(373, 370);
+            this.BotaoCadastrarVaga.Location = new System.Drawing.Point(373, 416);
             this.BotaoCadastrarVaga.Name = "BotaoCadastrarVaga";
             this.BotaoCadastrarVaga.Size = new System.Drawing.Size(173, 23);
             this.BotaoCadastrarVaga.TabIndex = 11;
@@ -131,11 +137,61 @@
             this.BotaoCadastrarVaga.UseVisualStyleBackColor = true;
             this.BotaoCadastrarVaga.Click += new System.EventHandler(this.BotaoCadastrarVaga_Click);
             // 
+            // ComboboxStatus
+            // 
+            this.ComboboxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboboxStatus.FormattingEnabled = true;
+            this.ComboboxStatus.Location = new System.Drawing.Point(373, 337);
+            this.ComboboxStatus.Name = "ComboboxStatus";
+            this.ComboboxStatus.Size = new System.Drawing.Size(173, 21);
+            this.ComboboxStatus.TabIndex = 12;
+            this.ComboboxStatus.SelectedIndexChanged += new System.EventHandler(this.ComboboxStatus_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(313, 340);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Status";
+            // 
+            // btnRetornar
+            // 
+            this.btnRetornar.Location = new System.Drawing.Point(373, 446);
+            this.btnRetornar.Name = "btnRetornar";
+            this.btnRetornar.Size = new System.Drawing.Size(173, 23);
+            this.btnRetornar.TabIndex = 14;
+            this.btnRetornar.Text = "Retornar";
+            this.btnRetornar.UseVisualStyleBackColor = true;
+            this.btnRetornar.Click += new System.EventHandler(this.btnRetornar_Click_1);
+            // 
+            // campoRequisitos
+            // 
+            this.campoRequisitos.Location = new System.Drawing.Point(373, 377);
+            this.campoRequisitos.Name = "campoRequisitos";
+            this.campoRequisitos.Size = new System.Drawing.Size(173, 20);
+            this.campoRequisitos.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(294, 380);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Requisitos";
+            // 
             // Cadastrar_Oportunidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 520);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.campoRequisitos);
+            this.Controls.Add(this.btnRetornar);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.ComboboxStatus);
             this.Controls.Add(this.BotaoCadastrarVaga);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -149,7 +205,8 @@
             this.Controls.Add(this.campoTitulo);
             this.Name = "Cadastrar_Oportunidade";
             this.ShowIcon = false;
-            this.Text = "CRUD_Oportunidade";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastrar Oportunidade";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +225,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button BotaoCadastrarVaga;
+        private System.Windows.Forms.ComboBox ComboboxStatus;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnRetornar;
+        private System.Windows.Forms.TextBox campoRequisitos;
+        private System.Windows.Forms.Label label7;
     }
 }

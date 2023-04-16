@@ -83,9 +83,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Cargo.cs" />
+    <Compile Include="Controller\Candidatura.cs" />
+    <Compile Include="Controller\EnumItem.cs" />
     <Compile Include="Controller\Oportunidade.cs" />
     <Compile Include="Controller\Usuario.cs" />
+    <Compile Include="Views\Associar_Candidato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Associar_Candidato.Designer.cs">
+      <DependentUpon>Associar_Candidato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Atualizar_Candidatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Atualizar_Candidatura.Designer.cs">
+      <DependentUpon>Atualizar_Candidatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buscar_Candidato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Buscar_Candidato.Designer.cs">
+      <DependentUpon>Buscar_Candidato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Cadastrar_Oportunidade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +122,12 @@
     </Compile>
     <Compile Include="Views\Dashboard_Content.Designer.cs">
       <DependentUpon>Dashboard_Content.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Desassociar_Candidato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Desassociar_Candidato.Designer.cs">
+      <DependentUpon>Desassociar_Candidato.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Editar_Oportunidade.cs">
       <SubType>Form</SubType>
@@ -130,6 +155,18 @@
     <Compile Include="Views\Login_EsqueciSenha.Designer.cs">
       <DependentUpon>Login_EsqueciSenha.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Oportunidade_Inscricao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Oportunidade_Inscricao.Designer.cs">
+      <DependentUpon>Oportunidade_Inscricao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usuario_Configuracoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Usuario_Configuracoes.Designer.cs">
+      <DependentUpon>Usuario_Configuracoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Vagas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +183,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Associar_Candidato.resx">
+      <DependentUpon>Associar_Candidato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Atualizar_Candidatura.resx">
+      <DependentUpon>Atualizar_Candidatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Buscar_Candidato.resx">
+      <DependentUpon>Buscar_Candidato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Cadastrar_Oportunidade.resx">
       <DependentUpon>Cadastrar_Oportunidade.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Dashboard_Content.resx">
       <DependentUpon>Dashboard_Content.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Desassociar_Candidato.resx">
+      <DependentUpon>Desassociar_Candidato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Editar_Oportunidade.resx">
       <DependentUpon>Editar_Oportunidade.cs</DependentUpon>
@@ -166,6 +215,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login_EsqueciSenha.resx">
       <DependentUpon>Login_EsqueciSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Oportunidade_Inscricao.resx">
+      <DependentUpon>Oportunidade_Inscricao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usuario_Configuracoes.resx">
+      <DependentUpon>Usuario_Configuracoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Vagas.resx">
       <DependentUpon>Vagas.cs</DependentUpon>

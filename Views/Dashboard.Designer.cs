@@ -53,7 +53,7 @@
             this.PainelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.PainelSidebar.Location = new System.Drawing.Point(0, 0);
             this.PainelSidebar.Name = "PainelSidebar";
-            this.PainelSidebar.Size = new System.Drawing.Size(220, 808);
+            this.PainelSidebar.Size = new System.Drawing.Size(220, 838);
             this.PainelSidebar.TabIndex = 0;
             this.PainelSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.PainelSidebar_Paint);
             // 
@@ -68,7 +68,7 @@
             this.btnSair.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSair.IconSize = 32;
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(0, 748);
+            this.btnSair.Location = new System.Drawing.Point(0, 778);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnSair.Size = new System.Drawing.Size(220, 60);
@@ -182,7 +182,7 @@
             this.PainelNavbar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PainelNavbar.Location = new System.Drawing.Point(220, 0);
             this.PainelNavbar.Name = "PainelNavbar";
-            this.PainelNavbar.Size = new System.Drawing.Size(1500, 80);
+            this.PainelNavbar.Size = new System.Drawing.Size(1660, 80);
             this.PainelNavbar.TabIndex = 1;
             this.PainelNavbar.Paint += new System.Windows.Forms.PaintEventHandler(this.PainelNavbar_Paint);
             // 
@@ -192,7 +192,7 @@
             this.painelShadow.Dock = System.Windows.Forms.DockStyle.Top;
             this.painelShadow.Location = new System.Drawing.Point(220, 80);
             this.painelShadow.Name = "painelShadow";
-            this.painelShadow.Size = new System.Drawing.Size(1500, 9);
+            this.painelShadow.Size = new System.Drawing.Size(1660, 9);
             this.painelShadow.TabIndex = 2;
             // 
             // painelDesktop
@@ -201,14 +201,14 @@
             this.painelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.painelDesktop.Location = new System.Drawing.Point(220, 89);
             this.painelDesktop.Name = "painelDesktop";
-            this.painelDesktop.Size = new System.Drawing.Size(1500, 719);
+            this.painelDesktop.Size = new System.Drawing.Size(1660, 749);
             this.painelDesktop.TabIndex = 3;
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1720, 808);
+            this.ClientSize = new System.Drawing.Size(1880, 838);
             this.Controls.Add(this.painelDesktop);
             this.Controls.Add(this.painelShadow);
             this.Controls.Add(this.PainelNavbar);

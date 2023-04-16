@@ -42,6 +42,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.campoCNPJCadastrar = new System.Windows.Forms.TextBox();
+            this.labelCNPJ = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // campoNome
@@ -75,6 +77,7 @@
             this.ComboboxCargo.Name = "ComboboxCargo";
             this.ComboboxCargo.Size = new System.Drawing.Size(184, 21);
             this.ComboboxCargo.TabIndex = 15;
+            this.ComboboxCargo.SelectedIndexChanged += new System.EventHandler(this.ComboboxCargo_SelectedIndexChanged);
             // 
             // campoEndereco
             // 
@@ -147,7 +150,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(893, 390);
+            this.label4.Location = new System.Drawing.Point(886, 391);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 13);
             this.label4.TabIndex = 28;
@@ -171,12 +174,30 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "Endereço";
             // 
+            // campoCNPJCadastrar
+            // 
+            this.campoCNPJCadastrar.Location = new System.Drawing.Point(625, 468);
+            this.campoCNPJCadastrar.Name = "campoCNPJCadastrar";
+            this.campoCNPJCadastrar.Size = new System.Drawing.Size(205, 20);
+            this.campoCNPJCadastrar.TabIndex = 31;
+            // 
+            // labelCNPJ
+            // 
+            this.labelCNPJ.AutoSize = true;
+            this.labelCNPJ.Location = new System.Drawing.Point(585, 471);
+            this.labelCNPJ.Name = "labelCNPJ";
+            this.labelCNPJ.Size = new System.Drawing.Size(34, 13);
+            this.labelCNPJ.TabIndex = 32;
+            this.labelCNPJ.Text = "CNPJ";
+            // 
             // Login_CadastrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1229, 659);
+            this.Controls.Add(this.labelCNPJ);
+            this.Controls.Add(this.campoCNPJCadastrar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -193,8 +214,9 @@
             this.Controls.Add(this.campoNome);
             this.DoubleBuffered = true;
             this.Name = "Login_CadastrarUsuario";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login_CadastrarUsuario";
+            this.Text = "Cadastrar Usuário";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +237,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox campoCNPJCadastrar;
+        private System.Windows.Forms.Label labelCNPJ;
     }
 }
