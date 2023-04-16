@@ -87,6 +87,7 @@ namespace CareerConnect.Views{
 
         private void iconButton4_Click(object sender, EventArgs e){
             ActiveButton(sender, RGBColors.color1);
+            OpenChildForm(new Usuario_Configuracoes());
         }
 
         private void iconButton5_Click(object sender, EventArgs e){

@@ -288,5 +288,42 @@ namespace CareerConnect.Controller{
 
             return false;
         }
+
+        //metodo ao contrario do pegar idade, agr pra retornar idade pro datepicker
+        public static DateTime ObterDataNascimento(int idade){
+            DateTime dataAtual = DateTime.Now;
+            int anoNascimento = dataAtual.Year - idade;
+            int mesNascimento = dataAtual.Month;
+            int diaNascimento = dataAtual.Day;
+
+            // ajusta o mes e dia do nascimento se a data ainda n passou esse ano
+            if (dataAtual.Month < mesNascimento || (dataAtual.Month == mesNascimento && dataAtual.Day < diaNascimento))
+            {
+                anoNascimento--;
+            }
+
+            return new DateTime(anoNascimento, mesNascimento, diaNascimento);
+        }
+
+        //editando dados dos usuario
+        public static void EditarUsuario(Usuario usuarioLogado, string nome, string email, string cargo, DateTime datanascimento, string endereco, string cnpj){
+            usuarioLogado.Nome = nome;
+            usuarioLogado.Email = email;
+            usuarioLogado.Cargo = cargo;
+            usuarioLogado.DataNascimento = CalcularIdade(datanascimento);
+            usuarioLogado.Endereco = endereco;
+            usuarioLogado.CNPJEmpresa = cnpj;
+            MessageBox.Show("Dados editados com sucesso!");
+        }
+
+        // converte a idade para data de nascimento correspondente
+        public static DateTime CalcularDataNascimento(int idade){
+            var now = DateTime.Now;
+            var dataNascimento = new DateTime(now.Year - idade, now.Month, now.Day);
+            if(dataNascimento > now){
+                dataNascimento = dataNascimento.AddYears(-1);
+            }
+            return dataNascimento;
+        }
     }
 }
