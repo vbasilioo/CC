@@ -23,10 +23,32 @@ namespace CareerConnect.Views{
             int telefone;
 
             if(int.TryParse(campoTelefone.Text, out telefone)){
-                if(campoComentarios.Text == "" || campoNomeSocial.Text == "" || campoComentarios.Text == "" && campoNomeSocial.Text == ""){
+                if(campoComentarios.Text == ""){
                     
                     campoComentarios.Text = "-";
+
+                    try{
+                        Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(campoNomeEmpresa.Text);
+                        Candidatura.AdicionarVagaInscrita(oportunidade.ID, campoNomeSocial.Text, telefone, campoComentarios.Text);
+                        this.Hide();
+                    }catch(System.NullReferenceException){
+                        MessageBox.Show("exceçao no cadastrar");
+                    }
+                }
+                else if(campoNomeSocial.Text == ""){
                     campoNomeSocial.Text = "-";
+
+                    try{
+                        Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(campoNomeEmpresa.Text);
+                        Candidatura.AdicionarVagaInscrita(oportunidade.ID, campoNomeSocial.Text, telefone, campoComentarios.Text);
+                        this.Hide();
+                    }catch(System.NullReferenceException){
+                        MessageBox.Show("exceçao no cadastrar");
+                    }
+                }
+                else if(campoNomeSocial.Text == "" && campoTelefone.Text == ""){
+                    campoNomeSocial.Text = "-";
+                    campoComentarios.Text = "-";
 
                     try{
                         Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(campoNomeEmpresa.Text);

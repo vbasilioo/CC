@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Windows;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -274,6 +275,15 @@ namespace CareerConnect.Controller{
                 }
             }
             return null;
+        }
+
+        public static bool VerificarVagaDaEmpresa(int idVaga){
+            foreach(var vaga in oportunidades){
+                if(vaga.ID == idVaga && vaga.CNPJ == Usuario.usuarioLogado.CNPJEmpresa){
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -104,6 +104,20 @@ namespace CareerConnect.Controller{
             return usuariosCadastrados.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
 
+        // metodo q busca usuario atraves de id ou nome inserido
+        public static Usuario BuscarUsuarioIDouEmail(string idOuEmail){
+            Usuario usuarioEncontrado = usuariosCadastrados.Find(u => u.ID.ToString() == idOuEmail || u.Email == idOuEmail);
+            
+            if(usuarioEncontrado != null && usuarioEncontrado.Cargo == "Candidato"){
+                Buscar_Candidato formBuscarCandidato = new Buscar_Candidato(usuarioEncontrado);
+                formBuscarCandidato.Show();
+                return usuarioEncontrado;
+            }else{
+                MessageBox.Show("Usuário não encontrado ou não é um candidato.");
+                return null;
+            }
+        }
+
         //metodo pra calcular idade [vai pegar o dia/mes/ano selecionado no calendario e subtrair pelo atual]
         public static int CalcularIdade(DateTime dataNascimento){
             int idade = DateTime.Now.Year - dataNascimento.Year;

@@ -71,6 +71,7 @@
             this.GridOportunidades.TabIndex = 3;
             this.GridOportunidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridOportunidades_CellContentClick);
             this.GridOportunidades.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridOportunidades_RowValidated);
+            this.GridOportunidades.Click += new System.EventHandler(this.GridOportunidades_Click);
             // 
             // btnEditarVaga
             // 

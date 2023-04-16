@@ -29,6 +29,7 @@ namespace CareerConnect.Views{
             Cadastrar_Oportunidade cop = new Cadastrar_Oportunidade();
             Cadastrar_Oportunidade.FormVagas = this; // ref ao form vagas
             cop.Show();
+            GridOportunidades.Refresh();
         }
 
         private void GridOportunidades_CellContentClick(object sender, DataGridViewCellEventArgs e){
@@ -133,6 +134,8 @@ namespace CareerConnect.Views{
                 Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
                 edo.Show();
             }
+            GridOportunidades.DataSource = Oportunidade.ListarOportunidades();
+            GridOportunidades.Refresh();
         }
 
         private void btnEditarVaga_MouseClick(object sender, MouseEventArgs e){}
@@ -148,11 +151,14 @@ namespace CareerConnect.Views{
             }else{
                 Oportunidade.DeletarVagaNaTela(idOuNome);
             }
+
+            GridOportunidades.DataSource = Oportunidade.ListarOportunidades();
+            GridOportunidades.Refresh();
         }
 
         private void button2_Click(object sender, EventArgs e){
             string idOuEmail = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o nome do candidato que você quer encontrar:");
-            Usuario.BuscarUsuarioNaGrid(idOuEmail);
+            Usuario candidatoEncontrado = Usuario.BuscarUsuarioIDouEmail(idOuEmail);
         }
 
         private void campoPesquisarEmpresa_TextChanged(object sender, EventArgs e){
@@ -271,7 +277,24 @@ namespace CareerConnect.Views{
             GridOportunidades.Columns["NomeFantasia"].HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
-        private void btnVerAssociados_Click(object sender, EventArgs e){}
+        private void btnVerAssociados_Click(object sender, EventArgs e){
+            if(Usuario.usuarioLogado.Cargo == "Empresa"){
+                string cnpj = Usuario.usuarioLogado.CNPJEmpresa;
+                int idVaga = ((Oportunidade)GridOportunidades.CurrentRow.DataBoundItem).ID;
+
+                if(Oportunidade.VerificarVagaDaEmpresa(idVaga)){
+                    List<Candidatura> candidatos = Candidatura.RetornarCandidatosPorCNPJ(cnpj);
+
+                    string msg = "Candidatos da vaga " + idVaga + ":";
+                    foreach(Candidatura candidato in candidatos){
+                        msg+= "\n- " + candidato.Nome;
+                    }
+                    MessageBox.Show(msg);
+                }else{
+                    MessageBox.Show("A vaga selecionada não pertence à empresa logada.");
+                }
+            }
+        }
 
         private void btnAssociarCandidato_Click(object sender, EventArgs e){
             string idOuNome = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o e-mail do usuário que você quer associar:");
@@ -308,6 +331,12 @@ namespace CareerConnect.Views{
         private void btnDesassociarCandidato_Click(object sender, EventArgs e){
             Desassociar_Candidato descand = new Desassociar_Candidato();
             descand.Show();
+        }
+
+        private void GridOportunidades_Click(object sender, EventArgs e)
+        {
+            AtualizarGridView();
+
         }
     }
 }

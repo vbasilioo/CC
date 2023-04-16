@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using CareerConnect.Controller;
 
 namespace CareerConnect.Controller{
     class Candidatura{
@@ -125,6 +126,30 @@ namespace CareerConnect.Controller{
                     else MessageBox.Show("A ação foi cancelada.");
                 }else MessageBox.Show("A vaga não foi localizada!");
             }
+        }
+
+        public static List<Candidatura> ObterCandidatosRelacionados(string cnpjEmpresa, int idVaga){
+            List<Candidatura> candidatosRelacionados = new List<Candidatura>();
+
+            foreach (Candidatura candidatura in VagasInscritas){
+                if (candidatura.ID == idVaga && candidatura.CNPJ == cnpjEmpresa){
+                    candidatosRelacionados.Add(candidatura);
+                }
+            }
+
+            return candidatosRelacionados;
+        }
+
+        public static List<Candidatura> RetornarCandidatosPorCNPJ(string CNPJ){
+            List<Candidatura> candidatos = new List<Candidatura>();
+
+            foreach(var candidatura in VagasInscritas){
+                if(Usuario.usuarioLogado.CNPJEmpresa == CNPJ){
+                    candidatos.Add(candidatura);
+                }
+            }
+
+            return candidatos;
         }
     }
 }

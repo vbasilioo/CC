@@ -52,8 +52,23 @@ namespace CareerConnect.Views{
                 }else if(string.IsNullOrEmpty(campoNome.Text) || string.IsNullOrEmpty(campoCadastrarEmail1.Text) || string.IsNullOrEmpty(campoCadastrarSenha.Text)
                  || string.IsNullOrEmpty(campoEndereco.Text)){
                     MessageBox.Show("Há um campo não preenchido.");
-                }else if(Usuario.VerificarCNPJExiste(campoCNPJCadastrar.Text)){
-                    MessageBox.Show("Este CNPJ já está cadastrado.");
+                }else if(ComboboxCargo.Text == "Empresa"){
+                    if(Usuario.VerificarCNPJExiste(campoCNPJCadastrar.Text)){
+                        MessageBox.Show("Este CNPJ já está cadastrado.");
+                    }else{
+                    // cadastrando usuario caso ele aind nao exista
+                    Usuario.AdicionarUsuario(novoUsuario);
+                    MessageBox.Show("Usuário cadastrado com sucesso!");
+
+                    campoNome.Clear();
+                    campoCadastrarEmail1.Clear();
+                    campoCadastrarSenha.Clear();
+                    campoEndereco.Clear();
+
+                    Login login = new Login();
+                    login.Show();
+                    this.Hide();
+                }
                 }else{
                     // cadastrando usuario caso ele aind nao exista
                     Usuario.AdicionarUsuario(novoUsuario);
