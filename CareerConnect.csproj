@@ -167,6 +167,12 @@
     <Compile Include="Views\Usuario_Configuracoes.Designer.cs">
       <DependentUpon>Usuario_Configuracoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Usuario_NovaSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Usuario_NovaSenha.Designer.cs">
+      <DependentUpon>Usuario_NovaSenha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Vagas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usuario_Configuracoes.resx">
       <DependentUpon>Usuario_Configuracoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usuario_NovaSenha.resx">
+      <DependentUpon>Usuario_NovaSenha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Vagas.resx">
       <DependentUpon>Vagas.cs</DependentUpon>

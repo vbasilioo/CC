@@ -31,5 +31,11 @@ namespace CareerConnect.Views{
             Usuario usuarioLogado = Usuario.usuarioLogado;
             Usuario.EditarUsuario(usuarioLogado, campoNome.Text, campoEmail.Text, campoCargo.Text, campoDataNascimento.Value, campoEndereco.Text, campoCNPJ.Text);
         }
+
+        private void btnEditarSenha_Click(object sender, EventArgs e){
+            Usuario_NovaSenha novasenha = new Usuario_NovaSenha();
+            novasenha.Show();
+            this.Hide();
+        }
     }
 }
