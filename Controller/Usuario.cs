@@ -104,6 +104,16 @@ namespace CareerConnect.Controller{
             return usuariosCadastrados.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
 
+        //busca usuario por id
+        public static Usuario ObterUsuarioPorID(int id){
+            foreach(Usuario usuario in usuariosCadastrados){
+                if(usuario.ID == id){
+                    return usuario;
+                }
+            }
+            return null;
+        }
+
         // metodo q busca usuario atraves de id ou nome inserido
         public static Usuario BuscarUsuarioIDouEmail(string idOuEmail){
             Usuario usuarioEncontrado = usuariosCadastrados.Find(u => u.ID.ToString() == idOuEmail || u.Email == idOuEmail);

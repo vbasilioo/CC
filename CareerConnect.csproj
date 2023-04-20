@@ -84,7 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Candidatura.cs" />
+    <Compile Include="Controller\Chat.cs" />
     <Compile Include="Controller\EnumItem.cs" />
+    <Compile Include="Controller\Mensagem.cs" />
     <Compile Include="Controller\Oportunidade.cs" />
     <Compile Include="Controller\Usuario.cs" />
     <Compile Include="Views\Associar_Candidato.cs">
@@ -98,6 +100,12 @@
     </Compile>
     <Compile Include="Views\Atualizar_Candidatura.Designer.cs">
       <DependentUpon>Atualizar_Candidatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bate-papo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bate-papo.Designer.cs">
+      <DependentUpon>Bate-papo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Buscar_Candidato.cs">
       <SubType>Form</SubType>
@@ -188,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Atualizar_Candidatura.resx">
       <DependentUpon>Atualizar_Candidatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Bate-papo.resx">
+      <DependentUpon>Bate-papo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Buscar_Candidato.resx">
       <DependentUpon>Buscar_Candidato.cs</DependentUpon>

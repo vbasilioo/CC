@@ -83,6 +83,7 @@ namespace CareerConnect.Views{
 
         private void iconButton3_Click(object sender, EventArgs e){
             ActiveButton(sender, RGBColors.color1);
+            OpenChildForm(new Bate_papo());
         }
 
         private void iconButton4_Click(object sender, EventArgs e){
