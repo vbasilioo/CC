@@ -121,6 +121,7 @@
             this.btnEditarSenha.TabIndex = 17;
             this.btnEditarSenha.Text = "Configurar nova senha";
             this.btnEditarSenha.UseVisualStyleBackColor = true;
+            this.btnEditarSenha.Click += new System.EventHandler(this.btnEditarSenha_Click);
             // 
             // btnEditar
             // 

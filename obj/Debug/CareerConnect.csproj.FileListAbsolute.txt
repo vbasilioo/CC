@@ -77,4 +77,8 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Associar_Candidato.resources
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Desassociar_Candidato.resources
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Usuario_Configuracoes.resources
+<<<<<<< HEAD
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Bate_papo.resources
+=======
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\CareerConnect.Views.Usuario_NovaSenha.resources
+>>>>>>> 3ec1d0f1df48d3cc132f6d3e4a40dc32d2e1bc1b
