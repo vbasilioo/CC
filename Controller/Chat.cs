@@ -83,5 +83,18 @@ namespace CareerConnect.Controller{
 
             return false;
         }
+
+        public static List<Stack<Mensagem>> ObterConversasPorUsuario(int idUsuario)
+        {
+            List<Stack<Mensagem>> conversas = new List<Stack<Mensagem>>();
+            foreach (var conversa in conversas)
+            {
+                if (conversa.Any(m => m.IDRemetente == idUsuario || m.IDDestinatario == idUsuario))
+                {
+                    conversas.Add(conversa);
+                }
+            }
+            return conversas;
+        }
     }
 }

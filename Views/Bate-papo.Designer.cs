@@ -55,6 +55,7 @@
             this.listaContatos.Name = "listaContatos";
             this.listaContatos.Size = new System.Drawing.Size(471, 584);
             this.listaContatos.TabIndex = 1;
+            this.listaContatos.SelectedIndexChanged += new System.EventHandler(this.listaContatos_SelectedIndexChanged);
             // 
             // btnEnviarMensagem
             // 

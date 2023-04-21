@@ -25,5 +25,45 @@ namespace CareerConnect.Controller{
             IDRemetente = remetente;
             IDDestinatario = destinatario;
         }
+
+        public static List<Mensagem> ObterMensagensPorUsuario(int idUsuario)
+        {
+            List<Mensagem> mensagens = new List<Mensagem>();
+
+            foreach(Mensagem mensagem in mensagens)
+            {
+                if(mensagem.IDDestinatario == idUsuario || mensagem.IDRemetente == idUsuario)
+                {
+                    mensagens.Add(mensagem);
+                }
+            }
+
+            return mensagens;
+        }
+
+        public static void EnviarMensagem(int remetente, int destinatario, string conteudo)
+        {
+            Mensagem novaMensagem = new Mensagem(remetente, destinatario, conteudo);
+
+            if (Chat.conversas.ContainsKey(remetente))
+            {
+                Chat.conversas[remetente].Push(novaMensagem);
+            }
+            else
+            {
+                Chat.conversas.Add(remetente, new Stack<Mensagem>());
+                Chat.conversas[remetente].Push(novaMensagem);
+            }
+
+            if (Chat.conversas.ContainsKey(destinatario))
+            {
+                Chat.conversas[destinatario].Push(novaMensagem);
+            }
+            else
+            {
+                Chat.conversas.Add(destinatario, new Stack<Mensagem>());
+                Chat.conversas[destinatario].Push(novaMensagem);
+            }
+        }
     }
 }
