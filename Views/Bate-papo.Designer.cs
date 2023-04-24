@@ -108,6 +108,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bate-papo";
+            this.Load += new System.EventHandler(this.Bate_papo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

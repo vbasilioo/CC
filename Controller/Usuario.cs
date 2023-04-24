@@ -87,6 +87,7 @@ namespace CareerConnect.Controller{
             this.Endereco = endereco;
             this.DataNascimento = idade;
             this.Email = email;
+            usuariosCadastrados.Add(this);
         }
 
         // adiciona um novo usuario na lista
@@ -102,6 +103,12 @@ namespace CareerConnect.Controller{
         // metodo pra resgata email e senha do usuario
         public static Usuario BuscarUsuario(string email, string senha){
             return usuariosCadastrados.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+        }
+
+        //retorna a lista de usuarios do sistema
+        public static List<Usuario> ListarUsuarios()
+        {
+            return usuariosCadastrados;
         }
 
         //busca usuario por id
@@ -334,6 +341,19 @@ namespace CareerConnect.Controller{
                 dataNascimento = dataNascimento.AddYears(-1);
             }
             return dataNascimento;
+        }
+
+        //obtendo dados do usuario por nome
+        public static Usuario ObterUsuarioPorNome(string nome)
+        {
+            foreach(var usuario in usuariosCadastrados)
+            {
+                if(usuario.Nome == nome)
+                {
+                    return usuario;
+                }
+            }
+            return null;
         }
     }
 }

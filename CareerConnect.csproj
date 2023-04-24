@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Controller\Candidatura.cs" />
     <Compile Include="Controller\Chat.cs" />
+    <Compile Include="Controller\Conversa.cs" />
     <Compile Include="Controller\EnumItem.cs" />
     <Compile Include="Controller\Mensagem.cs" />
     <Compile Include="Controller\Oportunidade.cs" />

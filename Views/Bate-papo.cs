@@ -12,83 +12,117 @@ using System.Windows.Forms;
 namespace CareerConnect.Views{
     public partial class Bate_papo : Form{
 
-        private int idDestinatarioSelecionado;
+        private int idUsuario;
 
-        public Bate_papo(){
-            InitializeComponent();
-            PreencherListaContatos();
-        }
-
-        private void PreencherListaContatos()
+        public Bate_papo(int idUsuario)
         {
-            listaContatos.Items.Clear();
+            InitializeComponent();
+            this.idUsuario = idUsuario;
 
-            foreach(var conversa in Chat.conversas)
+            List<int> conversasIniciadas = Chat.ObterConversasIniciadas(idUsuario);
+
+            foreach(int idConversa in conversasIniciadas)
             {
-                if(conversa.Value.Any(u => u.IDRemetente == Usuario.usuarioLogado.ID || u.IDDestinatario == Usuario.usuarioLogado.ID))
-                {
-                    int idConversa = conversa.Key;
-                    var ultimaMensagem = conversa.Value.LastOrDefault();
-
-                    if (ultimaMensagem != null)
-                    {
-                        int idOutroUsuario = ultimaMensagem.IDRemetente == Usuario.usuarioLogado.ID ? ultimaMensagem.IDDestinatario : ultimaMensagem.IDRemetente;
-                        string nomeOutroUsuario = Usuario.ObterUsuarioPorID(idOutroUsuario)?.Nome ?? "Desconhecido";
-                        listaContatos.Items.Add($"ID: {idConversa}");
-                        listaContatos.Items.Add(nomeOutroUsuario);
-                    }
-                }
+                int idDestinatario = ObterIDDestinatario(idConversa);
+                string nomeDestinatario = ObterNomeUsuario(idDestinatario);
+                listaContatos.Items.Add(nomeDestinatario);
             }
+
+            listaContatos.SelectedIndexChanged += listaContatos_SelectedIndexChanged;
+
+            Chat.NovaMensagemRecebida += AtualizarMensagens;
+            Chat.NovaMensagemEnviada += AtualizarMensagens;
         }
 
-        private void AtualizarMensagens(int idDestinatario, int idRemetente){
-            List<Mensagem> mensagens = Chat.ObterMensagens(Usuario.usuarioLogado.ID, idDestinatario);
-            listaMensagens.Items.Clear();
-            Usuario remetente = Usuario.ObterUsuarioPorID(idRemetente);
-            string nomeRemetente = remetente?.Nome ?? "Desconhecido";
+        private int ObterIDDestinatario(int indice)
+        {
+            List<int> conversasIniciadas = Chat.ObterConversasIniciadas(idUsuario);
+            int idConversa = conversasIniciadas[indice];
+            int idDestinatario;
 
-            foreach(Mensagem mensagem in mensagens){
-                string textoMensagem = $"[{mensagem.DataHora}] {nomeRemetente}: {mensagem.Conteudo}";
-                listaMensagens.Items.Add(textoMensagem);
+            if (idConversa.ToString().StartsWith(idUsuario.ToString()))
+            {
+                idDestinatario = int.Parse(idConversa.ToString().Substring(idUsuario.ToString().Length));
             }
+            else
+            {
+                idDestinatario = int.Parse(idConversa.ToString().Substring(0, idUsuario.ToString().Length));
+            }
+
+            return idDestinatario;
+        }
+
+        private string ObterNomeUsuario(int idUsuario)
+        {
+            Usuario usuario = Usuario.ObterUsuarioPorID(idUsuario);
+
+            if(usuario != null)
+            {
+                return usuario.Nome;
+            }
+
+            return "";
         }
 
         private void btnIniciarConversa_Click(object sender, EventArgs e){
             string remetente = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID do remetente: ");
             int idRemetente = int.Parse(remetente);
             string idDestinatarioStr = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID do usuário destinatário:");
-            
-            if(Int32.TryParse(idDestinatarioStr, out int idDestinatario)){
-                idDestinatarioSelecionado = idDestinatario;
-                int idConversa = Chat.GerarIDConversa(idRemetente, idDestinatario);
-                string nomeDestinatario = Usuario.ObterUsuarioPorID(idDestinatario)?.Nome ?? "Desconhecido";
-                Chat.IniciarConversa(idRemetente, idDestinatario);
-                listaContatos.Items.Insert(0, $"ID: {idConversa}");
-                listaContatos.Items.Insert(1, $"{nomeDestinatario}");
-            }
+            int idDestinatario = int.Parse(idDestinatarioStr);
+
+            Chat.IniciarConversa(idRemetente, idDestinatario);
         }
 
         private void btnEnviarMensagem_Click(object sender, EventArgs e){
-            int idRemetente = Usuario.usuarioLogado.ID;
-            string mensagem = campoMensagem.Text;
-
-            Chat.EnviarMensagem(idRemetente, idDestinatarioSelecionado, mensagem, this);
-            campoMensagem.Text = "";
-            AtualizarMensagens(idDestinatarioSelecionado, idRemetente);
+            string remetente = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID do remetente: ");
+            int idRemetente = int.Parse(remetente);
             
+            string texto = campoMensagem.Text;
+            
+            Chat.EnviarMensagem(idRemetente, texto);
         }
 
         private void listaContatos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string itemSelecionado = listaContatos.SelectedItem.ToString();
-            int posicaoSeparador = itemSelecionado.IndexOf(":");
-            string idDestinatarioStr = itemSelecionado.Substring(posicaoSeparador + 1).Trim();
-            
-            if(int.TryParse(idDestinatarioStr, out int idDestinatario)){
-                listaMensagens.Items.Clear();
-                idDestinatarioSelecionado = idDestinatario;
-                AtualizarMensagens(idDestinatarioSelecionado, Usuario.usuarioLogado.ID);
-            }else MessageBox.Show("Teste de erro");
+            listaMensagens.Items.Clear();
+            int idDestinatario = ObterIDDestinatario(listaContatos.SelectedIndex);
+
+            Queue<Mensagem> mensagens = Chat.ObterMensagensDaConversa(Chat.GerarIdConversa(idUsuario, idDestinatario));;
+
+            if(mensagens != null)
+            {
+                foreach(Mensagem mensagem in mensagens)
+                {
+                    string nomeRemetente = ObterNomeUsuario(mensagem.IDRemetente);  
+                    listaMensagens.Items.Add(nomeRemetente + ": " + mensagem.Texto);
+                }
+            }
         }
+
+        private void Bate_papo_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AtualizarMensagens(int idConversa, Mensagem mensagem)
+        {
+            int idDestinatario = ObterIDDestinatario(listaContatos.SelectedIndex);
+            if (idDestinatario == mensagem.IDDesteinatario || idDestinatario == mensagem.IDRemetente){
+                Queue<Mensagem> mensagens = Chat.ObterMensagensDaConversa(idConversa);
+
+                if(mensagens != null)
+                {
+                    mensagens.Enqueue(mensagem);
+                }
+                else
+                {
+                    mensagens = new Queue<Mensagem>();
+                    mensagens.Enqueue(mensagem);
+                }
+
+                listaMensagens.DataSource = mensagens.ToList();
+            }
+        }
+
     }
 }

@@ -29,6 +29,7 @@ namespace CareerConnect.Views{
             Cadastrar_Oportunidade cop = new Cadastrar_Oportunidade();
             Cadastrar_Oportunidade.FormVagas = this; // ref ao form vagas
             cop.Show();
+            this.Hide();
             GridOportunidades.Refresh();
         }
 
@@ -144,16 +145,14 @@ namespace CareerConnect.Views{
 
         private void btnDeletarVaga_Click(object sender, EventArgs e){
             string idOuNome = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID ou o nome da vaga que você quer excluir:", "Excluir vaga", "");
+            this.Hide();
             Oportunidade oportunidade = Oportunidade.BuscarVagaPorIdOuNomeECNPJ(idOuNome, Usuario.usuarioLogado.CNPJEmpresa);
 
             if(oportunidade == null){
                 MessageBox.Show("Essa vaga não está cadastrada nesse CNPJ.");
             }else{
-                Oportunidade.DeletarVagaNaTela(idOuNome);
+                Oportunidade.RemoverOportunidade(oportunidade);
             }
-
-            GridOportunidades.DataSource = Oportunidade.ListarOportunidades();
-            GridOportunidades.Refresh();
         }
 
         private void button2_Click(object sender, EventArgs e){
@@ -314,6 +313,7 @@ namespace CareerConnect.Views{
             if(idOuNome==null) MessageBox.Show("A inscrição não foi localizada.");
             else{
                 Atualizar_Candidatura attcand = new Atualizar_Candidatura(idOuNome);
+                attcand.Show();
             }
         }
 
