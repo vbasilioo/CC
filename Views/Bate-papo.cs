@@ -7,122 +7,81 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace CareerConnect.Views{
     public partial class Bate_papo : Form{
 
-        private int idUsuario;
+        private Usuario usuario;
 
-        public Bate_papo(int idUsuario)
+        public Bate_papo()
         {
             InitializeComponent();
-            this.idUsuario = idUsuario;
-
-            List<int> conversasIniciadas = Chat.ObterConversasIniciadas(idUsuario);
-
-            foreach(int idConversa in conversasIniciadas)
-            {
-                int idDestinatario = ObterIDDestinatario(idConversa);
-                string nomeDestinatario = ObterNomeUsuario(idDestinatario);
-                listaContatos.Items.Add(nomeDestinatario);
-            }
-
-            listaContatos.SelectedIndexChanged += listaContatos_SelectedIndexChanged;
-
-            Chat.NovaMensagemRecebida += AtualizarMensagens;
-            Chat.NovaMensagemEnviada += AtualizarMensagens;
+            ListarMensagens();
         }
 
-        private int ObterIDDestinatario(int indice)
+        private void ListarMensagens()
         {
-            List<int> conversasIniciadas = Chat.ObterConversasIniciadas(idUsuario);
-            int idConversa = conversasIniciadas[indice];
-            int idDestinatario;
+            var mensagens = Chat.ObterMensagens();
 
-            if (idConversa.ToString().StartsWith(idUsuario.ToString()))
-            {
-                idDestinatario = int.Parse(idConversa.ToString().Substring(idUsuario.ToString().Length));
+            foreach(var mensagem in mensagens){
+                if(mensagem is Chat chat) listaMensagens.Items.Add(chat);
+                else listaMensagens.Items.Add(mensagem.ToString());
             }
-            else
-            {
-                idDestinatario = int.Parse(idConversa.ToString().Substring(0, idUsuario.ToString().Length));
-            }
-
-            return idDestinatario;
         }
 
-        private string ObterNomeUsuario(int idUsuario)
+        private void listaContatos_SelectedIndexChanged(object sender, EventArgs e){}
+
+        private void Bate_papo_Load(object sender, EventArgs e){}
+
+        private void listaMensagens_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Usuario usuario = Usuario.ObterUsuarioPorID(idUsuario);
-
-            if(usuario != null)
-            {
-                return usuario.Nome;
-            }
-
-            return "";
-        }
-
-        private void btnIniciarConversa_Click(object sender, EventArgs e){
-            string remetente = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID do remetente: ");
-            int idRemetente = int.Parse(remetente);
-            string idDestinatarioStr = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID do usuário destinatário:");
-            int idDestinatario = int.Parse(idDestinatarioStr);
-
-            Chat.IniciarConversa(idRemetente, idDestinatario);
-        }
-
-        private void btnEnviarMensagem_Click(object sender, EventArgs e){
-            string remetente = Microsoft.VisualBasic.Interaction.InputBox("Insira o ID do remetente: ");
-            int idRemetente = int.Parse(remetente);
             
-            string texto = campoMensagem.Text;
-            
-            Chat.EnviarMensagem(idRemetente, texto);
         }
 
-        private void listaContatos_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAtualizarMensagens_Click(object sender, EventArgs e)
         {
-            listaMensagens.Items.Clear();
-            int idDestinatario = ObterIDDestinatario(listaContatos.SelectedIndex);
-
-            Queue<Mensagem> mensagens = Chat.ObterMensagensDaConversa(Chat.GerarIdConversa(idUsuario, idDestinatario));;
+            var mensagens = Chat.ObterMensagens();
+            string hora = DateTime.Now.ToString("HH:mm");
 
             if(mensagens != null)
             {
-                foreach(Mensagem mensagem in mensagens)
+                int ultimoID = listaMensagens.Items.Count > 0 ? ((Chat)listaMensagens.Items[listaMensagens.Items.Count - 1]).ID : 0;
+
+                foreach(var mensagem in mensagens)
                 {
-                    string nomeRemetente = ObterNomeUsuario(mensagem.IDRemetente);  
-                    listaMensagens.Items.Add(nomeRemetente + ": " + mensagem.Texto);
+                    if(mensagem.ID > ultimoID)
+                    {
+                        if(mensagem is Chat chat)
+                        {
+                            listaMensagens.Items.Add(chat);
+                        }
+                        else
+                        {
+                            listaMensagens.Items.Add(mensagem.ToString());
+                        }
+                    }
                 }
+            }
+
+            listaMensagens.Visible = true;
+        }
+
+        private void btnEnviarMensagem_Click_1(object sender, EventArgs e)
+        {
+            string mensagem = campoMensagem.Text;
+            string remetente = Usuario.usuarioLogado.Nome;
+
+            if(!string.IsNullOrEmpty(mensagem)){
+                Chat.EnviarNovaMensagem(remetente, mensagem);
+                campoMensagem.Text = "";
             }
         }
 
-        private void Bate_papo_Load(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
             
         }
-
-        private void AtualizarMensagens(int idConversa, Mensagem mensagem)
-        {
-            int idDestinatario = ObterIDDestinatario(listaContatos.SelectedIndex);
-            if (idDestinatario == mensagem.IDDesteinatario || idDestinatario == mensagem.IDRemetente){
-                Queue<Mensagem> mensagens = Chat.ObterMensagensDaConversa(idConversa);
-
-                if(mensagens != null)
-                {
-                    mensagens.Enqueue(mensagem);
-                }
-                else
-                {
-                    mensagens = new Queue<Mensagem>();
-                    mensagens.Enqueue(mensagem);
-                }
-
-                listaMensagens.DataSource = mensagens.ToList();
-            }
-        }
-
     }
 }

@@ -8,74 +8,42 @@ using System.Windows.Forms;
 namespace CareerConnect.Controller{
     public class Chat
     {
-        private static Dictionary<int, Queue<Mensagem>> conversas = new Dictionary<int, Queue<Mensagem>>();
-        private static int idConversaAtual = -1;
+        private static int contador = 1;
+        public int ID { get; private set; }
+        public string Mensagem { get; private set; }
+        public string NomeRemetente { get; private set; }
+        public DateTime horaEnvio { get; private set; }
 
-        public static event Action<int, Mensagem> NovaMensagemRecebida;
-        public static event Action<int, Mensagem> NovaMensagemEnviada;
+        public static Stack<Chat> Mensagens = Mensagens = new Stack<Chat>();
 
-        public static void IniciarConversa(int idRemetente, int idDestinatario)
+
+        public Chat(string remetente, string mensagem)
         {
-            int idConversa = GerarIdConversa(idRemetente, idDestinatario);
-            if (!conversas.ContainsKey(idConversa))
-            {
-                conversas.Add(idConversa, new Queue<Mensagem>());
-                 idConversaAtual = idConversa;
-            }
+            ID = contador++;
+            Mensagem = mensagem;
+            NomeRemetente = remetente;
         }
 
-        public static void EnviarMensagem(int idRemetente, string texto)
+        public static void EnviarMensagem(Chat chat)
         {
-            if (idConversaAtual != -1)
-            {
-                Mensagem mensagem = new Mensagem(idRemetente, idConversaAtual, texto);
-                conversas[idConversaAtual].Enqueue(mensagem);
-                NovaMensagemEnviada?.Invoke(idConversaAtual, mensagem);
-            }
+            Mensagens.Push(chat);
         }
 
-        public static List<int> ObterConversasIniciadas(int idUsuario)
+        public static List<Chat> ObterMensagens()
         {
-            List<int> conversasIniciadas = new List<int>();
-            foreach (int idConversa in conversas.Keys)
-            {
-                if (idConversa.ToString().StartsWith(idUsuario.ToString()))
-                {
-                    conversasIniciadas.Add(idConversa);
-                }
-            }
-            return conversasIniciadas;
+            return Mensagens.Reverse().ToList();
         }
 
-        public static Queue<Mensagem> ObterMensagensDaConversa(int idConversa)
+        public static void EnviarNovaMensagem(string remetente, string mensagem)
         {
-            if (conversas.ContainsKey(idConversa))
-            {
-                return conversas[idConversa];
-            }
-            else
-            {
-                return null;
-            }
+            Chat chat = new Chat(remetente, mensagem);
+            Chat.EnviarMensagem(chat);
         }
 
-        public static bool ConversaExiste(int idConversa)
+        public override string ToString()
         {
-            return conversas.ContainsKey(idConversa);
-        }
-
-        public static int GerarIdConversa(int idUsuario1, int idUsuario2)
-        {
-            int idConversa;
-            if (idUsuario1 < idUsuario2)
-            {
-                idConversa = int.Parse(idUsuario1.ToString() + idUsuario2.ToString());
-            }
-            else
-            {
-                idConversa = int.Parse(idUsuario2.ToString() + idUsuario1.ToString());
-            }
-            return idConversa;
+            horaEnvio = DateTime.Now;
+            return $"[{horaEnvio.ToString("HH:mm")}] {NomeRemetente}: {Mensagem}";
         }
     }
 }
