@@ -97,11 +97,9 @@ namespace CareerConnect.Views{
         private void VerificarCargoCombobox(){
             if(ComboboxCargo.Text == "Empresa"){ 
                 campoCNPJCadastrar.Visible = true; 
-                labelCNPJ.Visible = true;
             }
             else{ 
                 campoCNPJCadastrar.Visible = false; 
-                labelCNPJ.Visible = false;
             }
         }
 

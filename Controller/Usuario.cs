@@ -19,7 +19,7 @@ namespace CareerConnect.Controller{
         public static Usuario usuarioLogado { get; private set; }
 
         // lista estatica com usuarios cadastrados
-        private static List<Usuario> usuariosCadastrados = new List<Usuario>(){
+        public static List<Usuario> usuariosCadastrados = new List<Usuario>(){
             new Usuario(){
                 ID = 0,
                 Nome = "Vinicius Gonçalves Basílio",

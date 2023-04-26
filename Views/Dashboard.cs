@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Drawing;
 using Color = System.Drawing.Color;
 using System.Runtime.InteropServices;
+using CareerConnect.Controller;
 
 namespace CareerConnect.Views{
     public partial class Dashboard : Form{
@@ -83,7 +84,7 @@ namespace CareerConnect.Views{
 
         private void iconButton3_Click(object sender, EventArgs e){
             ActiveButton(sender, RGBColors.color1);
-            OpenChildForm(new Bate_papo());
+            OpenChildForm(new Bate_papo(Usuario.usuarioLogado.Nome));
         }
 
         private void iconButton4_Click(object sender, EventArgs e){

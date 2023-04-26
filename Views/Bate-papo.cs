@@ -14,22 +14,34 @@ namespace CareerConnect.Views{
     public partial class Bate_papo : Form{
 
         private Usuario usuario;
+        private string nomeUsuarioDestino;
 
-        public Bate_papo()
+        public Bate_papo(string nomeUsuarioDestino)
         {
+            this.nomeUsuarioDestino = nomeUsuarioDestino;
             InitializeComponent();
-            ListarMensagens();
         }
 
-        private void ListarMensagens()
+        public void ListarMensagens(string nomeUsuarioDestino)
         {
+            listaMensagens.Items.Clear();
+
             var mensagens = Chat.ObterMensagens();
 
-            foreach(var mensagem in mensagens){
-                if(mensagem is Chat chat) listaMensagens.Items.Add(chat);
-                else listaMensagens.Items.Add(mensagem.ToString());
+            foreach (var mensagem in mensagens)
+            {
+                if (mensagem is Chat chat && (chat.NomeRemetente == nomeUsuarioDestino || chat.NomeDestinatario == nomeUsuarioDestino))
+                {
+                    listaMensagens.Items.Add(chat);
+                }
+                else if (mensagem != null && mensagem.ToString() is string texto)
+                {
+                    listaMensagens.Items.Add(texto);
+                }
             }
         }
+
+
 
         private void listaContatos_SelectedIndexChanged(object sender, EventArgs e){}
 
@@ -82,6 +94,17 @@ namespace CareerConnect.Views{
         private void timer1_Tick(object sender, EventArgs e)
         {
             
+        }
+
+        private void listaContatos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnIniciarConversa_Click(object sender, EventArgs e)
+        {
+            int destinatario = int.Parse(campoDestinatario.Text);
+            Chat.IniciarConversa(Usuario.usuarioLogado.ID, destinatario, listaContatos, this);
         }
     }
 }
