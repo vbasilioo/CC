@@ -338,11 +338,5 @@ namespace CareerConnect.Views{
             AtualizarGridView();
 
         }
-
-        private void Vagas_Load(object sender, EventArgs e)
-        {
-            AtualizarGridView();
-            GridOportunidades.Refresh();
-        }
     }
 }

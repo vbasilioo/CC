@@ -8,20 +8,15 @@ namespace CareerConnect.Controller
 {
     public class Conversa
     {
-        public int IDUsuario { get; set; }
-        public string NomeUsuario { get; set; }
-        public List<Mensagem> Historico { get; set; }
+        public int IDRemetente { get; set; }
+        public int IDDestinatario { get; set; }
+        public List<Mensagem> Mensagens { get; set; }
 
-        public Conversa(int id, string nome)
+        public Conversa(int remetente, int destinatario)
         {
-            IDUsuario = id;
-            NomeUsuario = nome;
-            Historico = new List<Mensagem>();
-        }
-
-        public override string ToString()
-        {
-            return NomeUsuario;
+            IDRemetente = remetente;
+            IDDestinatario = destinatario;
+            Mensagens = new List<Mensagem>();
         }
     }
 }

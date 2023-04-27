@@ -19,13 +19,13 @@ namespace CareerConnect.Controller{
         public static Usuario usuarioLogado { get; private set; }
 
         // lista estatica com usuarios cadastrados
-        public static List<Usuario> usuariosCadastrados = new List<Usuario>(){
+        private static List<Usuario> usuariosCadastrados = new List<Usuario>(){
             new Usuario(){
                 ID = 0,
                 Nome = "Vinicius Gonçalves Basílio",
                 Email = "vinicius@gmail.com",
                 Senha = "vinicius",
-                Cargo = "Candidato",
+                Cargo = "Administrador",
                 DataNascimento = 21,
                 Endereco = "Jardim da Fonte, Cachoeira Paulista",
             },
@@ -219,6 +219,8 @@ namespace CareerConnect.Controller{
                     return "Empresa";
                 case "Selecione":
                     return "";
+                case "Administrador":
+                    return "Administrador";
                 default:
                     return "Outros";
             }

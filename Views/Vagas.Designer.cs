@@ -236,7 +236,6 @@
             this.Name = "Vagas";
             this.ShowIcon = false;
             this.Text = "Vagas";
-            this.Load += new System.EventHandler(this.Vagas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridOportunidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

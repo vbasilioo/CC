@@ -38,12 +38,14 @@
             this.PainelNavbar = new System.Windows.Forms.Panel();
             this.painelShadow = new System.Windows.Forms.Panel();
             this.painelDesktop = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.PainelSidebar.SuspendLayout();
             this.SuspendLayout();
             // 
             // PainelSidebar
             // 
             this.PainelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.PainelSidebar.Controls.Add(this.iconButton1);
             this.PainelSidebar.Controls.Add(this.btnSair);
             this.PainelSidebar.Controls.Add(this.btnOpcoes);
             this.PainelSidebar.Controls.Add(this.btnChat);
@@ -204,6 +206,28 @@
             this.painelDesktop.Size = new System.Drawing.Size(1660, 749);
             this.painelDesktop.TabIndex = 3;
             // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 380);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton1.Size = new System.Drawing.Size(220, 60);
+            this.iconButton1.TabIndex = 6;
+            this.iconButton1.Text = "Painel Administrativo";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,5 +259,6 @@
         private System.Windows.Forms.Panel PainelNavbar;
         private System.Windows.Forms.Panel painelShadow;
         private System.Windows.Forms.Panel painelDesktop;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

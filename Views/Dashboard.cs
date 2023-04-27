@@ -33,6 +33,8 @@ namespace CareerConnect.Views{
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            iconButton1.Visible = false;
+            if(Usuario.VerificarCargoUsuario() == "Administrador"){ iconButton1.Visible = true; }
         }
 
         //metodos
@@ -84,7 +86,7 @@ namespace CareerConnect.Views{
 
         private void iconButton3_Click(object sender, EventArgs e){
             ActiveButton(sender, RGBColors.color1);
-            OpenChildForm(new Bate_papo(Usuario.usuarioLogado.Nome));
+            OpenChildForm(new Bate_papo(Usuario.usuarioLogado.ID));
         }
 
         private void iconButton4_Click(object sender, EventArgs e){
@@ -147,6 +149,12 @@ namespace CareerConnect.Views{
         private void PainelLogo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            ActiveButton(sender, RGBColors.color1);
+            OpenChildForm(new PainelAdministrativo());
         }
     }
 }

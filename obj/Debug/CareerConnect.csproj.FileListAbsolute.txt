@@ -168,3 +168,4 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-v001\bin\Debug\es-ES\For
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-v001\bin\Debug\nl\FormFactory.resources.dll
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-v001\bin\Debug\pt-BR\FormFactory.resources.dll
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-v001\obj\Debug\CareerConnect.csproj.CopyComplete
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-v001\obj\Debug\CareerConnect.Views.PainelAdministrativo.resources
