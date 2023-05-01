@@ -1,14 +1,14 @@
-﻿using CareerConnect.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace CareerConnect.Controller{
-    public class Oportunidade{
-
+namespace CC.Controller
+{
+    public class Oportunidade
+    {
         private static int contadorID = 1;
         public int ID { get; set; }
         public string TituloVaga { get; set; }
@@ -159,16 +159,16 @@ namespace CareerConnect.Controller{
             if(int.TryParse(idOuNome, out id)){ //verificando se o informado é INT ou STRING
                 Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorId(id); //buscando a oportunidade caso for ID
                 if(oportunidade != null){ //se encontrar algo, abre a tela aq
-                    Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
-                    edo.Show();
+                    //Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
+                    //edo.Show();
                 }else{
                     MessageBox.Show("A vaga não foi encontrada.");
                 }
             }else{
                 Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorTitulo(idOuNome);
                 if(oportunidade != null){ 
-                    Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
-                    edo.Show();
+                    //Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
+                    //edo.Show();
                 }else{
                     MessageBox.Show("A vaga não foi encontrada.");
                 }
@@ -283,7 +283,7 @@ namespace CareerConnect.Controller{
         //verifica o id da vaga q o usuario qer editar ou excluir e se pertence a ele
         public static Oportunidade VerificandoUsuarioParaAlteracoes(string id, string usuario){
             foreach(Oportunidade u in oportunidades){
-                if((u.ID.ToString() == id || u.TituloVaga == id) && Usuario.usuarioLogado.Nome == usuario){
+                if((u.ID.ToString() == id || u.TituloVaga == id) && Usuario.UsuarioLogado.Nome == usuario){
                     return u;
                 }
             }
@@ -292,7 +292,7 @@ namespace CareerConnect.Controller{
 
         public static bool VerificarVagaDaEmpresa(int idVaga){
             foreach(var vaga in oportunidades){
-                if(vaga.ID == idVaga && vaga.CNPJ == Usuario.usuarioLogado.CNPJEmpresa){
+                if(vaga.ID == idVaga && vaga.CNPJ == Usuario.UsuarioLogado.CNPJEmpresa){
                     return true;
                 }
             }

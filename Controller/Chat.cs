@@ -3,79 +3,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace CareerConnect.Controller{
+namespace CC.Controller
+{
     public class Chat
     {
-        private static Dictionary<int, Queue<Mensagem>> conversas = new Dictionary<int, Queue<Mensagem>>();
-        private static int idConversaAtual = -1;
+        private int ID { get; set; }
+        private int Usuario1 { get; set; }
+        private int Usuario2 { get; set; }
+        private List<Mensagem>? listaMensagens;
 
-        public static event Action<int, Mensagem> NovaMensagemRecebida;
-        public static event Action<int, Mensagem> NovaMensagemEnviada;
+        private Usuario usuario;
 
-        public static void IniciarConversa(int idRemetente, int idDestinatario)
+        public Chat(int ID)
         {
-            int idConversa = GerarIdConversa(idRemetente, idDestinatario);
-            if (!conversas.ContainsKey(idConversa))
-            {
-                conversas.Add(idConversa, new Queue<Mensagem>());
-                 idConversaAtual = idConversa;
-            }
+            Usuario1 = Usuario.UsuarioLogado.ID;
+            Usuario2 = ID;
+            listaMensagens = new List<Mensagem>();
+            ID = usuario.AdicionarChat(this);
+            Chat chat = new Chat(ID);
+            ((Usuario)Usuario.BuscarUsuario(Usuario.UsuarioLogado.ID)).AdicionarChat(chat);
+            ((Usuario)Usuario.BuscarUsuario(Usuario.UsuarioLogado.ID)).AdicionarChat(chat);
         }
 
-        public static void EnviarMensagem(int idRemetente, string texto)
+        public void AlterarID(int id)
         {
-            if (idConversaAtual != -1)
-            {
-                Mensagem mensagem = new Mensagem(idRemetente, idConversaAtual, texto);
-                conversas[idConversaAtual].Enqueue(mensagem);
-                NovaMensagemEnviada?.Invoke(idConversaAtual, mensagem);
-            }
+            ID = id;
         }
 
-        public static List<int> ObterConversasIniciadas(int idUsuario)
+        public int RetornarID()
         {
-            List<int> conversasIniciadas = new List<int>();
-            foreach (int idConversa in conversas.Keys)
-            {
-                if (idConversa.ToString().StartsWith(idUsuario.ToString()))
-                {
-                    conversasIniciadas.Add(idConversa);
-                }
-            }
-            return conversasIniciadas;
+            return ID;
         }
 
-        public static Queue<Mensagem> ObterMensagensDaConversa(int idConversa)
+        public void EnviarNovaMensagem(string texto)
         {
-            if (conversas.ContainsKey(idConversa))
-            {
-                return conversas[idConversa];
-            }
-            else
-            {
-                return null;
-            }
+            Mensagem mensagem = new Mensagem(texto);
+            listaMensagens.Add(mensagem);
         }
 
-        public static bool ConversaExiste(int idConversa)
+        public int GetUsuario1()
         {
-            return conversas.ContainsKey(idConversa);
+            return Usuario1;
         }
 
-        public static int GerarIdConversa(int idUsuario1, int idUsuario2)
+        public int GetUsuario2()
         {
-            int idConversa;
-            if (idUsuario1 < idUsuario2)
-            {
-                idConversa = int.Parse(idUsuario1.ToString() + idUsuario2.ToString());
-            }
-            else
-            {
-                idConversa = int.Parse(idUsuario2.ToString() + idUsuario1.ToString());
-            }
-            return idConversa;
+            return Usuario2;
+        }
+
+        public List<Mensagem> RetornarChat()
+        {
+            return listaMensagens;
+        }
+
+        public Mensagem RetornarMensagem(int id)
+        {
+            return listaMensagens[id];
         }
     }
 }

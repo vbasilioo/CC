@@ -4,23 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CareerConnect.Controller{
+namespace CC.Controller
+{
     public class Mensagem
     {
-        public int IDRemetente { get; }
-        public int IDDesteinatario { get; }
-        public string Texto { get; }
+        private int Participante { get; set; }
+        private string? Texto { get; set; }
+        private DateTime dataEnvio { get; set; }
 
-        public Mensagem(int idRemetente, int idDestinatario, string texto)
+        public Mensagem(string texto)
         {
-            IDRemetente = idRemetente;
-            IDDesteinatario = idDestinatario;
+            Participante = Usuario.UsuarioLogado.ID;
             Texto = texto;
-        }
-
-        public override string ToString()
-        {
-            return $"{IDRemetente}: {Texto}";
+            dataEnvio = DateTime.Now;
         }
     }
 }
