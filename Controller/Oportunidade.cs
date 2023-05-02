@@ -1,14 +1,14 @@
-﻿using CareerConnect.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace CareerConnect.Controller{
-    class Oportunidade{
-
+namespace CC.Controller
+{
+    public class Oportunidade
+    {
         private static int contadorID = 1;
         public int ID { get; set; }
         public string TituloVaga { get; set; }
@@ -100,7 +100,6 @@ namespace CareerConnect.Controller{
             Oportunidade novaOportunidade = new Oportunidade(titulo, descricao, salario, requisitos, empresa, cnpj, status);
             Oportunidade.AdicionarOportunidade(novaOportunidade);
             MessageBox.Show("A oportunidade foi cadastrada com sucesso!");
-            Cadastrar_Oportunidade.FormVagas.AtualizarGridView();
         }
 
         //buscando oportunidade por id ou titulo num metodo apenas
@@ -160,16 +159,16 @@ namespace CareerConnect.Controller{
             if(int.TryParse(idOuNome, out id)){ //verificando se o informado é INT ou STRING
                 Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorId(id); //buscando a oportunidade caso for ID
                 if(oportunidade != null){ //se encontrar algo, abre a tela aq
-                    Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
-                    edo.Show();
+                    //Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
+                    //edo.Show();
                 }else{
                     MessageBox.Show("A vaga não foi encontrada.");
                 }
             }else{
                 Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorTitulo(idOuNome);
                 if(oportunidade != null){ 
-                    Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
-                    edo.Show();
+                    //Editar_Oportunidade edo = new Editar_Oportunidade(idOuNome);
+                    //edo.Show();
                 }else{
                     MessageBox.Show("A vaga não foi encontrada.");
                 }
@@ -178,9 +177,23 @@ namespace CareerConnect.Controller{
 
         //metodo de deletar a vaga q vai dentro do botao
         public static void DeletarVagaNaTela(string idOuNome){
-            int id;
+            if(int.TryParse(idOuNome, out int id)){ 
+                Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorId(id);
+                if(oportunidade != null){
+                    string opcao = Microsoft.VisualBasic.Interaction.InputBox("Certeza que deseja excluir essa inscrição? (sim ou nao)");
+                    if(opcao.ToLower() == "sim") Oportunidade.RemoverOportunidade(oportunidade);
+                    else MessageBox.Show("A ação foi cancelada.");
+                }else MessageBox.Show("A vaga não foi localizada!");
+            }else{
+                Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorId(id);
+                if(oportunidade != null){
+                    string opcao = Microsoft.VisualBasic.Interaction.InputBox("Certeza que deseja excluir essa inscrição? (sim ou nao)");
+                    if(opcao.ToLower() == "sim") Oportunidade.RemoverOportunidade(oportunidade);
+                    else MessageBox.Show("A ação foi cancelada.");
+                }else MessageBox.Show("A vaga não foi localizada!");
+            }
 
-            if(int.TryParse(idOuNome, out id)){ //verificando se o informado é INT ou STRING
+           /* if(int.TryParse(idOuNome, out id)){ //verificando se o informado é INT ou STRING
                 Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorId(id); //buscando a oportunidade caso for ID
                 if(oportunidade != null){ //se encontrar algo, abre a tela aq
                     string opcao = Microsoft.VisualBasic.Interaction.InputBox("Certeza que deseja excluir essa vaga? (sim ou nao)");
@@ -198,7 +211,7 @@ namespace CareerConnect.Controller{
                 }else{
                     MessageBox.Show("A vaga não foi encontrada.");
                 }
-            }
+            }*/
         }
 
         //metodo para contar quantas vagas tao cadastrar nesse CNPJ
@@ -270,7 +283,7 @@ namespace CareerConnect.Controller{
         //verifica o id da vaga q o usuario qer editar ou excluir e se pertence a ele
         public static Oportunidade VerificandoUsuarioParaAlteracoes(string id, string usuario){
             foreach(Oportunidade u in oportunidades){
-                if((u.ID.ToString() == id || u.TituloVaga == id) && Usuario.usuarioLogado.Nome == usuario){
+                if((u.ID.ToString() == id || u.TituloVaga == id) && Usuario.UsuarioLogado.Nome == usuario){
                     return u;
                 }
             }
@@ -279,7 +292,7 @@ namespace CareerConnect.Controller{
 
         public static bool VerificarVagaDaEmpresa(int idVaga){
             foreach(var vaga in oportunidades){
-                if(vaga.ID == idVaga && vaga.CNPJ == Usuario.usuarioLogado.CNPJEmpresa){
+                if(vaga.ID == idVaga && vaga.CNPJ == Usuario.UsuarioLogado.CNPJEmpresa){
                     return true;
                 }
             }
