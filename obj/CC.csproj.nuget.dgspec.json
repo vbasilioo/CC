@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CC\\CC.csproj": {}
+    "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\CC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CC\\CC.csproj": {
+    "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\CC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CC\\CC.csproj",
+        "projectUniqueName": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\CC.csproj",
         "projectName": "CC",
-        "projectPath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CC\\CC.csproj",
+        "projectPath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\CC.csproj",
         "packagesPath": "C:\\Users\\vbasi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CC\\obj\\",
+        "outputPath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vbasi\\AppData\\Roaming\\NuGet\\NuGet.Config",

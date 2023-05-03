@@ -51,14 +51,14 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="ForumOutline" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Bate-papo" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click_2">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HeadMinus" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Gestão" />

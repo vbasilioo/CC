@@ -80,5 +80,19 @@ namespace CC
             login.Show();
             this.Hide();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Conversa conversa = new Conversa();
+            conversa.Show();
+            this.Hide();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Gestao gestao = new Gestao();
+            gestao.Show();
+            this.Hide();
+        }
     }
 }
