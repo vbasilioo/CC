@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CC.Controller;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,44 @@ namespace CC
         public Gestao()
         {
             InitializeComponent();
+            ListarOportunidades();
+        }
+
+        private void ListarOportunidades()
+        {
+            var converter = new BrushConverter();
+            ObservableCollection<Oportunidade> oportunidades = new ObservableCollection<Oportunidade>();
+            GridOportunidades.ItemsSource =  Oportunidade.ListarOportunidades();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(GridOportunidades.SelectedItem != null)
+            {
+                Oportunidade oportunidadeSelecionada = (Oportunidade)GridOportunidades.SelectedItem;
+                oportunidadeSelecionada.ID = Oportunidade.oportunidadesAprovadas.Count;
+                Oportunidade.oportunidadesAprovadas.Add(oportunidadeSelecionada);
+                Oportunidade.oportunidades.Remove(oportunidadeSelecionada);
+                GridOportunidades.Items.Refresh();
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if(GridOportunidades.SelectedItem != null)
+            {
+                Oportunidade oportunidadeSelecionada = (Oportunidade)GridOportunidades.SelectedItem;
+                Oportunidade.oportunidadesReprovadas.Add(oportunidadeSelecionada);
+                Oportunidade.oportunidades.Remove(oportunidadeSelecionada);
+                GridOportunidades.Items.Refresh();
+            }
         }
     }
 }

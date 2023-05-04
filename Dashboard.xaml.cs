@@ -16,26 +16,19 @@ using System.Windows.Shapes;
 
 namespace CC
 {
-    /// <summary>
-    /// Lógica interna para Dashboard.xaml
-    /// </summary>
     public partial class Dashboard : Window
     {
 
+        private List<Oportunidade> listaPesquisa = new List<Oportunidade>();
+        private List<Oportunidade> resultadoPesquisa = new List<Oportunidade>();
         private bool Maximizado = false;
 
         public Dashboard()
         {
             InitializeComponent();
-            ListarOportunidades();
+            GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
+            VerificarCargo();
             AlterarNomeCargo();
-        }
-
-        private void ListarOportunidades()
-        {
-            var converter = new BrushConverter();
-            ObservableCollection<Oportunidade> oportunidades = new ObservableCollection<Oportunidade>();
-            GridOportunidades.ItemsSource =  Oportunidade.ListarOportunidades();
         }
 
         private void AlterarNomeCargo()
@@ -43,6 +36,26 @@ namespace CC
             string nome = Usuario.UsuarioLogado.Nome.Substring(0, Usuario.UsuarioLogado.Nome.LastIndexOf(" "));
             campoUsuario.Text = nome;
             campoCargo.Text = Usuario.UsuarioLogado.Cargo;
+        }
+
+        private void VerificarCargo()
+        {
+            if(Usuario.VerificarCargoUsuario() == "Candidato")
+            {
+                colunaAcoes.Visibility = Visibility.Collapsed;
+                btnChat.Visibility = Visibility.Collapsed;
+                btnGestao.Visibility = Visibility.Collapsed;
+                btnVagas.Visibility = Visibility.Collapsed;
+            }else if(Usuario.VerificarCargoUsuario() == "Coordenador")
+            {
+                colunaAcoes.Visibility = Visibility.Collapsed;
+                btnChat.Visibility = Visibility.Collapsed;
+                btnVagas.Visibility = Visibility.Collapsed;
+            }else if(Usuario.VerificarCargoUsuario() == "Empresa")
+            {
+                btnChat.Visibility = Visibility.Collapsed;
+                btnGestao.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -93,6 +106,65 @@ namespace CC
             Gestao gestao = new Gestao();
             gestao.Show();
             this.Hide();
+        }
+
+        private void btnVagas_Click(object sender, RoutedEventArgs e)
+        {
+            Gestao_Controle controle = new Gestao_Controle();
+            controle.Show();
+            this.Hide();
+        }
+
+        private void campoPesquisar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            foreach(Oportunidade oportunidade in Oportunidade.oportunidadesAprovadas)
+            {
+                if (oportunidade.NomeFantasia.Contains(campoPesquisar.Text))
+                {
+                    resultadoPesquisa.Add(oportunidade);
+                }
+            }
+
+            GridOportunidadesAprovadas.ItemsSource = resultadoPesquisa;
+
+            if(campoPesquisar.Text == "")
+            {
+                GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Oportunidade oportunidade = button.DataContext as Oportunidade;
+            int ID = oportunidade.ID;
+
+            if(oportunidade.CNPJ == Usuario.UsuarioLogado.CNPJEmpresa)
+            {
+                Editar_Vaga editar = new Editar_Vaga(ID);
+                editar.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("CNPJ inválido.");
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Oportunidade oportunidade = button.DataContext as Oportunidade;
+
+            if(oportunidade.CNPJ == Usuario.UsuarioLogado.CNPJEmpresa)
+            {
+                Oportunidade.RemoverOportunidade(oportunidade);
+                GridOportunidadesAprovadas.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("CNPJ inválido.");
+            }
         }
     }
 }

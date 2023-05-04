@@ -13,13 +13,25 @@
     <Compile Update="Dashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Editar_Vaga.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Gestao.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Gestao_Controle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\Card.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\Item.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\MenuButton.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\MyTextBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -30,16 +42,28 @@
     <Page Update="Dashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Editar_Vaga.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Gestao.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Gestao_Controle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\Card.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Item.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\MenuButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\MyTextBox.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

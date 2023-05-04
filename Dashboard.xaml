@@ -44,21 +44,21 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}">
+                            <Button x:Name="btnVagas" Style="{StaticResource menuButton}" Click="btnVagas_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Vagas" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
+                            <Button x:Name="btnChat" Style="{StaticResource menuButton}" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="ForumOutline" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Bate-papo" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}" Click="Button_Click_2">
+                            <Button x:Name="btnGestao" Style="{StaticResource menuButton}" Click="Button_Click_2">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HeadMinus" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Gestão" />
@@ -90,7 +90,7 @@
                 <Grid Width="300" HorizontalAlignment="Left">
                     <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#242f34" IsHitTestVisible="False" 
                                Panel.ZIndex="1" Text="Pesquisar..." Visibility="{Binding ElementName = campoPesquisar, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
-                    <TextBox x:Name="campoPesquisar" Style="{StaticResource campoPesquisar}" />
+                    <TextBox x:Name="campoPesquisar" Style="{StaticResource campoPesquisar}" TextChanged="campoPesquisar_TextChanged" />
                     <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
                                            Margin="0 0 15 0" Foreground="#242f34" HorizontalAlignment="Right" />
                 </Grid>
@@ -104,7 +104,7 @@
                 <!--SEPARADOR-->
                 <Separator Height="10" Grid.Row="3" Background="#242f34" Margin="0 -1 0 10" />
                 <!--DATAGRID-->
-                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridOportunidades">
+                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridOportunidadesAprovadas">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="ID" IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
@@ -122,14 +122,14 @@
                         <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding NomeFantasia}" />
                         <DataGridTextColumn Header="Status" IsReadOnly="True" Width="*" Binding="{Binding StatusVaga}" />
 
-                        <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn x:Name="colunaAcoes" Header="Ações" IsReadOnly="True" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Style="{StaticResource gridEditButton}">
+                                        <Button Style="{StaticResource gridEditButton}" Click="Button_Click_3">
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
                                         </Button>
-                                        <Button Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0">
+                                        <Button Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0" Click="Button_Click_4">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}" />
                                         </Button>
                                     </StackPanel>

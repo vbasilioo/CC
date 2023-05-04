@@ -12,9 +12,7 @@
     
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="55" />
-            <ColumnDefinition Width="220" />
-            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="70" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -33,41 +31,34 @@
                         <RotateTransform Angle="90" />
                     </TextBlock.LayoutTransform>
                 </TextBlock>
-                <!--BOTÕES DA SIDEBAR-->
-                <StackPanel Margin="0 170 0 0">
-                    <Button Style="{StaticResource leftSideButton}">
-                        <Border Background="Transparent" CornerRadius="3" Width="25" Height="25" BorderThickness="0.8"
-                                Margin="-3 0 0 0" BorderBrush="White">
-                            <Icon:PackIconMaterial Kind="Plus" Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        </Border>
-                    </Button>
-                    
-                </StackPanel>
-                
             </Grid>
         </Border>
-        <!--SIDEBAR 2-->
-        <Border Grid.Column="1" Grid.RowSpan="2" CornerRadius="0 20 20 0" Background="#242f34" Panel.ZIndex="1" Margin="-25 0 0 0">
+        <!--CHAT MENU-->
+        <Border Grid.Column="2" Grid.Row="1">
             <Grid>
-                <!--TOP COMBOBOX-->
-                <ComboBox Style="{DynamicResource ComboBoxStyle1}" VerticalAlignment="Top" Margin="25 45 0 0">
-                    <ComboBoxItem Content="Usuário 1" />
-                    <ComboBoxItem Content="Usuário 2" />
-                    <ComboBoxItem Content="Usuário 3" />
-                    <ComboBoxItem Content="Usuário 4" />
-                    <ComboBoxItem Content="Usuário 5" />
-                </ComboBox>
-                <!--BOTÕES DO MENU-->
-                <StackPanel Margin="25 700 0 40">
-                    <uc:MenuButton Title="Configurações" Icon="CogOutline" />
-                    <uc:MenuButton Title="Sair" Icon="Logout" Loaded="MenuButton_Loaded" />
+                <!--SEPARADOR-->
+                <StackPanel Orientation="Horizontal" Margin="30 0 0 30">
+                    <Rectangle Width="0.8" Stroke="#dadada" VerticalAlignment="Stretch" />
+                </StackPanel>
+                <!--ITEMS-->
+                <StackPanel Margin="-300 0 15 0">
+                    <StackPanel Margin="25 0 15 0" Width="746" Height="300">
+                        <!--<TextBlock Text="Contatos" Style="{StaticResource titleText}" Foreground="#242f34" />-->
+                        <uc:Item Title="para: Vinícius" Message="Conseguiu finalizar o chat?" Color="#f18047" TagName="CC" MessageCount="2" />
+                        <uc:Item Title="para: Maria Clara" Message="e o front-end?" Color="Pink" TagName="CC" MessageCount="1" />
+                        <uc:Item Title="para: Eric" Message="Tá tranquilo, eu consigo." Color="#242f34" TagName="CC" MessageCount="5" />
+                        <uc:Item Title="para: Gustavo" Message="Design maneiro!" Color="MediumAquamarine" TagName="CC" MessageCount="1" />
+                        <uc:Item Title="para: Maria Clara" Message="tudo bem, precisar é só falar" Color="Green" TagName="CC" MessageCount="3" />
+
+                        <Button Content="Mostrar todos" Style="{StaticResource showButton}" />
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Border>
         <!--TOP SECTION-->
         <Grid Grid.Column="2" Grid.ColumnSpan="2" Margin="40 30">
             <!--PESQUISAR-->
-            <Grid Width="500" HorizontalAlignment="Left">
+            <!--<Grid Width="500" HorizontalAlignment="Left">
                 <ComboBox Style="{StaticResource ComboBoxStyle1}" HorizontalAlignment="Left" Margin="3 0 0 0" Panel.ZIndex="2">
                     <ComboBoxItem Content="Categoria" IsSelected="True" />
                 </ComboBox>
@@ -78,14 +69,22 @@
                 <Button HorizontalAlignment="Right" Margin="0 0 7 0" Style="{StaticResource textBoxButton}">
                     <Icon:PackIconMaterial Kind="Magnify" Width="15" Foreground="#c7c7c7" />
                 </Button>
-            </Grid>
-            <!--CHAT ITEMS-->
-            <Border Grid.Column="2" Grid.Row="1">
+            </Grid>-->
+            <!--CHAT-->
+            <Border CornerRadius="15" Background="#ffffff" Grid.Column="3" Grid.Row="1" Margin="0 0 30 30" ClipToBounds="True">
                 <Grid>
-                    <!--SEPARADOR-->
-                    <StackPanel Orientation="Horizontal" Margin="30 0 0 30">
-                        <Rectangle Width="0.8" Stroke="#dadada" VerticalAlignment="Stretch" />
-                    </StackPanel>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <!--TOP CHAT MENUBAR-->
+                    <Grid Background="Transparent">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" ShadowDepth="1" Direction="-90" Opacity="0.1" />
+                        </Grid.Effect>
+                        <TextBlock Text="Conversas" FontSize="16" Margin="20 15" HorizontalAlignment="Left" Background="Transparent" />
+                    </Grid>
                 </Grid>
             </Border>
         </Grid>

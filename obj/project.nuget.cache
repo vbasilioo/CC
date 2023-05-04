@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4U2I9jhugoaLueOcfRZM2oynJGSm/KXky707FXnSwFyECUhi93GVXr69lGTHwgN+5RsrnJp0suqCuHLskapZCQ==",
+  "dgSpecHash": "xxwEDhRL6ucFELsPqoFkP6PUtTH0ZmiU7TErlGsjLuiy7sOawLK92Obc0a3gE6uWWHKyPSgxGkTHFhlQl8ZO9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\CC.csproj",
+  "projectFilePath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect-02\\CC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vbasi\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
   ],

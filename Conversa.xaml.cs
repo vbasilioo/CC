@@ -57,9 +57,7 @@ namespace CC
 
         private void MenuButton_Loaded(object sender, RoutedEventArgs e)
         {
-            MainWindow dashboard = new MainWindow();
-            dashboard.Show();
-            this.Hide();
+            
         }
     }
 }
