@@ -22,6 +22,7 @@ namespace CC.Controller
         public static List<Oportunidade> oportunidades { get; set; } = new List<Oportunidade>();
         public static List<Oportunidade> oportunidadesReprovadas { get; set; } = new List<Oportunidade>();
         public static Stack<Oportunidade> oportunidadesArquivadas { get; set; } = new Stack<Oportunidade>();
+        public static List<Usuario> Inscritos { get; set; } = new List<Usuario>();
 
         public Oportunidade(){}
 
@@ -335,7 +336,7 @@ namespace CC.Controller
 
         //tuple serve pra armazenar diversos tipos de referencias de diferentes tipos (string, int, double) ou (string, string, float)
         public static Tuple<string, string, string> GetTituloCNPJeNomeFantasiaById(int id){
-            foreach(Oportunidade oportunidade in oportunidades){
+            foreach(Oportunidade oportunidade in oportunidadesAprovadas){
                 if(oportunidade.ID == id){
                     return Tuple.Create(oportunidade.TituloVaga, oportunidade.CNPJ, oportunidade.NomeFantasia); //armazena no tuple o necessario pra retorna
                 }

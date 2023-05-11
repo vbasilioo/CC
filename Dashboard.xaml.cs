@@ -46,15 +46,20 @@ namespace CC
                 btnChat.Visibility = Visibility.Collapsed;
                 btnGestao.Visibility = Visibility.Collapsed;
                 btnVagas.Visibility = Visibility.Collapsed;
+                btnAdm.Visibility = Visibility.Collapsed;
             }else if(Usuario.VerificarCargoUsuario() == "Coordenador")
             {
                 colunaAcoes.Visibility = Visibility.Collapsed;
                 btnChat.Visibility = Visibility.Collapsed;
                 btnVagas.Visibility = Visibility.Collapsed;
+                btnAdm.Visibility = Visibility.Collapsed;
+                btnCandidatura.Visibility = Visibility.Collapsed;
             }else if(Usuario.VerificarCargoUsuario() == "Empresa")
             {
                 btnChat.Visibility = Visibility.Collapsed;
                 btnGestao.Visibility = Visibility.Collapsed;
+                btnAdm.Visibility = Visibility.Collapsed;
+                btnCandidatura.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -96,8 +101,8 @@ namespace CC
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Conversa conversa = new Conversa();
-            conversa.Show();
+            Bate_papo chat = new Bate_papo();   
+            chat.Show();    
             this.Hide();
         }
 
@@ -165,6 +170,13 @@ namespace CC
             {
                 MessageBox.Show("CNPJ inválido.");
             }
+        }
+
+        private void btnCandidatura_Click(object sender, RoutedEventArgs e)
+        {
+            Candidatura candidatura = new Candidatura();
+            candidatura.Show();
+            this.Hide();
         }
     }
 }

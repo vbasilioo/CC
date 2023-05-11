@@ -28,10 +28,10 @@ namespace CC.Controller
         private static List<Usuario> usuariosCadastrados = new List<Usuario>(){
             new Usuario{
                 ID = 0,
-                Nome = "Vinicius Gonçalves Basílio",
+                Nome = "Vinícius Gonçalves Basílio",
                 Email = "vinicius@gmail.com",
                 Senha = "vinicius",
-                Cargo = "Administrador",
+                Cargo = "Candidato",
                 DataNascimento = 21,
                 Endereco = "Jardim da Fonte, Cachoeira Paulista",
             },
@@ -76,6 +76,17 @@ namespace CC.Controller
                 DataNascimento = 19,
                 Endereco = "Centro, Cruzeiro",
                 CNPJEmpresa = "34.466.957/0001-40"
+            },
+
+            new Usuario
+            {
+                ID = 5,
+                Nome = "Administrador Sistema",
+                Email = "admin",
+                Senha = "admin",
+                Cargo = "Administrador",
+                DataNascimento = 0,
+                Endereco = "admin"
             }
         };
 
@@ -422,16 +433,36 @@ namespace CC.Controller
             return ListaChats.IndexOf(chat);
         }
 
-        // Busca o chat na lista de chats
-        public static Chat BuscarChat(int id)
+        // Encontra o usuário através do nome
+        public static void BuscarUsuarioPorNome(string nomeprocurado)
         {
-            return ListaChats[id];
+            Usuario usuarioEncontrado = null;
+
+            foreach(Usuario usuario in usuariosCadastrados)
+            {
+                if(usuario.Nome == nomeprocurado)
+                {
+                    usuarioEncontrado = usuario;
+                }
+            }
+
+            if(usuarioEncontrado != null)
+            {
+                AssociarCandidato assoc = new AssociarCandidato(usuarioEncontrado.Nome);
+                assoc.Show();
+            }
+            else
+            {
+                usuarioEncontrado = null;
+            }
         }
 
-        // Buscando usuário apenas por ID
-        public static Usuario BuscarUsuario(int id)
+        // Busca o objeto do Usuário
+        public static Usuario BuscarUsuarioObjeto(Usuario usuario)
         {
-            return usuariosCadastrados.FirstOrDefault(u => u.ID == id);
+            return usuariosCadastrados.FirstOrDefault(u => u.Nome == usuario.Nome);
         }
+
+
     }
 }

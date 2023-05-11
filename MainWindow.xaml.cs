@@ -64,5 +64,24 @@ namespace CC
                 txtPassword.Clear();
             }
         }
+
+        private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            EsqueciSenha esqueci = new EsqueciSenha();
+            esqueci.Show();
+            this.Hide();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            CadastrarUsuario cad = new CadastrarUsuario();
+            cad.Show();
+            this.Hide();
+        }
     }
 }

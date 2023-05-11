@@ -20,11 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Imagens\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 
 </Project>
