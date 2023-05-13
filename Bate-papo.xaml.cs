@@ -1,4 +1,5 @@
-﻿using CC.UserControls;
+﻿using CC.Controller;
+using CC.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +31,36 @@ namespace CC
 
         private void btnIniciar_Click(object sender, RoutedEventArgs e)
         {
-            var novoContato = new Contato();
-            wrapContatos.Children.Add(novoContato); 
+            string nome = Microsoft.VisualBasic.Interaction.InputBox("Digite seu nome:", "Iniciar Conversa");
+            var usuario = Usuario.usuariosCadastrados.FirstOrDefault(u => u.Nome == nome);
+
+            try
+            {
+                Contato contato = new Contato(usuario);
+                wrapContatos.Children.Add(contato); 
+
+                if(usuario == Usuario.UsuarioLogado)
+                {
+                    Usuario destinatario = contato.Destinatario;
+                    Usuario.ConversasIniciadas.Add(new Chat(destinatario.ID, Usuario.UsuarioLogado.Nome, destinatario.Nome, destinatario));
+                }
+                else
+                {
+                    Chat novaConversa = new Chat(Usuario.UsuarioLogado.ID, usuario.Nome, Usuario.UsuarioLogado.Nome, usuario);
+                    Usuario.ConversasIniciadas.Add(novaConversa);
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Dashboard dash = new Dashboard();
+            dash.Show();
+            this.Hide();
         }
     }
 }

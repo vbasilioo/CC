@@ -19,13 +19,13 @@ namespace CC.Controller
         public string? Senha { get; set; }
         public string? Cargo { get; set; }
         public int DataNascimento { get; set; }
-        public string? Endereco { get; set; }
+        public string? Endereco { get; set; }   
         public string? CNPJEmpresa { get; set; }
         public static Usuario? UsuarioLogado { get; private set; }
-        private static List<Chat>? ListaChats { get; set; }  
+        public static List<Chat>? ConversasIniciadas { get; set; } = new List<Chat>();
 
         /*         CONSTRUTOR           */
-        private static List<Usuario> usuariosCadastrados = new List<Usuario>(){
+        public static List<Usuario> usuariosCadastrados = new List<Usuario>(){
             new Usuario{
                 ID = 0,
                 Nome = "Vinícius Gonçalves Basílio",
@@ -426,13 +426,6 @@ namespace CC.Controller
             return null;
         }
 
-        // Adiciona uma conversa no chat do destinatário / remetente
-        public int AdicionarChat(Chat chat)
-        {
-            ListaChats.Add(chat);
-            return ListaChats.IndexOf(chat);
-        }
-
         // Encontra o usuário através do nome
         public static void BuscarUsuarioPorNome(string nomeprocurado)
         {
@@ -457,12 +450,41 @@ namespace CC.Controller
             }
         }
 
+        public static string BuscarUserNome(string nome)
+        {
+            Usuario usuarioEncontrado = null;
+
+            foreach(Usuario usuario in usuariosCadastrados)
+            {
+                if(usuario.Nome == nome)
+                {
+                    usuarioEncontrado = usuario;
+                    return usuarioEncontrado.ToString();
+                }
+            }
+
+            return null;
+        }
+
         // Busca o objeto do Usuário
         public static Usuario BuscarUsuarioObjeto(Usuario usuario)
         {
             return usuariosCadastrados.FirstOrDefault(u => u.Nome == usuario.Nome);
         }
 
+        public List<Chat> ObterConversasRecebidas()
+        {
+            List<Chat> conversasRecebidas = new List<Chat>();
 
+            foreach (Chat conversa in ConversasIniciadas)
+            {
+                if (conversa.Usuario2 == ID)
+                {
+                    conversasRecebidas.Add(conversa);
+                }
+            }
+
+            return conversasRecebidas;
+        }
     }
 }

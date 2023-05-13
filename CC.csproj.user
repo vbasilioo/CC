@@ -49,6 +49,12 @@
     <Compile Update="UserControls\Item.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\MensagemDireita.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\MensagemEsquerda.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\MenuButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,6 +112,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Item.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\MensagemDireita.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\MensagemEsquerda.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\MenuButton.xaml">

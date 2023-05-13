@@ -50,7 +50,6 @@ namespace CC
             }else if(Usuario.VerificarCargoUsuario() == "Coordenador")
             {
                 colunaAcoes.Visibility = Visibility.Collapsed;
-                btnChat.Visibility = Visibility.Collapsed;
                 btnVagas.Visibility = Visibility.Collapsed;
                 btnAdm.Visibility = Visibility.Collapsed;
                 btnCandidatura.Visibility = Visibility.Collapsed;

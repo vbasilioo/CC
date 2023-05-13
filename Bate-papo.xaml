@@ -22,13 +22,34 @@
             <TextBlock Text="Bate-papo" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="55 0 0 2" FontSize="16" FontWeight="SemiBold" Foreground="#242f34" />
             <Icon:PackIconMaterial Kind="Message" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33 0 0 4" Width="14" Height="14" Foreground="#ff9d00" />
             <Icon:PackIconMaterial Kind="Message" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30 4 0 0" Width="14" Height="14" Foreground="#242f34" />
-            <Button x:Name="btnIniciar" Content="Iniciar Conversa" FontSize="18" Background="#f18047" Foreground="White" FontWeight="SemiBold" Click="btnIniciar_Click" />
+            <Button x:Name="btnIniciar" Content="Iniciar Conversa" FontSize="18" Background="Orange" Foreground="White" FontWeight="SemiBold" Click="btnIniciar_Click" />
 
             <!--SEÇÃO DA DIREITA-->
             <Border Grid.Row="1" CornerRadius="0 0 0 5" Background="#f2f5f8">
                 <StackPanel Margin="0 10 0 0">
                     <WrapPanel x:Name="wrapContatos" Grid.Row="1" Orientation="Vertical">
-                        <uc:Contato Width="340" />
+                       
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <Border CornerRadius="0 0 0 5" Background="#f2f5f8" Grid.Column="1" Grid.RowSpan="2" Margin="0,0,0,67">
+                <StackPanel Margin="0 10 0 0">
+                    <Button Height="15" Click="Button_Click">SAIRRR IMPROVISAADO</Button>
+                    <WrapPanel x:Name="wrapMensagemE" Grid.Row="2" Orientation="Vertical">
+                        <uc:MensagemEsquerda Margin="20 10 0 0" />
+                    </WrapPanel>
+                    <WrapPanel x:Name="wrapMensagemD" Grid.Row="2" Orientation="Vertical">
+                        <uc:MensagemDireita Margin="600 10 0 0"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <Border CornerRadius="0 0 0 5" Background="Orange" Grid.Column="1" Grid.RowSpan="2" Margin="0,719,0,0">
+                <StackPanel>
+                    <WrapPanel x:Name="wrapEnviar" Grid.Row="2" Orientation="Vertical" Height="65" Margin="0 0 0 0" Background="Orange">
+                        <TextBox Margin="10 10 0 0" Width="400" Background="White" FontSize="20" FontWeight="Light">Mensagem</TextBox>
+                        <Button Background="Green" Margin="330 10 0 10" Height="40" Width="60">Enviar</Button>
                     </WrapPanel>
                 </StackPanel>
             </Border>

@@ -129,3 +129,7 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-02\obj\Debug\net7.0-wind
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-02\obj\Debug\net7.0-windows\Bate-papo.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-02\obj\Debug\net7.0-windows\UserControls\Contato.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-02\obj\Debug\net7.0-windows\UserControls\Contato.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-02\obj\Debug\net7.0-windows\UserControls\MensagemDireita.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-02\obj\Debug\net7.0-windows\UserControls\MensagemEsquerda.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-02\obj\Debug\net7.0-windows\UserControls\MensagemDireita.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-02\obj\Debug\net7.0-windows\UserControls\MensagemEsquerda.baml
