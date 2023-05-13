@@ -14,6 +14,7 @@ namespace CC.Controller
         public int Usuario1 { get; set; }  
         public int Usuario2 { get; set; }
         public List<Mensagem>? listaMensagens;
+        public List<string> Mensagens { get; } = new List<string>();
 
         private Usuario usuario;
 
@@ -24,6 +25,11 @@ namespace CC.Controller
             Usuario1 = Usuario.UsuarioLogado.ID;
             Usuario2 = ID;
             this.usuario = usuario;
+        }
+
+        public void AdicionarMensagem(string remetente, string mensagem)
+        {
+            Mensagens.Add($"{remetente}: {mensagem}");
         }
 
         public void EnviarNovaMensagem(string texto)

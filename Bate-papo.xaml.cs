@@ -27,6 +27,22 @@ namespace CC
         public Bate_papo()
         {
             InitializeComponent();
+
+            foreach (var conversa in Usuario.ConversasIniciadas)
+            {
+                Usuario destinatario;
+                if (conversa.Remetente == Usuario.UsuarioLogado.Nome)
+                {
+                    destinatario = Usuario.usuariosCadastrados.FirstOrDefault(u => u.Nome == conversa.Destinatario);
+                }
+                else
+                {
+                    destinatario = Usuario.usuariosCadastrados.FirstOrDefault(u => u.Nome == conversa.Remetente);
+                }
+
+                Contato contato = new Contato(destinatario);
+                wrapContatos.Children.Add(contato);
+            }
         }
 
         private void btnIniciar_Click(object sender, RoutedEventArgs e)
@@ -42,11 +58,14 @@ namespace CC
                 if(usuario == Usuario.UsuarioLogado)
                 {
                     Usuario destinatario = contato.Destinatario;
-                    Usuario.ConversasIniciadas.Add(new Chat(destinatario.ID, Usuario.UsuarioLogado.Nome, destinatario.Nome, destinatario));
+                    Chat novaConversa = new Chat(destinatario.ID, Usuario.UsuarioLogado.Nome, destinatario.Nome, destinatario);
+                    novaConversa.AdicionarMensagem(Usuario.UsuarioLogado.Nome, "Olá, eu quero conversar com você!");
+                    Usuario.ConversasIniciadas.Add(novaConversa);
                 }
                 else
                 {
                     Chat novaConversa = new Chat(Usuario.UsuarioLogado.ID, usuario.Nome, Usuario.UsuarioLogado.Nome, usuario);
+                    novaConversa.AdicionarMensagem(Usuario.UsuarioLogado.Nome, "Olá, eu quero conversar com você!");
                     Usuario.ConversasIniciadas.Add(novaConversa);
                 }
             }

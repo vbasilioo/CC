@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3//S1soyFiik7sfN0TyQDvCNTOHwaxjwTJYl6irx510GsxP86DWsyZ49q0s5dmVBtURNNasvGZSrWTJ8EqZFAw==",
+  "dgSpecHash": "nl66yqQFlRoWB5ehuzgcHyfiLXnOFwbe/61xB+0f+727J0GrBZ7vCuOC4ahQCsRSDCdiz+77+gChxTMlFr7UCg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect-02\\CC.csproj",
+  "projectFilePath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect-03-FIXED\\CC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vbasi\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
     "C:\\Users\\vbasi\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
