@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\App.xaml
-21-1019422228
+221627221105
 
-28-1349580490
+30115950482
 2022146975829
-AssociarCandidato.xaml;Bate-papo.xaml;BuscarCandidato.xaml;CadastrarUsuario.xaml;Candidatura.xaml;Dashboard.xaml;Editar_Vaga.xaml;EsqueciSenha.xaml;Gestao.xaml;Gestao_Controle.xaml;MainWindow.xaml;Oportunidade_Inscricao.xaml;UserControls\Card.xaml;UserControls\Contato.xaml;UserControls\Item.xaml;UserControls\MensagemDireita.xaml;UserControls\MensagemEsquerda.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;
+AssociarCandidato.xaml;BuscarCandidato.xaml;CadastrarUsuario.xaml;Dashboard.xaml;Editar_Vaga.xaml;EsqueciSenha.xaml;FecharVaga.xaml;MainWindow.xaml;UserControls\Batepapo.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\Contato.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MensagemDireita.xaml;UserControls\MensagemEsquerda.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\OportunidadesAprovadas.xaml;
 
 False
 

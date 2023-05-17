@@ -697,7 +697,7 @@
         </Style>
         <Style x:Key="mainbutton" TargetType="Button">
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Width" Value="200"/>
+            <Setter Property="Width" Value="150"/>
             <Setter Property="Margin" Value="0 20 0 0"/>
             <Setter Property="Background" Value="#f18047"/>
             <Setter Property="Foreground" Value="#FDFEFE"/>

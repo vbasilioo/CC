@@ -1,4 +1,5 @@
 ﻿using CC.Controller;
+using CC.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,7 +27,6 @@ namespace CC
         public Dashboard()
         {
             InitializeComponent();
-            GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
             VerificarCargo();
             AlterarNomeCargo();
         }
@@ -42,20 +42,18 @@ namespace CC
         {
             if(Usuario.VerificarCargoUsuario() == "Candidato")
             {
-                colunaAcoes.Visibility = Visibility.Collapsed;
-                btnChat.Visibility = Visibility.Collapsed;
+                //colunaAcoes.Visibility = Visibility.Collapsed;
                 btnGestao.Visibility = Visibility.Collapsed;
                 btnVagas.Visibility = Visibility.Collapsed;
                 btnAdm.Visibility = Visibility.Collapsed;
             }else if(Usuario.VerificarCargoUsuario() == "Coordenador")
             {
-                colunaAcoes.Visibility = Visibility.Collapsed;
+                //colunaAcoes.Visibility = Visibility.Collapsed;
                 btnVagas.Visibility = Visibility.Collapsed;
                 btnAdm.Visibility = Visibility.Collapsed;
                 btnCandidatura.Visibility = Visibility.Collapsed;
             }else if(Usuario.VerificarCargoUsuario() == "Empresa")
             {
-                btnChat.Visibility = Visibility.Collapsed;
                 btnGestao.Visibility = Visibility.Collapsed;
                 btnAdm.Visibility = Visibility.Collapsed;
                 btnCandidatura.Visibility = Visibility.Collapsed;
@@ -100,23 +98,23 @@ namespace CC
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Bate_papo chat = new Bate_papo();   
-            chat.Show();    
-            this.Hide();
+            contentDashboard.Children.Clear(); 
+            Batepapo batepapo = new Batepapo();
+            contentDashboard.Children.Add(batepapo);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Gestao gestao = new Gestao();
-            gestao.Show();
-            this.Hide();
+            contentDashboard.Children.Clear(); 
+            GestaoCoord coord = new GestaoCoord();
+            contentDashboard.Children.Add(coord);
         }
 
         private void btnVagas_Click(object sender, RoutedEventArgs e)
         {
-            Gestao_Controle controle = new Gestao_Controle();
-            controle.Show();
-            this.Hide();
+            contentDashboard.Children.Clear();  
+            GestaoControle gestao = new GestaoControle();
+            contentDashboard.Children.Add(gestao);
         }
 
         private void campoPesquisar_TextChanged(object sender, TextChangedEventArgs e)
@@ -129,53 +127,34 @@ namespace CC
                 }
             }
 
-            GridOportunidadesAprovadas.ItemsSource = resultadoPesquisa;
+            //GridOportunidadesAprovadas.ItemsSource = resultadoPesquisa;
 
             if(campoPesquisar.Text == "")
             {
-                GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
+                //GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
             }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            Oportunidade oportunidade = button.DataContext as Oportunidade;
-            int ID = oportunidade.ID;
-
-            if(oportunidade.CNPJ == Usuario.UsuarioLogado.CNPJEmpresa)
-            {
-                Editar_Vaga editar = new Editar_Vaga(ID);
-                editar.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("CNPJ inválido.");
-            }
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            Oportunidade oportunidade = button.DataContext as Oportunidade;
-
-            if(oportunidade.CNPJ == Usuario.UsuarioLogado.CNPJEmpresa)
-            {
-                Oportunidade.RemoverOportunidade(oportunidade);
-                GridOportunidadesAprovadas.Items.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("CNPJ inválido.");
-            }
         }
 
         private void btnCandidatura_Click(object sender, RoutedEventArgs e)
         {
-            Candidatura candidatura = new Candidatura();
-            candidatura.Show();
-            this.Hide();
+            contentDashboard.Children.Clear();  
+            Candidaturas cand = new Candidaturas();
+            contentDashboard.Children.Add(cand);
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            contentDashboard.Children.Clear();  
+            OportunidadesAprovadas aprov = new OportunidadesAprovadas();
+            contentDashboard.Children.Add(aprov);
         }
     }
 }

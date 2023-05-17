@@ -10,16 +10,10 @@
     <Compile Update="AssociarCandidato.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Bate-papo.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="BuscarCandidato.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="CadastrarUsuario.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Candidatura.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dashboard.xaml.cs">
@@ -31,19 +25,25 @@
     <Compile Update="EsqueciSenha.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Gestao.xaml.cs">
+    <Compile Update="FecharVaga.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Gestao_Controle.xaml.cs">
+    <Compile Update="UserControls\Batepapo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Oportunidade_Inscricao.xaml.cs">
+    <Compile Update="UserControls\Candidaturas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\Card.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\Contato.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\GestaoControle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\GestaoCoord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\Item.xaml.cs">
@@ -67,21 +67,18 @@
     <Compile Update="UserControls\MyTextBoxCad.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\OportunidadesAprovadas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AssociarCandidato.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Bate-papo.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="BuscarCandidato.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CadastrarUsuario.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Candidatura.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dashboard.xaml">
@@ -93,22 +90,28 @@
     <Page Update="EsqueciSenha.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Gestao.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Gestao_Controle.xaml">
+    <Page Update="FecharVaga.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Oportunidade_Inscricao.xaml">
+    <Page Update="UserControls\Batepapo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\Candidaturas.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Card.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Contato.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\GestaoControle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\GestaoCoord.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Item.xaml">
@@ -130,6 +133,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\MyTextBoxCad.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\OportunidadesAprovadas.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

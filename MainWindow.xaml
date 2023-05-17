@@ -23,12 +23,6 @@
         </Border>
         <Border Background="#ffffff" Grid.Column="1" CornerRadius="0 10 10 0" />
         <Grid>
-            <Canvas>
-                <Polygon Points="0,20, 230,140 0,270" Fill="#242f34" HorizontalAlignment="Left" VerticalAlignment="Center" Width="306"/>
-                <Polygon Points="100,400 200,370 180, 470" Fill="#242f34"/>
-                <Ellipse Margin="50 400, 0 0" Width="40" Height="40" Fill="#242f34"/>
-                <Ellipse Margin="50 400, 0 0" Width="20" Height="20" Fill="#242f34"/>
-            </Canvas>
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Registre-se" Style="{StaticResource titleText}" />
                 <TextBlock Text="Entre com seus dados pessoais e crie uma conta!" Style="{StaticResource normalText}" Opacity="0.8" Margin="20 30" />
@@ -69,7 +63,7 @@
                     </Grid>
                 </Border>
                 <Button Content="Entrar" Style="{StaticResource button}" Background="#f18047" Click="Button_Click_2" />
-                <Button Content="Esqueci minha senha" Style="{StaticResource button}" Background="#242f34" Click="Button_Click_3" />
+                <Button Content="Esqueci minha senha" Style="{StaticResource button}" Background="#242f34" Click="Button_Click_3" Margin="0 19 0 0"  Width="160"/>
             </StackPanel>
         </Border>
     </Grid>

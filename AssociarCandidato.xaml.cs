@@ -34,8 +34,6 @@ namespace CC
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Gestao gestao = new Gestao();
-            gestao.Show();
             this.Close();
         }
 

@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="110" d:DesignWidth="700" Background="DarkSeaGreen">
     <Grid>
-        <TextBox Text="Mensagem esquerda" HorizontalAlignment="Left" />
+        <TextBox x:Name="Mensagem" Text="Mensagem esquerda" HorizontalAlignment="Left" />
     </Grid>
 </UserControl>

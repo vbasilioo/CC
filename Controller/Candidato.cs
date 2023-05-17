@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CC.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace CC.Controller
     public class Candidato
     {
         private static int contador = 0;
+        private static int contadorI = 0;
         private int IDCandidato { get; set; }
         public string? Autor { get; set; }  
         public string? NomeCandidato { get; set; }
@@ -20,6 +22,17 @@ namespace CC.Controller
         public string? CNPJ { get; set; }
         public string? TituloVaga { get; set; }
         public static List<Candidato> VagasInscritas = new List<Candidato>();
+        public static List<Candidato> VagasCandidato = new List<Candidato>();
+
+        public Candidato(string? nome, string? titulo)
+        {
+            Autor = Usuario.UsuarioLogado.Nome;
+            NomeCandidato = nome;
+            NomeSocial = "";
+            Telefone = 0;
+            Comentarios = "";
+            TituloVaga = titulo;
+        }
 
         public Candidato(string? nome, string? nomeSocial, int telefone, string? comentarios, Tuple<string, string, string> tituloCNPJnomefantasia)
         {
@@ -32,6 +45,17 @@ namespace CC.Controller
             TituloVaga = tituloCNPJnomefantasia.Item1;
             CNPJ = tituloCNPJnomefantasia.Item2;
             NomeFantasia = tituloCNPJnomefantasia.Item3;
+        }
+
+        public static void AdicionarCandidato(Oportunidade oportunidade, string titulo)
+        {
+            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo);
+            VagasCandidato.Add(novaCandidatura);
+        }
+
+        public static List<Candidato> MinhasCandidaturas()
+        {
+            return VagasCandidato;
         }
 
         public static void AdicionarVaga(int id, string nomeSocial, int telefone, string comentarios)
@@ -98,6 +122,18 @@ namespace CC.Controller
                     else MessageBox.Show("A ação foi cancelada.");
                 }else MessageBox.Show("A vaga não foi localizada!");
             }
+        }
+
+        public static List<Candidato> RetornarCandidatosPorCNPJ(string CNPJ, string titulo){
+            List<Candidato> candidatos = new List<Candidato>();
+
+            foreach(var candidatura in VagasInscritas){
+                if(Usuario.UsuarioLogado.CNPJEmpresa == CNPJ && candidatura.TituloVaga == titulo){
+                    candidatos.Add(candidatura);
+                }
+            }
+
+            return candidatos;
         }
     }
 }

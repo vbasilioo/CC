@@ -20,9 +20,10 @@ namespace CC.UserControls
     /// </summary>
     public partial class MensagemEsquerda : UserControl
     {
-        public MensagemEsquerda()
+        public MensagemEsquerda(string msg)
         {
             InitializeComponent();
+            Mensagem.Text = msg;
         }
     }
 }

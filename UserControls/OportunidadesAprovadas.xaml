@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="CC.UserControls.OportunidadesAprovadas"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CC.UserControls"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="900">
+    <Grid>
+        <!--DATAGRID-->
+        <DataGrid Background="#eff2f7" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridOportunidadesAprovadas">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="ID" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="#f18047">
+                                    <TextBlock Text="{Binding ID}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" />
+                                </Border>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Título da Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
+                <DataGridTextColumn Header="Requisitos" IsReadOnly="True" Width="*" Binding="{Binding Requisitos}" />
+                <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding NomeFantasia}" />
+                <DataGridTextColumn Header="Status" IsReadOnly="True" Width="*" Binding="{Binding StatusVaga}" />
+
+                <DataGridTemplateColumn x:Name="colunaAcoes" Header="Ações" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}" Click="btnEditar_Click">
+                                    <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                                <Button x:Name="btnRemover" Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0" Click="btnRemover_Click">
+                                    <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                                <Button x:Name="btnFechar" Style="{StaticResource gridRemoveButton}" Margin="8 0 0 0" Click="btnFechar_Click">
+                                    <Icon:PackIconMaterial Kind="Close" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -44,8 +44,6 @@ namespace CC
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Oportunidade.EditarVaga(IDvaga.ToString(), txtTitulo.Text, txtDescricao.Text, double.Parse(txtSalario.Text), txtRequisitos.Text, txtNomeempresa.Text, Usuario.UsuarioLogado.CNPJEmpresa, txtStatus.Text);
-            Dashboard dashboard = new Dashboard();
-            dashboard.Show();
             this.Hide();
         }
     }

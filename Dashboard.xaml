@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:ctrl="clr-namespace:CC.Controller"
-        Height="920" Width="1680" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Height="1020" Width="1680" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
 
     <Window.Resources>
@@ -38,7 +38,7 @@
                         <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#242f34"/>
                         <!--BOTÕES DO MENU-->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click_5">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Dashboard" />
@@ -118,41 +118,11 @@
                 </Button>
                 <!--SEPARADOR-->
                 <Separator Height="10" Grid.Row="3" Background="#242f34" Margin="0 -1 0 10" />
-                <!--DATAGRID-->
-                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridOportunidadesAprovadas">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="ID" IsReadOnly="True" Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="#f18047">
-                                            <TextBlock Text="{Binding ID}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" />
-                                        </Border>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Título da Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
-                        <DataGridTextColumn Header="Requisitos" IsReadOnly="True" Width="*" Binding="{Binding Requisitos}" />
-                        <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding NomeFantasia}" />
-                        <DataGridTextColumn Header="Status" IsReadOnly="True" Width="*" Binding="{Binding StatusVaga}" />
+                <StackPanel Grid.Row="5">
+                    <WrapPanel x:Name="contentDashboard" Grid.Row="5" Orientation="Vertical">
 
-                        <DataGridTemplateColumn x:Name="colunaAcoes" Header="Ações" IsReadOnly="True" Width="auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}" Click="Button_Click_3">
-                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
-                                        </Button>
-                                        <Button x:Name="btnRemover" Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0" Click="Button_Click_4">
-                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}" />
-                                        </Button>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
+                    </WrapPanel>
+                </StackPanel>
             </Grid>
         </Grid>
     </Border>

@@ -28,8 +28,6 @@ namespace CC
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Gestao gestao = new Gestao();
-            gestao.Show();
             this.Hide();
         }
     }
