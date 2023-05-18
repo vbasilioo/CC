@@ -154,7 +154,6 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\CadastrarUsuario.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\Dashboard.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\Editar_Vaga.g.cs
-C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\EsqueciSenha.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\MainWindow.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\UserControls\Card.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\UserControls\Contato.g.cs
@@ -174,7 +173,6 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\CadastrarUsuario.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\Dashboard.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\Editar_Vaga.baml
-C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\EsqueciSenha.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\MainWindow.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\UserControls\Contato.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\UserControls\MensagemDireita.baml
@@ -204,3 +202,5 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\UserControls\Candidaturas.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\FecharVaga.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\FecharVaga.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\CandidatoInformacoes.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\CandidatoInformacoes.baml

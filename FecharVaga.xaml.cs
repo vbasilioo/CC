@@ -22,12 +22,19 @@ namespace CC
         {
             InitializeComponent();
 
-            List<Candidato> candidatos = Candidato.RetornarCandidatosPorCNPJ(Usuario.UsuarioLogado.CNPJEmpresa, titulo);
-            listaUsuarios.Items.Clear();
+            List<Candidato> candidatos = Candidato.RetornarCandidatosPorTitulo(titulo);
+            listaCandidatos.DataContext = new { Candidatos = candidatos };
+        }
 
-            foreach(Candidato usuario in candidatos)
+        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is TextBlock textBlock && textBlock.DataContext is Candidato candidato)
             {
-                listaUsuarios.Items.Add(usuario.NomeCandidato);
+                string mensagem = $"Nome: {candidato.NomeCandidato}\n" +
+                                  $"Telefone: {candidato.Telefone}\n" +
+                                  $"Comentários: {candidato.Comentarios}";
+
+                MessageBox.Show(mensagem);
             }
         }
     }

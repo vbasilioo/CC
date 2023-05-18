@@ -72,8 +72,6 @@ namespace CC
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            EsqueciSenha esqueci = new EsqueciSenha();
-            esqueci.Show();
             this.Hide();
         }
 

@@ -39,6 +39,11 @@ namespace CC.UserControls
                 Oportunidade oportunidadeSelecionada = (Oportunidade)GridOportunidades.SelectedItem;
 
                 Candidato.AdicionarCandidato(oportunidadeSelecionada, oportunidadeSelecionada.NomeFantasia);
+
+                CandidatoInformacoes cand = new CandidatoInformacoes(Usuario.UsuarioLogado.Nome, oportunidadeSelecionada.TituloVaga);
+                cand.Candidato = Candidato.ListarInscritos().FirstOrDefault(u => u.NomeCandidato == Usuario.UsuarioLogado.Nome);
+                cand.Show();
+
                 GridCandidaturas.Items.Refresh();   
             }
         }

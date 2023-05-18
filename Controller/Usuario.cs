@@ -17,6 +17,7 @@ namespace CC.Controller
         public string? Nome { get; set; }
         public string? Email { get; set; }
         public string? Senha { get; set; }
+        public string? SenhaCriptografada { get; set; }
         public string? Cargo { get; set; }
         public int DataNascimento { get; set; }
         public string? Endereco { get; set; }   
@@ -31,6 +32,7 @@ namespace CC.Controller
                 Nome = "Vinícius Gonçalves Basílio",
                 Email = "vinicius@gmail.com",
                 Senha = "vinicius",
+                SenhaCriptografada = "vinicius",
                 Cargo = "Candidato",
                 DataNascimento = 21,
                 Endereco = "Jardim da Fonte, Cachoeira Paulista",
@@ -41,6 +43,7 @@ namespace CC.Controller
                 Nome = "Maria Clara Rocha",
                 Email = "maria@gmail.com",
                 Senha = "maria",
+                SenhaCriptografada = "maria",
                 Cargo = "Coordenador",
                 DataNascimento = 19,
                 Endereco = "Itagacaba, Cruzeiro"
@@ -51,6 +54,7 @@ namespace CC.Controller
                 Nome = "Eric Mendes",
                 Email = "eric@gmail.com",
                 Senha = "eric",
+                SenhaCriptografada = "eric",
                 Cargo = "Empresa",
                 DataNascimento = 19,
                 Endereco = "Centro, Cruzeiro",
@@ -62,6 +66,7 @@ namespace CC.Controller
                 Nome = "Maria Clara Conde",
                 Email = "mcconde@gmail.com",
                 Senha = "conde",
+                SenhaCriptografada = "conde",
                 Cargo = "Candidato",
                 DataNascimento = 19,
                 Endereco = "Centro, Cruzeiro"
@@ -72,6 +77,7 @@ namespace CC.Controller
                 Nome = "Gustavo Coutinho",
                 Email = "gustavocoutinho@gmail.com",
                 Senha = "gustavo",
+                SenhaCriptografada = "gustavo",
                 Cargo = "Empresa",
                 DataNascimento = 19,
                 Endereco = "Centro, Cruzeiro",
@@ -84,6 +90,7 @@ namespace CC.Controller
                 Nome = "Administrador Sistema",
                 Email = "admin",
                 Senha = "admin",
+                SenhaCriptografada = "admin",
                 Cargo = "Administrador",
                 DataNascimento = 0,
                 Endereco = "admin"

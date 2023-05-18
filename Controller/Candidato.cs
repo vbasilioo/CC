@@ -11,8 +11,7 @@ namespace CC.Controller
     public class Candidato
     {
         private static int contador = 0;
-        private static int contadorI = 0;
-        private int IDCandidato { get; set; }
+        public int IDCandidato { get; set; }
         public string? Autor { get; set; }  
         public string? NomeCandidato { get; set; }
         public string? NomeSocial { get; set; }
@@ -28,9 +27,6 @@ namespace CC.Controller
         {
             Autor = Usuario.UsuarioLogado.Nome;
             NomeCandidato = nome;
-            NomeSocial = "";
-            Telefone = 0;
-            Comentarios = "";
             TituloVaga = titulo;
         }
 
@@ -53,16 +49,27 @@ namespace CC.Controller
             VagasCandidato.Add(novaCandidatura);
         }
 
+        public static void AdicionarInformacoesCandidato(int id, string nomeSocial, int telefone, string comentarios)
+        {
+            Candidato candidato = VagasCandidato.FirstOrDefault(c => c.IDCandidato == id);
+
+            if(candidato != null)
+            {
+                candidato.NomeSocial = nomeSocial;
+                candidato.Telefone = telefone;
+                candidato.Comentarios = comentarios;
+            }
+        }
+
         public static List<Candidato> MinhasCandidaturas()
         {
             return VagasCandidato;
         }
 
-        public static void AdicionarVaga(int id, string nomeSocial, int telefone, string comentarios)
+        public static void AdicionarVaga(Oportunidade oportunidade, string titulo)
         {
-            Tuple<string, string, string> dados = Oportunidade.GetTituloCNPJeNomeFantasiaById(id);
-            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, nomeSocial, telefone, comentarios, dados);
-            VagasInscritas.Add(novaCandidatura);
+            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo);
+            VagasCandidato.Add(novaCandidatura);
             MessageBox.Show("Você foi inscrito com sucesso!");
         }
 
@@ -70,33 +77,33 @@ namespace CC.Controller
         {
             Tuple<string, string, string> dados = Oportunidade.GetTituloCNPJeNomeFantasiaById(id);
             Candidato novaAssociacao = new Candidato(nome, nomeSocial, telefone, comentarios, dados);
-            VagasInscritas.Add(novaAssociacao);
+            VagasCandidato.Add(novaAssociacao);
             MessageBox.Show($"Você associou {nome} com sucesso!");
         }
 
         public static List<Candidato> ListarVagasInscritas(){
-            return VagasInscritas.FindAll(u => u.NomeCandidato == Usuario.UsuarioLogado.Nome);
+            return VagasCandidato.FindAll(u => u.NomeCandidato == Usuario.UsuarioLogado.Nome);
         }
 
         public static List<Candidato> ListarInscritos(){
-            return VagasInscritas;
+            return VagasCandidato;
         }
 
         public static Candidato ListarCandidato(string nome)
         {
-            return VagasInscritas.FirstOrDefault(c => c.NomeCandidato == nome);
+            return VagasCandidato.FirstOrDefault(c => c.NomeCandidato == nome);
         }
 
         public static Candidato BuscarInscricao(string idOuTitulo){
             if (int.TryParse(idOuTitulo, out int id)){ 
-                return VagasInscritas.FirstOrDefault(u => u.IDCandidato == id); 
+                return VagasCandidato.FirstOrDefault(u => u.IDCandidato == id); 
             }else{
-                return VagasInscritas.FirstOrDefault(u => u.TituloVaga.ToLower() == idOuTitulo.ToLower()); 
+                return VagasCandidato.FirstOrDefault(u => u.TituloVaga.ToLower() == idOuTitulo.ToLower()); 
             }
         }
 
         public static void RemoverVaga(Candidato candidato){
-            VagasInscritas.Remove(candidato);
+            VagasCandidato.Remove(candidato);
             MessageBox.Show($"{candidato.NomeCandidato} desassociado com sucesso.");
         }
 
@@ -127,13 +134,18 @@ namespace CC.Controller
         public static List<Candidato> RetornarCandidatosPorCNPJ(string CNPJ, string titulo){
             List<Candidato> candidatos = new List<Candidato>();
 
-            foreach(var candidatura in VagasInscritas){
+            foreach(var candidatura in VagasCandidato){
                 if(Usuario.UsuarioLogado.CNPJEmpresa == CNPJ && candidatura.TituloVaga == titulo){
                     candidatos.Add(candidatura);
                 }
             }
 
             return candidatos;
+        }
+
+        public static List<Candidato> RetornarCandidatosPorTitulo(string titulo)
+        {
+            return VagasCandidato.FindAll(c => c.TituloVaga == titulo);
         }
     }
 }

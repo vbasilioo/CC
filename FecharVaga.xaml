@@ -8,10 +8,16 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="#eff2f7">
     <Grid>
         <StackPanel>
-            <ListView x:Name="listaUsuarios" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView x:Name="listaCandidatos" Margin="10" ItemsSource="{Binding Candidatos}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn/>
+                        <GridViewColumn Header="Nome">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding NomeCandidato}" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

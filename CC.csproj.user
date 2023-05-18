@@ -16,13 +16,13 @@
     <Compile Update="CadastrarUsuario.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CandidatoInformacoes.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Editar_Vaga.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="EsqueciSenha.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="FecharVaga.xaml.cs">
@@ -81,13 +81,13 @@
     <Page Update="CadastrarUsuario.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="CandidatoInformacoes.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Editar_Vaga.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="EsqueciSenha.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="FecharVaga.xaml">
