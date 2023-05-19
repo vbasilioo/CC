@@ -362,5 +362,15 @@ namespace CC.Controller
             }
             return false;
         }
+
+        public static void VerificarVagaCNPJ(string CNPJ)
+        {
+            var vagasassociadas = oportunidadesAprovadas.Where(u => u.CNPJ == CNPJ);
+
+            foreach(var vaga in vagasassociadas)
+            {
+                vaga.StatusVaga = "Fechada";
+            }
+        }
     }
 }

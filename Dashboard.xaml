@@ -52,13 +52,6 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="btnChat" Style="{StaticResource menuButton}" Click="Button_Click_1">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="ForumOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Bate-papo" />
-                                </StackPanel>
-                            </Button>
-
                             <Button x:Name="btnGestao" Style="{StaticResource menuButton}" Click="Button_Click_2">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HeadMinus" Style="{StaticResource menuButtonIcon}"/>
@@ -113,7 +106,7 @@
                 <Button Style="{StaticResource topButton}" Margin="0 0 20 0" HorizontalAlignment="Right">
                     <Icon:PackIconMaterial Kind="Cog" />
                 </Button>
-                <Button Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right">
+                <Button Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right" Click="Button_Click_1">
                     <Icon:PackIconMaterial Kind="Bell" />
                 </Button>
                 <!--SEPARADOR-->

@@ -96,13 +96,6 @@ namespace CC
             this.Hide();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            contentDashboard.Children.Clear(); 
-            Batepapo batepapo = new Batepapo();
-            contentDashboard.Children.Add(batepapo);
-        }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             contentDashboard.Children.Clear(); 
@@ -155,6 +148,13 @@ namespace CC
             contentDashboard.Children.Clear();  
             OportunidadesAprovadas aprov = new OportunidadesAprovadas();
             contentDashboard.Children.Add(aprov);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            contentDashboard.Children.Clear(); 
+            Notificacoes notif = new Notificacoes();
+            contentDashboard.Children.Add(notif);
         }
     }
 }

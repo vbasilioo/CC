@@ -204,3 +204,5 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\FecharVaga.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\CandidatoInformacoes.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\CandidatoInformacoes.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\UserControls\Notificacoes.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\UserControls\Notificacoes.baml

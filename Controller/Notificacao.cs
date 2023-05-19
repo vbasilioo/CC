@@ -9,7 +9,9 @@ namespace CC.Controller
     public class Notificacao
     {
         public int IDNotificacao { get; set; }
-        public string? Informativo { get; set; } 
+        public string? Titulo { get; set; }
+        public string? Mensagem { get; set; }
+        public Candidato Destinatario { get; set; }
         public static List<Notificacao> listaNotificacoes { get; set; } = new List<Notificacao>();
 
         public Notificacao()
@@ -25,6 +27,6 @@ namespace CC.Controller
         public static List<Notificacao> ListarNotificacoes()
         {
             return listaNotificacoes;
-        }
+        }  
     }
 }

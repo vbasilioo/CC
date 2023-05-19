@@ -11,6 +11,7 @@ namespace CC.Controller
     public class Candidato
     {
         private static int contador = 0;
+        public int IDVaga { get; set; }
         public int IDCandidato { get; set; }
         public string? Autor { get; set; }  
         public string? NomeCandidato { get; set; }

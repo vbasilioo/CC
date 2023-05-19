@@ -38,13 +38,20 @@ namespace CC.UserControls
             {
                 Oportunidade oportunidadeSelecionada = (Oportunidade)GridOportunidades.SelectedItem;
 
-                Candidato.AdicionarCandidato(oportunidadeSelecionada, oportunidadeSelecionada.NomeFantasia);
+                if(oportunidadeSelecionada.StatusVaga == "Aberta"){
 
-                CandidatoInformacoes cand = new CandidatoInformacoes(Usuario.UsuarioLogado.Nome, oportunidadeSelecionada.TituloVaga);
-                cand.Candidato = Candidato.ListarInscritos().FirstOrDefault(u => u.NomeCandidato == Usuario.UsuarioLogado.Nome);
-                cand.Show();
+                    Candidato.AdicionarCandidato(oportunidadeSelecionada, oportunidadeSelecionada.NomeFantasia);
 
-                GridCandidaturas.Items.Refresh();   
+                    CandidatoInformacoes cand = new CandidatoInformacoes(Usuario.UsuarioLogado.Nome, oportunidadeSelecionada.TituloVaga);
+                    cand.Candidato = Candidato.ListarInscritos().FirstOrDefault(u => u.NomeCandidato == Usuario.UsuarioLogado.Nome);
+                    cand.Show();
+
+                    GridCandidaturas.Items.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("A vaga está fechada. Não é possível se candidatar.");
+                }
             }
         }
 

@@ -67,6 +67,9 @@
     <Compile Update="UserControls\MyTextBoxCad.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\Notificacoes.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\OportunidadesAprovadas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -133,6 +136,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\MyTextBoxCad.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\Notificacoes.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\OportunidadesAprovadas.xaml">
