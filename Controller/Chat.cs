@@ -9,31 +9,27 @@ namespace CC.Controller
     public class Chat
     {
         private int ID { get; set; }
-        private int Usuario1 { get; set; }
-        private int Usuario2 { get; set; }
-        private List<Mensagem>? listaMensagens;
+        public string Remetente { get; set; }
+        public string Destinatario { get; set; }
+        public int Usuario1 { get; set; }  
+        public int Usuario2 { get; set; }
+        public List<Mensagem>? listaMensagens;
+        public List<string> Mensagens { get; } = new List<string>();
 
         private Usuario usuario;
 
-        public Chat(int ID)
+        public Chat(int ID, string remetente, string destinatario, Usuario usuario)
         {
+            Remetente = remetente;
+            Destinatario = destinatario;
             Usuario1 = Usuario.UsuarioLogado.ID;
             Usuario2 = ID;
-            listaMensagens = new List<Mensagem>();
-            ID = usuario.AdicionarChat(this);
-            Chat chat = new Chat(ID);
-            ((Usuario)Usuario.BuscarUsuario(Usuario.UsuarioLogado.ID)).AdicionarChat(chat);
-            ((Usuario)Usuario.BuscarUsuario(Usuario.UsuarioLogado.ID)).AdicionarChat(chat);
+            this.usuario = usuario;
         }
 
-        public void AlterarID(int id)
+        public void AdicionarMensagem(string remetente, string mensagem)
         {
-            ID = id;
-        }
-
-        public int RetornarID()
-        {
-            return ID;
+            Mensagens.Add($"{remetente}: {mensagem}");
         }
 
         public void EnviarNovaMensagem(string texto)
@@ -42,24 +38,31 @@ namespace CC.Controller
             listaMensagens.Add(mensagem);
         }
 
-        public int GetUsuario1()
+        public string ObterOutroParticipante(int ID)
         {
-            return Usuario1;
+            if(Usuario1 == ID)
+            {
+                return ObterUsuario(Usuario2);
+            }
+            else if(Usuario2 == ID)
+            {
+                return ObterUsuario(Usuario1);
+            }
+            else
+            {
+                throw new ArgumentException("Usuário inválido");
+            }
         }
 
-        public int GetUsuario2()
+        public string ObterUsuario(int ID)
         {
-            return Usuario2;
+            return Usuario.ObterUsuarioPorID(ID).ToString();
         }
 
-        public List<Mensagem> RetornarChat()
+        public static List<Chat> ObterConversasIniciadas()
         {
-            return listaMensagens;
+            return Usuario.ConversasIniciadas.Where(c => c.Usuario1 == Usuario.UsuarioLogado.ID || c.Usuario2 == Usuario.UsuarioLogado.ID).ToList();
         }
 
-        public Mensagem RetornarMensagem(int id)
-        {
-            return listaMensagens[id];
-        }
     }
 }

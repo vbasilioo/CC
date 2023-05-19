@@ -19,8 +19,10 @@ namespace CC.Controller
         public string CNPJ { get; set; }
         public string StatusVaga { get; set; }
 
-        private static List<Oportunidade> oportunidades = new List<Oportunidade>();
-        private static List<Usuario> usuariosCadastrados = new List<Usuario>();
+        public static List<Oportunidade> oportunidades { get; set; } = new List<Oportunidade>();
+        public static List<Oportunidade> oportunidadesReprovadas { get; set; } = new List<Oportunidade>();
+        public static Stack<Oportunidade> oportunidadesArquivadas { get; set; } = new Stack<Oportunidade>();
+        public static List<Usuario> Inscritos { get; set; } = new List<Usuario>();
 
         public Oportunidade(){}
 
@@ -37,18 +39,76 @@ namespace CC.Controller
 
         //criando vagas pre definidas
         static Oportunidade(){
-            AdicionarOportunidade(new Oportunidade("Desenvolvedor Backend", "Desenvolvimento de sistemas na plataforma .NET", 5000.0, "Experiência com C#", "Google", "49.239.703/0001-66", "Aberta"));
-            AdicionarOportunidade(new Oportunidade("Desenvolvedor Frontend", "Desenvolvimento de interfaces utilizando AngularJS", 4000.0, "Experiência com JS", "Google", "49.239.703/0001-66", "Aberta"));
-            AdicionarOportunidade(new Oportunidade("Engenheiro Civil", "Planejamento e execução de projetos de construção civil", 8000.0, "Experiência com projetos", "Construtora XYZ", "12.345.678/0001-90", "Aberta"));
-            AdicionarOportunidade(new Oportunidade("Engenheiro Eletricista", "Desenvolvimento e implementação de projetos elétricos", 7000.0, "Experiência com grandes obras", "Empresa de Energia ABC", "23.456.789/0001-12", "Aberta"));
-            AdicionarOportunidade(new Oportunidade("Assistente Administrativo", "Rotinas administrativas como atendimento telefônico, recepção, arquivo e controle de documentos", 2500.0, "Experiência com público", "Empresa de Consultoria XYZ", "34.567.890/0001-23", "Aberta"));
             AdicionarOportunidade(new Oportunidade("Auxiliar de Limpeza", "Limpeza e organização de ambientes corporativos", 1500.0, "Trabalho em equipe", "Empresa de Limpeza ABC", "45.678.901/0001-34", "Aberta"));
             AdicionarOportunidade(new Oportunidade("Estagiário de Marketing", "Apoio na criação e execução de campanhas de marketing", 1000.0, "Criatividade", "Agência de Publicidade XYZ", "56.789.012/0001-45", "Aberta"));
-            AdicionarOportunidade(new Oportunidade("Estagiário de TI", "Apoio no desenvolvimento e manutenção de sistemas", 1200.0, "5 anos de experiência na área", "Empresa de Tecnologia ABC", "67.890.123/0001-56", "Aberta"));
+            AdicionarOportunidade(new Oportunidade("Estagiário de TI", "Apoio no desenvolvimento e manutenção de sistemas", 1200.0, "Boa lógica de programação", "Empresa de Tecnologia ABC", "67.890.123/0001-56", "Aberta"));
             AdicionarOportunidade(new Oportunidade("Desenvolvedor Mobile", "Desenvolvimento de aplicativos mobile para Android e iOS", 6000.0, "Experiência com Flutter e Dart", "Empresa de Tecnologia XYZ", "78.901.234/0001-67", "Aberta"));
             AdicionarOportunidade(new Oportunidade("Assistente de Recursos Humanos", "Atividades relacionadas a recrutamento e seleção, treinamento e desenvolvimento, entre outras", 3000.0, "Pós-graduação em treinamento", "Empresa de RH ABC", "89.012.345/0001-78", "Aberta"));
             AdicionarOportunidade(new Oportunidade("Recepcionista", "Atendimento ao público, recepção e encaminhamento de visitantes", 2500.0, "Experiência em hotelaria", "Hotel XYZ", "12.345.678/0001-12", "Aberta"));
         }
+
+        public static List<Oportunidade> oportunidadesAprovadas = new List<Oportunidade>
+        {
+            new Oportunidade
+            {
+            ID = 0,
+            TituloVaga = "Desenvolvedor Backend",
+            DescricaoVaga = "Desenvolvimento de sistemas na plataforma .NET",
+            SalarioVaga = 5000.0,
+            Requisitos = "Experiência com C#",
+            NomeFantasia = "Google",
+            CNPJ = "49.239.703/0001-66",
+            StatusVaga = "Aberta"
+            },
+
+            new Oportunidade
+            {
+            ID = 1,
+            TituloVaga = "Desenvolvedor Frontend",
+            DescricaoVaga = "Desenvolvimento de interfaces utilizando AngularJS",
+            SalarioVaga = 4000.0,
+            Requisitos = "Experiência com JS",
+            NomeFantasia = "Google",
+            CNPJ = "49.239.703/0001-66",
+            StatusVaga = "Aberta"
+            },
+
+            new Oportunidade
+            {
+            ID = 2,
+            TituloVaga = "Engenheiro Civil",
+            DescricaoVaga = "Planejamento e execução de projetos de construção civil",
+            SalarioVaga = 8000.0,
+            Requisitos = "Experiência com projetos",
+            NomeFantasia = "Construtora XYZ",
+            CNPJ = "12.345.678/0001-90",
+            StatusVaga = "Aberta"
+            },
+
+            new Oportunidade
+            {
+            ID = 3,
+            TituloVaga = "Engenheiro Eletricista",
+            DescricaoVaga = "Desenvolvimento e implementação de projetos elétricos",
+            SalarioVaga = 7000.0,
+            Requisitos = "Experiência com grandes obras",
+            NomeFantasia = "Empresa de Energia ABC",
+            CNPJ = "23.456.789/0001-12",
+            StatusVaga = "Aberta"
+            },
+
+            new Oportunidade
+            {
+            ID = 4,
+            TituloVaga = "Assistente Administrativo",
+            DescricaoVaga = "Rotinas administrativas como atendimento telefônico, recepção, arquivo e controle de documentos",
+            SalarioVaga = 2500.0,
+            Requisitos = "Experiência com público",
+            NomeFantasia = "Empresa de Consultoria XYZ",
+            CNPJ = "34.567.890/0001-23",
+            StatusVaga = "Aberta"
+            }
+        };
 
         //adiciona oportu na lista
         public static void AdicionarOportunidade(Oportunidade oportunidade){
@@ -56,18 +116,26 @@ namespace CC.Controller
         }
 
         //retorna a lista de oportunidades
-        public static List<Oportunidade> ListarOportunidades(){
+        public static List<Oportunidade> ListarOportunidades()
+        {
             return oportunidades;
+        }
+
+        //Retorna a lista das oportunidades aprovadas pelo coordenador
+        public static List<Oportunidade> ListarOportunidadesAprovadas()
+        {
+            return oportunidadesAprovadas;
         }
 
         //remove oportunidade da lista
         public static void RemoverOportunidade(Oportunidade oportunidade){
-            oportunidades.Remove(oportunidade);
+            oportunidadesAprovadas.Remove(oportunidade);
+            oportunidadesArquivadas.Push(oportunidade);
         }
 
         //buscando oportu por ID da vaga
         public static Oportunidade BuscarOportunidadePorId(int id){
-            foreach(Oportunidade oportunidade in oportunidades){
+            foreach(Oportunidade oportunidade in oportunidadesAprovadas){
                 if(oportunidade.ID == id){
                     return oportunidade;
                 }
@@ -99,7 +167,6 @@ namespace CC.Controller
         public static void CadastrarOportunidadeNova(string titulo, string descricao, double salario, string requisitos, string empresa, string cnpj, string status){
             Oportunidade novaOportunidade = new Oportunidade(titulo, descricao, salario, requisitos, empresa, cnpj, status);
             Oportunidade.AdicionarOportunidade(novaOportunidade);
-            MessageBox.Show("A oportunidade foi cadastrada com sucesso!");
         }
 
         //buscando oportunidade por id ou titulo num metodo apenas
@@ -117,14 +184,12 @@ namespace CC.Controller
 
             //busca vaga pelo ID na lista de vagas
             if(int.TryParse(tituloOuId, out int id)){
-                oportunidade = oportunidades.Find(u => u.ID == id); //busca pela vaga pelo id
+                oportunidade = oportunidadesAprovadas.Find(u => u.ID == id); //busca pela vaga pelo id
             }else{
-                oportunidade = oportunidades.Find(u => u.TituloVaga == titulo); //busca pelo titulo
+                oportunidade = oportunidadesAprovadas.Find(u => u.TituloVaga == titulo); //busca pelo titulo
             }
           
-            if(oportunidade == null){ // se não encontrou a vaga{
-                MessageBox.Show("Vaga não encontrada.");
-            }else{
+            if(oportunidade!=null){
                 oportunidade.TituloVaga = titulo;
                 oportunidade.DescricaoVaga = descricao;
                 oportunidade.SalarioVaga = salario;
@@ -132,7 +197,6 @@ namespace CC.Controller
                 oportunidade.NomeFantasia = nome;
                 oportunidade.CNPJ = cnpj;
                 oportunidade.StatusVaga = status;
-                MessageBox.Show("Vaga editada com sucesso!");
             }
         }
 
@@ -272,7 +336,7 @@ namespace CC.Controller
 
         //tuple serve pra armazenar diversos tipos de referencias de diferentes tipos (string, int, double) ou (string, string, float)
         public static Tuple<string, string, string> GetTituloCNPJeNomeFantasiaById(int id){
-            foreach(Oportunidade oportunidade in oportunidades){
+            foreach(Oportunidade oportunidade in oportunidadesAprovadas){
                 if(oportunidade.ID == id){
                     return Tuple.Create(oportunidade.TituloVaga, oportunidade.CNPJ, oportunidade.NomeFantasia); //armazena no tuple o necessario pra retorna
                 }
@@ -297,6 +361,16 @@ namespace CC.Controller
                 }
             }
             return false;
+        }
+
+        public static void VerificarVagaCNPJ(string CNPJ)
+        {
+            var vagasassociadas = oportunidadesAprovadas.Where(u => u.CNPJ == CNPJ);
+
+            foreach(var vaga in vagasassociadas)
+            {
+                vaga.StatusVaga = "Fechada";
+            }
         }
     }
 }

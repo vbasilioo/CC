@@ -17,21 +17,23 @@ namespace CC.Controller
         public string? Nome { get; set; }
         public string? Email { get; set; }
         public string? Senha { get; set; }
+        public string? SenhaCriptografada { get; set; }
         public string? Cargo { get; set; }
         public int DataNascimento { get; set; }
-        public string? Endereco { get; set; }
+        public string? Endereco { get; set; }   
         public string? CNPJEmpresa { get; set; }
         public static Usuario? UsuarioLogado { get; private set; }
-        private static List<Chat>? ListaChats { get; set; }  
+        public static List<Chat>? ConversasIniciadas { get; set; } = new List<Chat>();
 
         /*         CONSTRUTOR           */
-        private static List<Usuario> usuariosCadastrados = new List<Usuario>(){
+        public static List<Usuario> usuariosCadastrados = new List<Usuario>(){
             new Usuario{
                 ID = 0,
-                Nome = "Vinicius Gonçalves Basílio",
+                Nome = "Vinícius Gonçalves Basílio",
                 Email = "vinicius@gmail.com",
                 Senha = "vinicius",
-                Cargo = "Administrador",
+                SenhaCriptografada = "vinicius",
+                Cargo = "Candidato",
                 DataNascimento = 21,
                 Endereco = "Jardim da Fonte, Cachoeira Paulista",
             },
@@ -41,6 +43,7 @@ namespace CC.Controller
                 Nome = "Maria Clara Rocha",
                 Email = "maria@gmail.com",
                 Senha = "maria",
+                SenhaCriptografada = "maria",
                 Cargo = "Coordenador",
                 DataNascimento = 19,
                 Endereco = "Itagacaba, Cruzeiro"
@@ -51,6 +54,7 @@ namespace CC.Controller
                 Nome = "Eric Mendes",
                 Email = "eric@gmail.com",
                 Senha = "eric",
+                SenhaCriptografada = "eric",
                 Cargo = "Empresa",
                 DataNascimento = 19,
                 Endereco = "Centro, Cruzeiro",
@@ -62,6 +66,7 @@ namespace CC.Controller
                 Nome = "Maria Clara Conde",
                 Email = "mcconde@gmail.com",
                 Senha = "conde",
+                SenhaCriptografada = "conde",
                 Cargo = "Candidato",
                 DataNascimento = 19,
                 Endereco = "Centro, Cruzeiro"
@@ -72,10 +77,23 @@ namespace CC.Controller
                 Nome = "Gustavo Coutinho",
                 Email = "gustavocoutinho@gmail.com",
                 Senha = "gustavo",
+                SenhaCriptografada = "gustavo",
                 Cargo = "Empresa",
                 DataNascimento = 19,
                 Endereco = "Centro, Cruzeiro",
                 CNPJEmpresa = "34.466.957/0001-40"
+            },
+
+            new Usuario
+            {
+                ID = 5,
+                Nome = "Administrador Sistema",
+                Email = "admin",
+                Senha = "admin",
+                SenhaCriptografada = "admin",
+                Cargo = "Administrador",
+                DataNascimento = 0,
+                Endereco = "admin"
             }
         };
 
@@ -415,23 +433,65 @@ namespace CC.Controller
             return null;
         }
 
-        // Adiciona uma conversa no chat do destinatário / remetente
-        public int AdicionarChat(Chat chat)
+        // Encontra o usuário através do nome
+        public static void BuscarUsuarioPorNome(string nomeprocurado)
         {
-            ListaChats.Add(chat);
-            return ListaChats.IndexOf(chat);
+            Usuario usuarioEncontrado = null;
+
+            foreach(Usuario usuario in usuariosCadastrados)
+            {
+                if(usuario.Nome == nomeprocurado)
+                {
+                    usuarioEncontrado = usuario;
+                }
+            }
+
+            if(usuarioEncontrado != null)
+            {
+                AssociarCandidato assoc = new AssociarCandidato(usuarioEncontrado.Nome);
+                assoc.Show();
+            }
+            else
+            {
+                usuarioEncontrado = null;
+            }
         }
 
-        // Busca o chat na lista de chats
-        public static Chat BuscarChat(int id)
+        public static string BuscarUserNome(string nome)
         {
-            return ListaChats[id];
+            Usuario usuarioEncontrado = null;
+
+            foreach(Usuario usuario in usuariosCadastrados)
+            {
+                if(usuario.Nome == nome)
+                {
+                    usuarioEncontrado = usuario;
+                    return usuarioEncontrado.ToString();
+                }
+            }
+
+            return null;
         }
 
-        // Buscando usuário apenas por ID
-        public static Usuario BuscarUsuario(int id)
+        // Busca o objeto do Usuário
+        public static Usuario BuscarUsuarioObjeto(Usuario usuario)
         {
-            return usuariosCadastrados.FirstOrDefault(u => u.ID == id);
+            return usuariosCadastrados.FirstOrDefault(u => u.Nome == usuario.Nome);
+        }
+
+        public List<Chat> ObterConversasRecebidas()
+        {
+            List<Chat> conversasRecebidas = new List<Chat>();
+
+            foreach (Chat conversa in ConversasIniciadas)
+            {
+                if (conversa.Usuario2 == ID)
+                {
+                    conversasRecebidas.Add(conversa);
+                }
+            }
+
+            return conversasRecebidas;
         }
     }
 }
