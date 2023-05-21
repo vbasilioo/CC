@@ -133,11 +133,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect-03-FIXED\\CC.csproj",
+      "projectUniqueName": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\CC.csproj",
       "projectName": "CC",
-      "projectPath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect-03-FIXED\\CC.csproj",
+      "projectPath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\CC.csproj",
       "packagesPath": "C:\\Users\\vbasi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect-03-FIXED\\obj\\",
+      "outputPath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vbasi\\AppData\\Roaming\\NuGet\\NuGet.Config",

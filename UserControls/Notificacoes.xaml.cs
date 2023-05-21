@@ -26,7 +26,9 @@ namespace CC.UserControls
             InitializeComponent(); 
     
             List<Notificacao> notificacoesUsuario = Notificacao.listaNotificacoes
-            .Where(u => u.Destinatario.NomeCandidato == Usuario.UsuarioLogado.Nome).ToList();
+            .Where(u => (u.Destinatario != null && u.Destinatario.NomeCandidato == Usuario.UsuarioLogado.Nome) || 
+            (u.UsuarioDestinatario != null && u.UsuarioDestinatario.Nome == Usuario.UsuarioLogado.Nome))
+            .ToList();
 
             GridNotificacoes.ItemsSource = notificacoesUsuario;
         }

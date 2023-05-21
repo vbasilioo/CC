@@ -47,6 +47,8 @@ namespace CC
             };
 
             Notificacao.AdicionarNotificacao(notificacao);
+            Notificacao.AdicionarNotificacaoCoordenador("Nova Seleção", $"O candidato {candidato.NomeCandidato} foi selecionado para a vaga {candidato.TituloVaga}");
+            Notificacao.AdicionarNotificacaoEmpresa("Nova Seleção", $"Você selecionou o candidato {candidato.NomeCandidato} para a vaga {candidato.TituloVaga}");
             Oportunidade.VerificarVagaCNPJ(Usuario.UsuarioLogado.CNPJEmpresa);
         }
     }

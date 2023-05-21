@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\obj\Debug\net7.0-windows\
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\
 CC
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect-03-FIXED\App.xaml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\App.xaml
 23-1665827542
 
 33-438090920
 2022146975829
 AssociarCandidato.xaml;BuscarCandidato.xaml;CadastrarUsuario.xaml;CandidatoInformacoes.xaml;Dashboard.xaml;Editar_Vaga.xaml;FecharVaga.xaml;MainWindow.xaml;UserControls\Batepapo.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\Contato.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MensagemDireita.xaml;UserControls\MensagemEsquerda.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;
 
-True
+False
 
