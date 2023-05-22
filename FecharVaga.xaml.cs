@@ -21,35 +21,32 @@ namespace CC
         public FecharVaga(string titulo)
         {
             InitializeComponent();
-            labelCandidato.Visibility = Visibility.Collapsed;
             List<Candidato> candidatos = Candidato.RetornarCandidatosPorTitulo(titulo);
-            listaCandidatos.DataContext = new { Candidatos = candidatos };
+            GridCandidatos.ItemsSource = candidatos;
         }
 
-        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnSelecionar_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            Candidato candidato = (Candidato)button.Tag;
+            Candidato candidato = (Candidato)button.DataContext;
 
-            labelCandidato.Visibility = Visibility.Visible;
-            labelCandidato.Content = $"Você selecionou o candidato {candidato.NomeCandidato} para a vaga.";
-
-            Notificacao notificacao = new Notificacao
+            if (candidato != null)
             {
-                Titulo = "Nova seleção",
-                Mensagem = $"Você foi selecionado para a vaga {candidato.TituloVaga}",
-                Destinatario = candidato
-            };
+                Notificacao notificacao = new Notificacao
+                {
+                    Titulo = "Nova seleção",
+                    Mensagem = $"Você foi selecionado para a vaga {candidato.TituloVaga}.",
+                    Destinatario = candidato
+                };
 
-            Notificacao.AdicionarNotificacao(notificacao);
-            Notificacao.AdicionarNotificacaoCoordenador("Nova Seleção", $"O candidato {candidato.NomeCandidato} foi selecionado para a vaga {candidato.TituloVaga}");
-            Notificacao.AdicionarNotificacaoEmpresa("Nova Seleção", $"Você selecionou o candidato {candidato.NomeCandidato} para a vaga {candidato.TituloVaga}");
-            Oportunidade.VerificarVagaCNPJ(Usuario.UsuarioLogado.CNPJEmpresa);
+                Notificacao.AdicionarNotificacao(notificacao);
+                Notificacao.AdicionarNotificacaoCoordenador("Nova Seleção", $"O candidato {candidato.NomeCandidato} foi selecionado para a vaga {candidato.TituloVaga}.");
+                Notificacao.AdicionarNotificacaoEmpresa("Nova Seleção", $"Você selecionou o candidato {candidato.NomeCandidato} para a vaga {candidato.TituloVaga}.");
+                Oportunidade.VerificarVagaCNPJ(Usuario.UsuarioLogado.CNPJEmpresa);
+
+                MessageBox.Show($"O {candidato.NomeCandidato} foi selecionado para a vaga.");
+                this.Hide();
+            }
         }
     }
 }

@@ -26,6 +26,7 @@ namespace CC.Controller
 
         public Candidato(string? nome, string? titulo)
         {
+            IDCandidato = contador++;
             Autor = Usuario.UsuarioLogado.Nome;
             NomeCandidato = nome;
             TituloVaga = titulo;
@@ -46,6 +47,7 @@ namespace CC.Controller
 
         public static void AdicionarCandidato(Oportunidade oportunidade, string titulo)
         {
+            contador++;
             Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo);
             VagasCandidato.Add(novaCandidatura);
         }

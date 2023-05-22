@@ -4,32 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CC.UserControls"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="#eff2f7">
     <Grid>
-        <StackPanel>
-            <ListView x:Name="listaCandidatos" Margin="10, 10" ItemsSource="{Binding Candidatos}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Nome" Width="150" DisplayMemberBinding="{Binding NomeCandidato}" />
-                        <GridViewColumn Header="Nome Social" Width="150" DisplayMemberBinding="{Binding NomeSocial}" />
-                        <GridViewColumn Header="Telefone" Width="120" DisplayMemberBinding="{Binding Telefone}" />
-                        <GridViewColumn Header="Comentários" Width="200" DisplayMemberBinding="{Binding Comentarios}" />
-                        <GridViewColumn Header="Ações" Width="80">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Fechar" Click="Button_Click" Tag="{Binding}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <Label x:Name="labelCandidato" Content="Texto" Margin="300 350 200 0" Foreground="Green" FontSize="16" FontWeight="SemiBold"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="1400 10 0 10" Grid.Row="4">
-            <Button Content="Voltar" Grid.Row="6" HorizontalAlignment="Left" Margin="-1350 40 0 0" Width="150" Style="{StaticResource Secondarybutton}" />
-       
-        </StackPanel>
+        <!--DATAGRID-->
+        <DataGrid ItemsSource="{Binding Candidatos}" Background="#eff2f7" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridCandidatos">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
+                <DataGridTextColumn Header="Nome Social" IsReadOnly="True" Width="*" Binding="{Binding NomeSocial}" />
+                <DataGridTextColumn Header="Telefone" IsReadOnly="True" Width="*" Binding="{Binding Telefone}" />
+                <DataGridTextColumn Header="Comentários" IsReadOnly="True" Width="*" Binding="{Binding Comentarios}" />
+
+                <DataGridTemplateColumn x:Name="colunaAcoes" Header="Ações" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="btnSelecionar" Style="{StaticResource detailsButton}" Click="btnSelecionar_Click" Tag="{Binding}">
+                                    <Icon:PackIconMaterial Kind="TicketConfirmation" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
