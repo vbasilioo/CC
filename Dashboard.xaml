@@ -94,14 +94,6 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <!--ÍCONE DE PESQUISAR-->
-                <Grid Width="300" HorizontalAlignment="Left">
-                    <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#242f34" IsHitTestVisible="False" 
-                               Panel.ZIndex="1" Text="Pesquisar..." Visibility="{Binding ElementName = campoPesquisar, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
-                    <TextBox x:Name="campoPesquisar" Style="{StaticResource campoPesquisar}" TextChanged="campoPesquisar_TextChanged" />
-                    <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
-                                           Margin="0 0 15 0" Foreground="#242f34" HorizontalAlignment="Right" />
-                </Grid>
                 <!--BOTÕES DA NAVBAR-->
                 <Button Style="{StaticResource topButton}" Margin="0 0 20 0" HorizontalAlignment="Right">
                     <Icon:PackIconMaterial Kind="Cog" />

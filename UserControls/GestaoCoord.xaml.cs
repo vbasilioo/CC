@@ -86,8 +86,7 @@ namespace CC.UserControls
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            BuscarCandidato busca = new BuscarCandidato();
-            busca.Show(); 
+            
         }
     }
 }

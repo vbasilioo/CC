@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Height="850" Width="1600" Background="#eff2f7">
+        d:Height="1400" d:Width="900" Background="#eff2f7">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -64,8 +65,6 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Autor" IsReadOnly="True" Width="*" Binding="{Binding Autor}" />
                 <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
-                <DataGridTextColumn Header="Nome Social" IsReadOnly="True" Width="*" Binding="{Binding NomeSocial}" />
-                <DataGridTextColumn Header="Telefone" IsReadOnly="True" Width="*" Binding="{Binding Telefone}" />
                 <DataGridTextColumn Header="Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
 
                 <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
@@ -84,9 +83,5 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="1400 10 0 10" Grid.Row="4">
-            <Button Content="Buscar Candidato" Grid.Row="6" HorizontalAlignment="Left" Margin="-1350 40 0 0" Width="150" Style="{StaticResource Mainbutton}" Click="Button_Click_4" />
-        </StackPanel>
     </Grid>
 </UserControl>

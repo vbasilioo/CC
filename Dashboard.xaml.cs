@@ -110,24 +110,6 @@ namespace CC
             contentDashboard.Children.Add(gestao);
         }
 
-        private void campoPesquisar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            foreach(Oportunidade oportunidade in Oportunidade.oportunidadesAprovadas)
-            {
-                if (oportunidade.NomeFantasia.Contains(campoPesquisar.Text))
-                {
-                    resultadoPesquisa.Add(oportunidade);
-                }
-            }
-
-            //GridOportunidadesAprovadas.ItemsSource = resultadoPesquisa;
-
-            if(campoPesquisar.Text == "")
-            {
-                //GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
-            }
-        }
-
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
         }

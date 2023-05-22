@@ -22,6 +22,7 @@ namespace CC.UserControls
         public OportunidadesAprovadas()
         {
             InitializeComponent();
+            VerificarCargo();
             GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
         }
 

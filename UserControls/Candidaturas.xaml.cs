@@ -29,7 +29,6 @@ namespace CC.UserControls
         {
             InitializeComponent();
             GridOportunidades.ItemsSource = Oportunidade.oportunidadesAprovadas;
-            GridCandidaturas.ItemsSource = Candidato.ListarVagasInscritas();
         }
 
         private void btnAprovar_Click(object sender, RoutedEventArgs e)
@@ -44,7 +43,7 @@ namespace CC.UserControls
                     Notificacao notificacao = new Notificacao
                     {
                         Titulo = "Nova candidatura",
-                        Mensagem = $"Você se candidatou para a vaga {oportunidadeSelecionada.TituloVaga}",
+                        Mensagem = $"Você se candidatou para a vaga {oportunidadeSelecionada.TituloVaga}.",
                         UsuarioDestinatario = Usuario.UsuarioLogado
                     };
 
@@ -54,17 +53,6 @@ namespace CC.UserControls
                 {
                     MessageBox.Show("A vaga está fechada. Não é possível se candidatar.");
                 }
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if(GridCandidaturas.SelectedItem != null)
-            {
-                Candidato candidatoSelecionado = (Candidato)GridCandidaturas.SelectedItem;
-                Candidato.RemoverVaga(candidatoSelecionado);
-                GridCandidaturas.ItemsSource = Candidato.ListarVagasInscritas();
-                GridCandidaturas.Items.Refresh();
             }
         }
     }

@@ -5,7 +5,7 @@
         xmlns:uc="clr-namespace:CC.UserControls"
         Height="790" Width="1150" MinWidth="1150" MinHeight="790" Background="Transparent">
 
-    <Border CornerRadius="7" Background="#ffffff">
+    <Border CornerRadius="7" Background="#eff2f7">
         <Border.Effect>
             <DropShadowEffect BlurRadius="30" ShadowDepth="5" Direction="-130" Opacity="0.1" />
         </Border.Effect>

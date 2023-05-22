@@ -23,7 +23,6 @@ namespace CC.Controller
         public string? Endereco { get; set; }   
         public string? CNPJEmpresa { get; set; }
         public static Usuario? UsuarioLogado { get; private set; }
-        public static List<Chat>? ConversasIniciadas { get; set; } = new List<Chat>();
 
         /*         CONSTRUTOR           */
         public static List<Usuario> usuariosCadastrados = new List<Usuario>(){
@@ -477,21 +476,6 @@ namespace CC.Controller
         public static Usuario BuscarUsuarioObjeto(Usuario usuario)
         {
             return usuariosCadastrados.FirstOrDefault(u => u.Nome == usuario.Nome);
-        }
-
-        public List<Chat> ObterConversasRecebidas()
-        {
-            List<Chat> conversasRecebidas = new List<Chat>();
-
-            foreach (Chat conversa in ConversasIniciadas)
-            {
-                if (conversa.Usuario2 == ID)
-                {
-                    conversasRecebidas.Add(conversa);
-                }
-            }
-
-            return conversasRecebidas;
         }
     }
 }

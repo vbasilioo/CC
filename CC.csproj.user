@@ -10,13 +10,7 @@
     <Compile Update="AssociarCandidato.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="BuscarCandidato.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="CadastrarUsuario.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="CandidatoInformacoes.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dashboard.xaml.cs">
@@ -28,16 +22,10 @@
     <Compile Update="FecharVaga.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControls\Batepapo.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UserControls\Candidaturas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\Card.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UserControls\Contato.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\GestaoControle.xaml.cs">
@@ -47,12 +35,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\Item.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UserControls\MensagemDireita.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UserControls\MensagemEsquerda.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\MenuButton.xaml.cs">
@@ -78,13 +60,7 @@
     <Page Update="AssociarCandidato.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="BuscarCandidato.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="CadastrarUsuario.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="CandidatoInformacoes.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dashboard.xaml">
@@ -99,16 +75,10 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControls\Batepapo.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="UserControls\Candidaturas.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Card.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\Contato.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\GestaoControle.xaml">
@@ -118,12 +88,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Item.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\MensagemDireita.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\MensagemEsquerda.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\MenuButton.xaml">

@@ -12,9 +12,6 @@
         <DataGrid ItemsSource="{Binding Candidatos}" Background="#eff2f7" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridCandidatos">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
-                <DataGridTextColumn Header="Nome Social" IsReadOnly="True" Width="*" Binding="{Binding NomeSocial}" />
-                <DataGridTextColumn Header="Telefone" IsReadOnly="True" Width="*" Binding="{Binding Telefone}" />
-                <DataGridTextColumn Header="Comentários" IsReadOnly="True" Width="*" Binding="{Binding Comentarios}" />
 
                 <DataGridTemplateColumn x:Name="colunaAcoes" Header="Ações" IsReadOnly="True" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
