@@ -230,3 +230,7 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\MyTextBoxCad.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\Notificacoes.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\OportunidadesAprovadas.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\RedefinirSenha.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\RedefinirSenha.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\AdministracaoUC.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\AdministracaoUC.baml

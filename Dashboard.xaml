@@ -38,17 +38,17 @@
                         <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#242f34"/>
                         <!--BOTÕES DO MENU-->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}" Click="Button_Click_5">
+                            <Button x:Name="btnDashboard" Style="{StaticResource menuButton}" Click="Button_Click_5">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Dashboard" />
+                                    <TextBlock Text="Vagas" />
                                 </StackPanel>
                             </Button>
 
                             <Button x:Name="btnVagas" Style="{StaticResource menuButton}" Click="btnVagas_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Vagas" />
+                                    <TextBlock Text="Cadastrar" />
                                 </StackPanel>
                             </Button>
 
@@ -66,7 +66,7 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="btnAdm" Style="{StaticResource menuButton}">
+                            <Button x:Name="btnAdm" Style="{StaticResource menuButton}" Click="btnAdm_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Cog" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Administração" />
@@ -105,7 +105,9 @@
                 <Separator Height="10" Grid.Row="3" Background="#242f34" Margin="0 -1 0 10" />
                 <StackPanel Grid.Row="5">
                     <WrapPanel x:Name="contentDashboard" Grid.Row="5" Orientation="Vertical">
-
+                        <!--<Grid>
+                            <Image Source="Imagens/logocc.jpeg" Margin="200 90 10 10" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>-->
                     </WrapPanel>
                 </StackPanel>
             </Grid>

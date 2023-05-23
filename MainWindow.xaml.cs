@@ -72,6 +72,8 @@ namespace CC
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            RedefinirSenha red = new RedefinirSenha();
+            red.Show();
             this.Hide();
         }
 

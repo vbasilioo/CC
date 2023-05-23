@@ -22,6 +22,12 @@
     <Compile Update="FecharVaga.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="RedefinirSenha.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\AdministracaoUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\Candidaturas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +79,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RedefinirSenha.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\AdministracaoUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Candidaturas.xaml">

@@ -57,6 +57,12 @@ namespace CC
                 btnGestao.Visibility = Visibility.Collapsed;
                 btnAdm.Visibility = Visibility.Collapsed;
                 btnCandidatura.Visibility = Visibility.Collapsed;
+            }else if(Usuario.VerificarCargoUsuario() == "Administrador")
+            {
+                btnGestao.Visibility = Visibility.Collapsed;
+                btnCandidatura.Visibility = Visibility.Collapsed;
+                btnVagas.Visibility = Visibility.Collapsed;
+                btnDashboard.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -137,6 +143,13 @@ namespace CC
             contentDashboard.Children.Clear(); 
             Notificacoes notif = new Notificacoes();
             contentDashboard.Children.Add(notif);
+        }
+
+        private void btnAdm_Click(object sender, RoutedEventArgs e)
+        {
+            contentDashboard.Children.Clear();
+            AdministracaoUC adm = new AdministracaoUC();
+            contentDashboard.Children.Add(adm);
         }
     }
 }

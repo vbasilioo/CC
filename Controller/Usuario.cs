@@ -477,5 +477,18 @@ namespace CC.Controller
         {
             return usuariosCadastrados.FirstOrDefault(u => u.Nome == usuario.Nome);
         }
+
+        public static bool VerificarEmailCadastrado(string email)
+        {
+            foreach(Usuario usuario in usuariosCadastrados)
+            {
+                if(usuario.Email == email)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
