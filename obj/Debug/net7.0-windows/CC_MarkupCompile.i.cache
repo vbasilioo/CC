@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\App.xaml
-19-1645611923
+21484809356
 
-281779061922
-2022146975829
-AssociarCandidato.xaml;CadastrarUsuario.xaml;Dashboard.xaml;Editar_Vaga.xaml;FecharVaga.xaml;MainWindow.xaml;RedefinirSenha.xaml;UserControls\AdministracaoUC.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;
+30-1262188830
+203-1085829085
+AlterarSenha.xaml;AssociarCandidato.xaml;CadastrarCoordenador.xaml;CadastrarUsuario.xaml;Dashboard.xaml;Editar_Vaga.xaml;FecharVaga.xaml;MainWindow.xaml;RedefinirSenha.xaml;UserControls\AdministracaoUC.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;
 
 True
 

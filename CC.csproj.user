@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AlterarSenha.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AssociarCandidato.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CadastrarCoordenador.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="CadastrarUsuario.xaml.cs">
@@ -63,7 +69,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AlterarSenha.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AssociarCandidato.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CadastrarCoordenador.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CadastrarUsuario.xaml">

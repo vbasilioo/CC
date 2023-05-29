@@ -490,5 +490,21 @@ namespace CC.Controller
 
             return false;
         }
+
+        public static void RedefinirSenha(string email, string senha)
+        {
+            Usuario usuario = usuariosCadastrados.FirstOrDefault(u => u.Email == email);
+
+            if(usuario != null)
+            {
+                string novaSenha = senha;
+                usuario.Senha = novaSenha;
+                usuario.SenhaCriptografada = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+            }
+            else
+            {
+                MessageBox.Show("Esse e-mail é inválido.");
+            }
+        }
     }
 }

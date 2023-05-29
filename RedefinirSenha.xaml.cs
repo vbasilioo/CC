@@ -20,16 +20,21 @@ namespace CC
         public RedefinirSenha()
         {
             InitializeComponent();
+            LabelSucesso.Visibility = Visibility.Collapsed;
+            LabelFracasso.Visibility = Visibility.Collapsed;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(Usuario.VerificarEmailCadastrado(campoEmail.Text)){
-                Administracao.AdicionarSenhaEsquecida(campoEmail.Text);
-                MessageBox.Show("Sua mensagem foi enviada para o administrador!");
+                Administracao.AdicionarSenhaEsquecida(campoEmail.Text, CampoAssunto.Text);
+                LabelSucesso.Visibility = Visibility.Visible;
+                LabelFracasso.Visibility = Visibility.Collapsed;
             }
-            else
-                MessageBox.Show("E-mail inválido.");
+            else{
+                LabelFracasso.Visibility = Visibility.Visible;
+                LabelSucesso.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

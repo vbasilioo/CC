@@ -70,7 +70,7 @@ namespace CC.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CC;V1.0.0.0;component/usercontrols/gestaocoord.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CC;component/usercontrols/gestaocoord.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\GestaoCoord.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
