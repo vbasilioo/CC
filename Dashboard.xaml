@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:ctrl="clr-namespace:CC.Controller"
+        xmlns:dispatcher="clr-namespace:System.Windows.Threading;assembly=WindowsBase"
         Height="1020" Width="1680" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <dispatcher:DispatcherTimer x:Key="Timer" Interval="0:0:1" Tick="DispatcherTimer_Tick" />
     </Window.Resources>
 
     <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
@@ -25,7 +27,7 @@
 
                 <!--ICONE DO MENU-->
                 <Button Margin="20 28 0 35" Style="{StaticResource topButton}">
-                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
+                    
                 </Button>
                 <Border Grid.Row="1" Background="#242f34" CornerRadius="0 50 0 30">
                     <DockPanel>
@@ -101,6 +103,19 @@
                 <Button Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right" Click="Button_Click_1">
                     <Icon:PackIconMaterial Kind="Bell" />
                 </Button>
+                <Label x:Name="ContadorNotificacoes" Content="0" FontSize="16" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold" Margin="1363,0,0,0" VerticalAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Setter Property="Canvas.Left" Value="0"/>
+                            <Setter Property="Canvas.Top" Value="0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=btnNotificacoes, Path=IsPressed}" Value="True">
+                                    <Setter Property="Canvas.Left" Value="{Binding ElementName=btnNotificacoes, Path=ActualWidth}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
                 <!--SEPARADOR-->
                 <Separator Height="10" Grid.Row="3" Background="#242f34" Margin="0 -1 0 10" />
                 <StackPanel Grid.Row="5">

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CC.Controller
 {
@@ -14,6 +16,7 @@ namespace CC.Controller
         public Candidato Destinatario { get; set; }
         public Usuario UsuarioDestinatario { get; set; }
         public static List<Notificacao> listaNotificacoes { get; set; } = new List<Notificacao>();
+        public static int contadorNotificacoes = 0;
 
         public Notificacao()
         {
@@ -23,6 +26,7 @@ namespace CC.Controller
         public static void AdicionarNotificacao(Notificacao notificacao)
         {
             listaNotificacoes.Add(notificacao);  
+            contadorNotificacoes++;
         }
 
         public static List<Notificacao> ListarNotificacoes()
@@ -64,6 +68,11 @@ namespace CC.Controller
 
                 AdicionarNotificacao(notificacaoEmpresa);
             }
+        }
+
+        public static List<Notificacao> ListarNotificacoes(Usuario usuarioLogado)
+        {
+            return listaNotificacoes.Where(n => n.UsuarioDestinatario == usuarioLogado).ToList();
         }
     }
 }

@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace CC.UserControls
 {
-    /// <summary>
-    /// Interação lógica para Candidaturas.xam
-    /// </summary>
     public partial class Candidaturas : UserControl
     {
 
@@ -48,6 +45,7 @@ namespace CC.UserControls
                     };
 
                     Notificacao.AdicionarNotificacao(notificacao);
+                    Notificacao.AdicionarNotificacaoCoordenador("Nova Inscrição", $"O candidato {Usuario.UsuarioLogado.Nome} se inscreveu para a vaga {oportunidadeSelecionada.TituloVaga}.");
                 }
                 else
                 {

@@ -21,7 +21,9 @@ namespace CC.Controller
         public string? Cargo { get; set; }
         public int DataNascimento { get; set; }
         public string? Endereco { get; set; }   
+        public string? Curso { get; set; }
         public string? CNPJEmpresa { get; set; }
+        public int ContadorNotificacoes { get; set; }
         public static Usuario? UsuarioLogado { get; private set; }
 
         /*         CONSTRUTOR           */

@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace CC.UserControls
 {
-    /// <summary>
-    /// Interação lógica para Notificacoes.xam
-    /// </summary>
     public partial class Notificacoes : UserControl
     {
         public Notificacoes()

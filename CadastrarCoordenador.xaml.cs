@@ -25,24 +25,27 @@ namespace CC
             string dataNascimentoString = CampoNascimento.Text;
             DateTime dataNascimento;
 
-            if (DateTime.TryParseExact(dataNascimentoString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
-            {
-                int idade = Usuario.CalcularIdade(dataNascimento);
-
-                Usuario novoCoordenador = new Usuario
+            if(nome.Contains(" ")){
+                if (DateTime.TryParseExact(dataNascimentoString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
                 {
-                    Nome = nome,
-                    Email = email,
-                    Senha = senha,
-                    SenhaCriptografada = senhacriptografada,
-                    Cargo = "Coordenador",
-                    DataNascimento = idade,
-                    Endereco = endereco,
-                };
+                    int idade = Usuario.CalcularIdade(dataNascimento);
 
-                Usuario.AdicionarUsuario(novoCoordenador);
-                LabelSucesso.Visibility = Visibility.Visible;
-            }
+                    Usuario novoCoordenador = new Usuario
+                    {
+                        Nome = nome,
+                        Email = email,
+                        Senha = senha,
+                        SenhaCriptografada = senhacriptografada,
+                        Cargo = "Coordenador",
+                        DataNascimento = idade,
+                        Endereco = endereco,
+                    };
+
+                    Usuario.AdicionarUsuario(novoCoordenador);
+                    LabelSucesso.Visibility = Visibility.Visible;
+                }
+            }else
+                MessageBox.Show("O usuário deve conter nome e sobrenome.");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

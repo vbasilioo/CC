@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CC
 {
@@ -22,13 +24,18 @@ namespace CC
 
         private List<Oportunidade> listaPesquisa = new List<Oportunidade>();
         private List<Oportunidade> resultadoPesquisa = new List<Oportunidade>();
-        private bool Maximizado = false;
+        private DispatcherTimer timer;
 
         public Dashboard()
         {
             InitializeComponent();
             VerificarCargo();
             AlterarNomeCargo();
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += DispatcherTimer_Tick;
+            timer.Start();
         }
 
         private void AlterarNomeCargo()
@@ -68,23 +75,7 @@ namespace CC
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.ClickCount == 2)
-            {
-                if(Maximizado)
-                {
-                    this.WindowState = WindowState.Normal;
-                    this.Width = 1680;
-                    this.Height = 920;
 
-                    Maximizado = false;
-                }
-                else
-                {
-                    this.WindowState = WindowState.Maximized;
-
-                    Maximizado = true;
-                } 
-            }
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -150,6 +141,12 @@ namespace CC
             contentDashboard.Children.Clear();
             AdministracaoUC adm = new AdministracaoUC();
             contentDashboard.Children.Add(adm);
+        }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            List<Notificacao> notificacoesUsuarioLogado = Notificacao.ListarNotificacoes(Usuario.UsuarioLogado);
+            ContadorNotificacoes.Content = notificacoesUsuarioLogado.Count.ToString();
         }
     }
 }
