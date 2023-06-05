@@ -1,16 +1,16 @@
 ﻿
 
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\AssociarCandidato.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\CadastrarUsuario.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\Dashboard.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\Editar_Vaga.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\FecharVaga.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\MainWindow.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\UserControls\GestaoControle.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\UserControls\MyTextBox.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\UserControls\MyTextBoxCad.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\UserControls\Notificacoes.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\UserControls\OportunidadesAprovadas.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\RedefinirSenha.xaml;;
-FC:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\UserControls\AdministracaoUC.xaml;;
+FE:\CarrerConect\CareerConnect\AssociarCandidato.xaml;;
+FE:\CarrerConect\CareerConnect\Cadastro.xaml;;
+FE:\CarrerConect\CareerConnect\Dashboard.xaml;;
+FE:\CarrerConect\CareerConnect\Editar_Vaga.xaml;;
+FE:\CarrerConect\CareerConnect\FecharVaga.xaml;;
+FE:\CarrerConect\CareerConnect\MainWindow.xaml;;
+FE:\CarrerConect\CareerConnect\Perfil.xaml;;
+FE:\CarrerConect\CareerConnect\RedefinirSenha.xaml;;
+FE:\CarrerConect\CareerConnect\UserControls\AdministracaoUC.xaml;;
+FE:\CarrerConect\CareerConnect\UserControls\GestaoControle.xaml;;
+FE:\CarrerConect\CareerConnect\UserControls\MyTextBox.xaml;;
+FE:\CarrerConect\CareerConnect\UserControls\Notificacoes.xaml;;
+FE:\CarrerConect\CareerConnect\UserControls\OportunidadesAprovadas.xaml;;
 

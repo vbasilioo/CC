@@ -10,7 +10,7 @@
     <Compile Update="AssociarCandidato.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CadastrarUsuario.xaml.cs">
+    <Compile Update="Cadastro.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dashboard.xaml.cs">
@@ -20,6 +20,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="FecharVaga.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Perfil.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="RedefinirSenha.xaml.cs">
@@ -46,13 +49,7 @@
     <Compile Update="UserControls\MenuButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControls\MyOption.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UserControls\MyTextBox.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UserControls\MyTextBoxCad.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\Notificacoes.xaml.cs">
@@ -66,7 +63,7 @@
     <Page Update="AssociarCandidato.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="CadastrarUsuario.xaml">
+    <Page Update="Cadastro.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dashboard.xaml">
@@ -79,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Perfil.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RedefinirSenha.xaml">
@@ -105,13 +105,7 @@
     <Page Update="UserControls\MenuButton.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControls\MyOption.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="UserControls\MyTextBox.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\MyTextBoxCad.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\Notificacoes.xaml">

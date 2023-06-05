@@ -1,0 +1,48 @@
+﻿<Window x:Class="CC.Perfil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CC"
+        mc:Ignorable="d"
+        Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
+        Title="Perfil" Height="640" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="380"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#FF171D20" CornerRadius="25 0 0 25">
+            <StackPanel VerticalAlignment="Center">
+                <Image Source="Imagens/perfil.png" Height="206"/>
+                <TextBlock Text="Perfil"  HorizontalAlignment="Center" FontSize="40" Margin=" 0 -780 0 0" Height="50" Foreground="White" FontFamily="Poppins" FontWeight="SemiBold"/>
+
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Padding="20" Background="#242f34" CornerRadius="0 25 25 0" MouseDown="Border_MouseDown">
+            <Grid>
+                <TextBlock Text="Informações do Usuário"  HorizontalAlignment="Center" FontSize="35" Margin="0,28,0,522" Height="50" Foreground="White" FontFamily="Poppins" FontWeight="SemiBold"/>
+                <TextBlock Text="Nome" Margin="72,150,442,423" Style="{StaticResource text}"/>
+                <TextBlock Text="Nome da Pessoa" Margin="72,179,417,394" RenderTransformOrigin="0.615,0.506"/>
+                <TextBlock Text="Email" Margin="72,206,442,0" Style="{StaticResource text}" VerticalAlignment="Top"/>
+                <TextBox Margin="68,232,256,0" VerticalAlignment="Top" Background="White" Style="{StaticResource textBox}" Height="32"/>
+
+
+                <Button Content="Salvar"  Style="{StaticResource buttonMainGreen}" Background="#FFF18047"  HorizontalAlignment="Center" Height="60" Width="152" Margin="0,520,0,20"/>
+                <TextBox Margin="68,300,256,0" VerticalAlignment="Top" Background="White" Style="{StaticResource textBox}" Height="32"/>
+                <TextBlock Text="Enderço" Margin="72,276,442,0" Style="{StaticResource text}" VerticalAlignment="Top"/>
+                <TextBlock Text="Cargo" Margin="72,337,442,0" Style="{StaticResource text}" VerticalAlignment="Top"/>
+                <TextBlock Text="Cargo da Pessoa" Margin="72,371,417,202"/>
+                <TextBlock Margin="72,394,442,0" Style="{StaticResource text}" VerticalAlignment="Top" Text=""/>
+                <TextBlock Text="Data de Nascimento" Margin="72,394,352,0" Style="{StaticResource text}" VerticalAlignment="Top"/>
+                <DatePicker Margin="68,420,256,154" BorderBrush="Transparent" RenderTransformOrigin="0.503,0.538"/>
+
+            </Grid>
+
+
+        </Border>
+
+
+    </Grid>
+</Window>

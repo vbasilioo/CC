@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\
+E:\CarrerConect\CareerConnect\obj\Debug\net7.0-windows\
 CC
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\App.xaml
-19-1645611923
+E:\CarrerConect\CareerConnect\App.xaml
+18-1831042224
 
-261267743556
-2022146975829
-AssociarCandidato.xaml;CadastrarUsuario.xaml;Dashboard.xaml;Editar_Vaga.xaml;FecharVaga.xaml;MainWindow.xaml;RedefinirSenha.xaml;UserControls\AdministracaoUC.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;
+25-923991950
+202-1330128182
+AssociarCandidato.xaml;Cadastro.xaml;Dashboard.xaml;Editar_Vaga.xaml;FecharVaga.xaml;MainWindow.xaml;Perfil.xaml;RedefinirSenha.xaml;UserControls\AdministracaoUC.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MenuButton.xaml;UserControls\MyTextBox.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;
 
 False
 

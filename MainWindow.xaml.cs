@@ -79,8 +79,18 @@ namespace CC
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            CadastrarUsuario cad = new CadastrarUsuario();
+            Cadastro cad = new Cadastro();
             cad.Show();
+            this.Hide();
+        }
+
+        private void Button_DpiChanged(object sender, DpiChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
             this.Hide();
         }
     }
