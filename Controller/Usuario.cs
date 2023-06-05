@@ -37,6 +37,7 @@ namespace CC.Controller
                 Cargo = "Candidato",
                 DataNascimento = 21,
                 Endereco = "Jardim da Fonte, Cachoeira Paulista",
+                Curso = "Análise e Desenvolvimento de Sistemas",
             },
 
             new Usuario{
@@ -70,7 +71,8 @@ namespace CC.Controller
                 SenhaCriptografada = "conde",
                 Cargo = "Candidato",
                 DataNascimento = 19,
-                Endereco = "Centro, Cruzeiro"
+                Endereco = "Centro, Cruzeiro",
+                Curso = "Gestão Empresarial",
             },
 
             new Usuario{
@@ -105,12 +107,13 @@ namespace CC.Controller
         }
 
         // Esse construtor está sendo utilizado na classe Candidato
-        public Usuario(string? nome, string? endereco, int idade, string? email)
+        public Usuario(string? nome, string? endereco, int idade, string? email, string? curso)
         {
             Nome = nome;
             Endereco = endereco;
             Email = email;
             DataNascimento = idade;
+            Curso = curso;
             usuariosCadastrados.Add(this);
         }
 

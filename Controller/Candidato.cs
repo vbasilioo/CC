@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +16,7 @@ namespace CC.Controller
         public int IDCandidato { get; set; }
         public string? Autor { get; set; }  
         public string? NomeCandidato { get; set; }
+        public string? Curso { get; set; }
         public string? NomeSocial { get; set; }
         public int Telefone { get; set; }
         public string? Comentarios { get; set; }
@@ -24,12 +26,18 @@ namespace CC.Controller
         public static List<Candidato> VagasInscritas = new List<Candidato>();
         public static List<Candidato> VagasCandidato = new List<Candidato>();
 
-        public Candidato(string? nome, string? titulo)
+        public Candidato()
+        {
+
+        }
+
+        public Candidato(string? nome, string? titulo, string? curso)
         {
             IDCandidato = contador++;
             Autor = Usuario.UsuarioLogado.Nome;
             NomeCandidato = nome;
             TituloVaga = titulo;
+            Curso = curso;
         }
 
         public Candidato(string? nome, string? nomeSocial, int telefone, string? comentarios, Tuple<string, string, string> tituloCNPJnomefantasia)
@@ -48,7 +56,7 @@ namespace CC.Controller
         public static void AdicionarCandidato(Oportunidade oportunidade, string titulo)
         {
             contador++;
-            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo);
+            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo, Usuario.UsuarioLogado.Curso);
             VagasCandidato.Add(novaCandidatura);
         }
 
@@ -71,7 +79,7 @@ namespace CC.Controller
 
         public static void AdicionarVaga(Oportunidade oportunidade, string titulo)
         {
-            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo);
+            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo, Usuario.UsuarioLogado.Curso);
             VagasCandidato.Add(novaCandidatura);
             MessageBox.Show("Você foi inscrito com sucesso!");
         }
@@ -148,7 +156,24 @@ namespace CC.Controller
 
         public static List<Candidato> RetornarCandidatosPorTitulo(string titulo)
         {
-            return VagasCandidato.FindAll(c => c.TituloVaga == titulo);
+            //return VagasCandidato.FindAll(c => c.TituloVaga == titulo);
+            List<Candidato> candidatosComCurso = new List<Candidato>();
+
+            foreach (var candidato in VagasCandidato)
+            {
+                if (candidato.TituloVaga == titulo)
+                {
+                    Candidato candidatoComCurso = new Candidato
+                    {
+                        NomeCandidato = candidato.NomeCandidato,
+                        Curso = candidato.Curso
+                    };
+
+                    candidatosComCurso.Add(candidatoComCurso);
+                }
+            }
+
+            return candidatosComCurso;
         }
     }
 }

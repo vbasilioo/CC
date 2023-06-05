@@ -19,69 +19,56 @@
         <Label Content="Vagas Pendentes" FontSize="22" Margin="10 20 0 0" Grid.Row="0"/>
 
         <!-- Primeira DataGrid -->
-        <DataGrid Grid.Row="1" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" x:Name="GridOportunidades">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="ID" IsReadOnly="True" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="#f18047">
-                                    <TextBlock Text="{Binding ID}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" />
-                                </Border>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Título da Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
-                <DataGridTextColumn Header="Descrição da Vaga" IsReadOnly="True" Width="*" Binding="{Binding DescricaoVaga}" />
-                <DataGridTextColumn Header="Salário" IsReadOnly="True" Width="*" Binding="{Binding SalarioVaga}" />
-                <DataGridTextColumn Header="Requisitos" IsReadOnly="True" Width="*" Binding="{Binding Requisitos}" />
-                <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding NomeFantasia}" />
-                <DataGridTextColumn Header="CNPJ" IsReadOnly="True" Width="*" Binding="{Binding CNPJ}" />
-                <DataGridTextColumn Header="Status" IsReadOnly="True" Width="*" Binding="{Binding StatusVaga}" />
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <DataGrid Grid.Row="1" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" x:Name="GridOportunidades">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="ID" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="#f18047">
+                                        <TextBlock Text="{Binding ID}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" />
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Título da Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
+                    <DataGridTextColumn Header="Descrição da Vaga" IsReadOnly="True" Width="*" Binding="{Binding DescricaoVaga}" />
+                    <DataGridTextColumn Header="Salário" IsReadOnly="True" Width="*" Binding="{Binding SalarioVaga}" />
+                    <DataGridTextColumn Header="Requisitos" IsReadOnly="True" Width="*" Binding="{Binding Requisitos}" />
+                    <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding NomeFantasia}" />
+                    <DataGridTextColumn Header="CNPJ" IsReadOnly="True" Width="*" Binding="{Binding CNPJ}" />
+                    <DataGridTextColumn Header="Status" IsReadOnly="True" Width="*" Binding="{Binding StatusVaga}" />
 
-                <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="btnAprovar" Style="{StaticResource aproveButton}" Click="btnAprovar_Click">
-                                    <Icon:PackIconMaterial Kind="Check" Style="{StaticResource gridButtonIcon}" />
-                                </Button>
-                                <Button x:Name="btnDeletar" Style="{StaticResource gridRemoveButton}" Click="btnDeletar_Click">
-                                    <Icon:PackIconMaterial Kind="DeleteAlertOutline" Style="{StaticResource gridButtonIcon}" />
-                                </Button>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+                    <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="btnAprovar" Style="{StaticResource aproveButton}" Click="btnAprovar_Click">
+                                        <Icon:PackIconMaterial Kind="Check" Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                    <Button x:Name="btnDeletar" Style="{StaticResource gridRemoveButton}" Click="btnDeletar_Click">
+                                        <Icon:PackIconMaterial Kind="DeleteAlertOutline" Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
 
         <!-- Título da segunda DataGrid -->
         <Label Content="Candidatos" FontSize="22" Margin="10 20 0 0" Grid.Row="2"/>
 
         <!-- segunda DataGrid -->
-        <DataGrid Grid.Row="3" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" x:Name="GridCandidaturas">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Autor" IsReadOnly="True" Width="*" Binding="{Binding Autor}" />
-                <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
-                <DataGridTextColumn Header="Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
-
-                <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="btnAssociar" Style="{StaticResource detailsButton}" Click="btnAssociar_Click">
-                                    <Icon:PackIconMaterial Kind="Details" Style="{StaticResource gridButtonIcon}" />
-                                </Button>
-                                <Button x:Name="btnDesassociar" Style="{StaticResource detailsButton}" Click="btnDesassociar_Click">
-                                    <Icon:PackIconMaterial Kind="BeakerRemove" Style="{StaticResource gridButtonIcon}" />
-                                </Button>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+            <DataGrid Grid.Row="3" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" x:Name="GridCandidaturas">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Autor" IsReadOnly="True" Width="*" Binding="{Binding Autor}" />
+                    <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
+                    <DataGridTextColumn Header="Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
+                </DataGrid.Columns>
+            </DataGrid>
     </Grid>
 </UserControl>

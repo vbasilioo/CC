@@ -17,10 +17,14 @@ namespace CC
 {
     public partial class AssociarCandidato : Window
     {
+
+        private string nomeCandidato;
+
         public AssociarCandidato(string nome)
         {
             InitializeComponent();  
-            
+            nomeCandidato = nome;
+
             var usuario = Candidato.ListarInscritos().FirstOrDefault(u => u.NomeCandidato == nome);
 
             if (usuario != null)
@@ -41,11 +45,28 @@ namespace CC
         {
             if(int.TryParse(txtTelefone.Text, out int telefone))
             {
-                if(txtNome.Text == "") txtNome.Text = "N/A";
                 if(txtComentarios.Text == "") txtComentarios.Text = "N/A";
+                if(txtNomesocial.Text == "") txtNomesocial.Text = "N/A";
 
                 Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(txtNomeEmpresa.Text);
                 Candidato.AssociarCandidato(oportunidade.ID, txtNome.Text, txtNomesocial.Text, int.Parse(txtTelefone.Text), txtComentarios.Text);
+
+                List<Candidato> candidatos = Candidato.RetornarCandidatosPorTitulo(oportunidade.TituloVaga);
+
+                if(candidatos.Count > 0) {
+                    Candidato destinatario = candidatos.FirstOrDefault(u => u.NomeCandidato == nomeCandidato);
+
+                    if(destinatario != null){
+                    Notificacao notificacao = new Notificacao
+                    {
+                        Titulo = "Nova associação",
+                        Mensagem = $"O coordenador {Usuario.UsuarioLogado.Nome} associou você a vaga {oportunidade.TituloVaga}.",
+                        Destinatario = destinatario
+                    };
+
+                    Notificacao.AdicionarNotificacao(notificacao);
+                    }
+                }
             }
         }
     }

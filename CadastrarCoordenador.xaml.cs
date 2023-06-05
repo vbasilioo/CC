@@ -12,6 +12,7 @@ namespace CC
         {
             InitializeComponent();
             LabelSucesso.Visibility = Visibility.Collapsed;
+            LabelErrado.Visibility = Visibility.Collapsed;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,9 +44,12 @@ namespace CC
 
                     Usuario.AdicionarUsuario(novoCoordenador);
                     LabelSucesso.Visibility = Visibility.Visible;
+                    LabelErrado.Visibility = Visibility.Collapsed;
                 }
-            }else
-                MessageBox.Show("O usuário deve conter nome e sobrenome.");
+            }else{
+                LabelErrado.Visibility = Visibility.Visible;
+                LabelSucesso.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

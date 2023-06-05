@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace CC.UserControls
 {
-    /// <summary>
-    /// Interação lógica para GestaoCoord.xam
-    /// </summary>
     public partial class GestaoCoord : UserControl
     {
         public GestaoCoord()
@@ -80,8 +77,24 @@ namespace CC.UserControls
                 }
             }
 
-            Candidato.RemoverVaga(candidatoSelecionado);
-            GridCandidaturas.Items.Refresh();
+            if(candidatoSelecionado != null)
+            {
+                Candidato.RemoverVaga(candidatoSelecionado);
+                GridCandidaturas.Items.Refresh();
+
+                Candidato destinatario = new Candidato
+                {
+                    NomeCandidato = candidatoSelecionado.NomeCandidato
+                };
+
+                Notificacao notificacao = new Notificacao{
+                    Titulo = "Desassociação de vaga",
+                    Mensagem = $"O coordenador {Usuario.UsuarioLogado.Nome} desassociou você da vaga {candidatoSelecionado.TituloVaga}.",
+                    Destinatario = destinatario
+                };
+
+                Notificacao.AdicionarNotificacao(notificacao);
+            }
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)

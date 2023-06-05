@@ -20,6 +20,7 @@
         <Button Content="Cadastrar" Style="{StaticResource mainbutton}" HorizontalAlignment="Left" Margin="41,489,0,0" VerticalAlignment="Top" Width="337" Click="Button_Click"/>
         <Button Content="Voltar" Style="{StaticResource buttonMainGreen}" HorizontalAlignment="Left" Margin="401,489,0,0" VerticalAlignment="Top" Width="158" Click="Button_Click_1"/>
         <Label x:Name="LabelSucesso" Content="Sucesso ao cadastrar um coordenador!" Foreground="Green" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.382,0.482" Width="265"/>
+        <Label x:Name="LabelErrado" Content="O coordenador deve possuir nome e sobrenome." Foreground="Red" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.583,-0.241"/>
 
     </Grid>
 </Window>
