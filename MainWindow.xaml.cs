@@ -67,7 +67,7 @@ namespace CC
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            this.Hide();
+           Environment.Exit(0);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)

@@ -97,7 +97,7 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <!--BOTÕES DA NAVBAR-->
-                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" HorizontalAlignment="Right">
+                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" HorizontalAlignment="Right" Click="Button_Click_7">
                     <Icon:PackIconMaterial Kind="Cog" />
                 </Button>
                 <Button Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right" Click="Button_Click_1">

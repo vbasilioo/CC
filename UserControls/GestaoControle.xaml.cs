@@ -24,6 +24,7 @@ namespace CC.UserControls
         public GestaoControle()
         {
             InitializeComponent();
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -34,21 +35,30 @@ namespace CC.UserControls
             string empresa = txtNomeempresa.Text;
             string status = txtStatus.Text;
 
-            if(Usuario.UsuarioLogado.Cargo == "Empresa")
+            bool hasError = !double.TryParse(txtSalario.Text, out double salario);
+
+            if (hasError)
             {
-                if (Double.TryParse(txtSalario.Text, out double salario)) 
+                lblErroSalario.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lblErroSalario.Visibility= Visibility.Collapsed;
+
+                if (txtStatus.Text == "Aberta" || txtStatus.Text == "Fechada")
                 {
-                    if(txtStatus.Text == "Aberta" || txtStatus.Text == "Fechada"){
-                        Oportunidade.CadastrarOportunidadeNova(titulo, descricao, salario, requisitos, empresa, Usuario.UsuarioLogado.CNPJEmpresa, status);
-                        lblSucessoCadastro.Visibility = Visibility.Visible;
-                        lblDetalhes.Visibility = Visibility.Collapsed;
-                    }
-                    else
-                    {
-                        MessageBox.Show("ERRO: Digite novamente se a vaga está 'Aberta' ou 'Fechada'");
-                    }
-                } 
+                    Oportunidade.CadastrarOportunidadeNova(titulo, descricao, salario, requisitos, empresa, Usuario.UsuarioLogado.CNPJEmpresa, status);
+                    lblSucessoCadastro.Visibility = Visibility.Visible;
+                    lblDetalhes.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    MessageBox.Show("ERRO: Digite novamente se a vaga está 'Aberta' ou 'Fechada'");
+                }
             }
         }
+        
     }
-}
+ }
+    
+

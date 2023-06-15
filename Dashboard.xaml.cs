@@ -148,5 +148,18 @@ namespace CC
             List<Notificacao> notificacoesUsuarioLogado = Notificacao.ListarNotificacoes(Usuario.UsuarioLogado);
             ContadorNotificacoes.Content = notificacoesUsuarioLogado.Count.ToString();
         }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            contentDashboard.Children.Clear();
+            Perfil perfil = new Perfil();
+            contentDashboard.Children.Add(perfil);
+
+        }
     }
 }

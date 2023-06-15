@@ -27,7 +27,7 @@ namespace CC
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(Usuario.VerificarEmailCadastrado(campoEmail.Text)){
-                Administracao.AdicionarSenhaEsquecida(campoEmail.Text, CampoAssunto.Text);
+                Administracao.AdicionarSenhaEsquecida(campoEmail.Text);
                 LabelSucesso.Visibility = Visibility.Visible;
                 LabelFracasso.Visibility = Visibility.Collapsed;
             }

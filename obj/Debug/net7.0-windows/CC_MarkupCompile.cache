@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\
+C:\Users\Eric\source\repos\CareerConnect\obj\Debug\net7.0-windows\
 CC
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\App.xaml
-21484809356
+C:\Users\Eric\source\repos\CareerConnect\App.xaml
+23882568290
 
-28-1773507196
-203-1085829085
-AlterarSenha.xaml;AssociarCandidato.xaml;CadastrarCoordenador.xaml;CadastrarUsuario.xaml;Dashboard.xaml;Editar_Vaga.xaml;FecharVaga.xaml;MainWindow.xaml;RedefinirSenha.xaml;UserControls\AdministracaoUC.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;
+30-258279367
+209-227175413
+AlterarSenha.xaml;AssociarCandidato.xaml;CadastrarCoordenador.xaml;CadastrarUsuario.xaml;Dashboard.xaml;Editar_Vaga.xaml;FecharVaga.xaml;MainWindow.xaml;RedefinirSenha.xaml;TrocarSenhaUsuario.xaml;UserControls\AdministracaoUC.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;UserControls\Perfil.xaml;
 
 False
 
