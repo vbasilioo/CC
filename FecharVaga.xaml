@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CC.UserControls"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600" Background="#eff2f7">
+             d:DesignHeight="450" d:DesignWidth="600" Background="#eff2f7" WindowStartupLocation="CenterScreen">
     <Grid>
         <!--DATAGRID-->
         <DataGrid ItemsSource="{Binding Candidatos}" Background="#eff2f7" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridCandidatos">
@@ -19,7 +19,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Button x:Name="btnSelecionar" Style="{StaticResource detailsButton}" Click="btnSelecionar_Click" Tag="{Binding}">
-                                    <Icon:PackIconMaterial Kind="TicketConfirmation" Style="{StaticResource gridButtonIcon}" />
+                                    <Icon:PackIconMaterial Kind="BellCheck" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

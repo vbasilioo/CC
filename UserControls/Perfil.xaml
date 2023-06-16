@@ -25,12 +25,11 @@
 
 
                 <Button Content="Salvar"  Style="{StaticResource buttonMainGreen}" Background="#FFF18047"  HorizontalAlignment="Left" Height="60" Width="238" Margin="410,696,0,54" Click="Button_Click"/>
-                <Button Content="Trocar Senha" Height="60" Margin="719,696,338,54" Style="{StaticResource buttonMain}" Width="238"  />
+                <Button Content="Trocar Senha" Height="60" Margin="719,696,338,54" Style="{StaticResource buttonMain}" Width="238" Click="Button_Click_1"  />
                 <TextBox x:Name="txtEndereco"  Margin="458,323,412,0" VerticalAlignment="Top" Background="White" Height="35" FontSize="15"/>
                 <TextBlock Text="Enderço" Margin="458,297,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
                 <TextBlock Text="Cargo" Margin="458,362,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
                 <TextBlock Text="Data de Nascimento" Margin="458,427,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
-                <TextBlock Text="Senha" Margin="458,478,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
                 <DatePicker x:Name="txtData"  Margin="458,450,412,337" BorderBrush="Transparent" RenderTransformOrigin="0.503,0.538"/>
                 
 

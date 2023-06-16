@@ -18,12 +18,11 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" IsReadOnly="True" Width="*" Binding="{Binding ID}" />
                 <DataGridTextColumn Header="E-mail" IsReadOnly="True" Width="*" Binding="{Binding Email}" />
-                <DataGridTextColumn Header="Assunto" IsReadOnly="True" Width="*" Binding="{Binding Assunto}" />
                 <DataGridTemplateColumn Header="Ações" Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="BtnEditar" Click="BtnEditar_Click" DataContext="{Binding}">
-                                <Icon:PackIconMaterial Kind="AccountEdit" Style="{StaticResource gridButtonIcon}" />
+                            <Button x:Name="BtnEditar" Style="{StaticResource aproveButton}" Click="BtnEditar_Click" DataContext="{Binding}">
+                                <Icon:PackIconMaterial Kind="Key" Style="{StaticResource gridButtonIcon}" />
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -15,7 +15,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="#f18047">
-                                    <TextBlock Text="{Binding ID}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Margin="0 0 0 1" />
+                                    <TextBlock Text="{Binding ID}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" />
                                 </Border>
                             </StackPanel>
                         </DataTemplate>
@@ -26,7 +26,6 @@
                 <DataGridTextColumn Header="Salário" IsReadOnly="True" Width="*" Binding="{Binding SalarioVaga}" />
                 <DataGridTextColumn Header="Requisitos" IsReadOnly="True" Width="*" Binding="{Binding Requisitos}" />
                 <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding NomeFantasia}" />
-                <DataGridTextColumn Header="CNPJ" IsReadOnly="True" Width="*" Binding="{Binding CNPJ}" />
                 <DataGridTextColumn Header="Status" IsReadOnly="True" Width="*" Binding="{Binding StatusVaga}" />
 
                 <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">

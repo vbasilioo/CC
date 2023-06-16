@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CC"
         mc:Ignorable="d"
         Height="600" Width="500" Background="#171d20" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
-    <Grid>
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Label x:Name="titulo" Content="Administração" FontSize="36" FontWeight="SemiBold" Foreground="White" FontFamily="Poppins" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top"/>
         <Label Content="Redifina uma nova senha para o usuário." FontSize="18" FontWeight="Medium" Foreground="White" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,182,0,0"/>
         <Button Content="Redefinir" Background="#f18047" FontSize="16" FontWeight="Bold" FontFamily="Poppins" Foreground="White" HorizontalAlignment="Center" Margin="0,489,0,0" VerticalAlignment="Top" Height="35" Width="400" Click="Button_Click"/>

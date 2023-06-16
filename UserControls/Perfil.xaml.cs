@@ -38,7 +38,11 @@ namespace CC.UserControls
 
             Usuario.EditarUsuario(usuariologado, txtNome.Text, txtEmail.Text, txtCargo.Text, dataNascimento, txtEndereco.Text, Usuario.UsuarioLogado.CNPJEmpresa);
         }
-      
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TrocarSenhaUsuario senha = new TrocarSenhaUsuario();
+            senha.Show();
+        }
     }
 }

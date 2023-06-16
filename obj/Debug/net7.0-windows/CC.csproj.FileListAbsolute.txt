@@ -331,3 +331,25 @@ C:\Users\Eric\source\repos\CareerConnect\bin\Debug\net7.0-windows\zh-Hans\Xceed.
 C:\Users\Eric\source\repos\CareerConnect\bin\Debug\net7.0-windows\Microsoft.Xaml.Behaviors.dll
 C:\Users\Eric\source\repos\CareerConnect\obj\Debug\net7.0-windows\TrocarSenhaUsuario.g.cs
 C:\Users\Eric\source\repos\CareerConnect\obj\Debug\net7.0-windows\TrocarSenhaUsuario.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\Xceed.Wpf.AvalonDock.NET5.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\Xceed.Wpf.AvalonDock.Themes.Aero.NET5.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\Xceed.Wpf.AvalonDock.Themes.Metro.NET5.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\Xceed.Wpf.AvalonDock.Themes.VS2010.NET5.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\Xceed.Wpf.Toolkit.NET5.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\cs-CZ\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\de\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\es\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\fr\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\hu\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\it\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\ja-JP\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\pt-BR\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\ro\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\ru\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\sv\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\bin\Debug\net7.0-windows\zh-Hans\Xceed.Wpf.AvalonDock.NET5.resources.dll
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\TrocarSenhaUsuario.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\Perfil.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\TrocarSenhaUsuario.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\Perfil.baml

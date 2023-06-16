@@ -38,7 +38,7 @@
 
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Bem-vindo de volta!" Style="{StaticResource titleText}" Foreground="White" Margin="0 0 0 50" />
-                <TextBlock Text="ENTRAR" Width="355" FontWeight="SemiBold" FontFamily="Poppins" Foreground="White"/>
+                <TextBlock Text="E-MAIL" Width="355" FontWeight="SemiBold" FontFamily="Poppins" Foreground="White"/>
                 <TextBlock x:Name="lblErroUsuario" Foreground="Red" FontWeight="Bold" Visibility="Collapsed" Margin="70 7" />
                 <Border BorderThickness="1" Background="White" BorderBrush="#f18047" Margin="70 7" CornerRadius="5">
 

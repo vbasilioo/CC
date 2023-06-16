@@ -25,10 +25,11 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <!--TÍTULO-->
-            <StackPanel Orientation="Horizontal" Margin="20 20 -100 0">
+            <StackPanel Orientation="Horizontal" Margin="20 20 -300 0">
                 <TextBlock x:Name="lblDetalhes" Text="Detalhes" Foreground="#374655" FontSize="18" Margin="15 0 0 0" VerticalAlignment="Center" />
                 <TextBlock x:Name="lblSucessoCadastro" Text="Vaga cadastrada com sucesso!" Foreground="Green" FontSize="16" Margin="500 0 0 0" VerticalAlignment="Center" Visibility="Collapsed" />
                 <TextBlock x:Name="lblErroSalario" Text="Salário inválido." Foreground="Red" FontSize="16" Margin="500 0 0 0" VerticalAlignment="Center" Visibility="Collapsed" />
+                <TextBlock x:Name="lblCamposVazios" Text="Todos os campos estão vazios." Foreground="Red" FontSize="16" Margin="500 0 0 0" VerticalAlignment="Center" Visibility="Collapsed" />
                 <TextBlock x:Name="lblErroCNPJ" Text="CNPJ inválido." Foreground="Red" FontSize="16" Margin="400 0 0 0" VerticalAlignment="Center" Visibility="Collapsed" />
             </StackPanel>
 

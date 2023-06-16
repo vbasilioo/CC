@@ -45,8 +45,7 @@ namespace CC
 
             string dataNascimentoString = txtIdade.Text;
             DateTime dataNascimento;
-            //
-
+            
             if (nome.Contains(" "))
             {
                 if (DateTime.TryParseExact(dataNascimentoString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
