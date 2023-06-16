@@ -97,13 +97,13 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <!--BOTÕES DA NAVBAR-->
-                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" HorizontalAlignment="Right">
+                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" HorizontalAlignment="Right" Click="Button_Click_7">
                     <Icon:PackIconMaterial Kind="Cog" />
                 </Button>
                 <Button Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right" Click="Button_Click_1">
                     <Icon:PackIconMaterial Kind="Bell" />
                 </Button>
-                <Label x:Name="ContadorNotificacoes" Content="0" FontSize="16" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold" Margin="1363,0,0,0" VerticalAlignment="Center">
+                <Label x:Name="ContadorNotificacoes" Content="0" FontSize="16" HorizontalAlignment="Left" Foreground="#242f34" FontWeight="Bold" Margin="1363,0,0,0" VerticalAlignment="Center">
                     <Label.Style>
                         <Style TargetType="Label">
                             <Setter Property="Canvas.Left" Value="0"/>

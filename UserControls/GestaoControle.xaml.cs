@@ -16,14 +16,12 @@ using System.Windows.Shapes;
 
 namespace CC.UserControls
 {
-    /// <summary>
-    /// Interação lógica para GestaoControle.xam
-    /// </summary>
     public partial class GestaoControle : UserControl
     {
         public GestaoControle()
         {
             InitializeComponent();
+            lblCamposVazios.Visibility = Visibility.Collapsed;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -34,21 +32,29 @@ namespace CC.UserControls
             string empresa = txtNomeempresa.Text;
             string status = txtStatus.Text;
 
-            if(Usuario.UsuarioLogado.Cargo == "Empresa")
+            bool hasError = !double.TryParse(txtSalario.Text, out double salario);
+
+            if(titulo == "" || descricao == "" || empresa == "" || requisitos == ""){
+                lblCamposVazios.Visibility = Visibility.Visible;
+                lblSucessoCadastro.Visibility = Visibility.Collapsed;
+            }
+            else if(hasError)
+                lblErroSalario.Visibility = Visibility.Visible;
+            else
             {
-                if (Double.TryParse(txtSalario.Text, out double salario)) 
-                {
-                    if(txtStatus.Text == "Aberta" || txtStatus.Text == "Fechada"){
-                        Oportunidade.CadastrarOportunidadeNova(titulo, descricao, salario, requisitos, empresa, Usuario.UsuarioLogado.CNPJEmpresa, status);
-                        lblSucessoCadastro.Visibility = Visibility.Visible;
-                        lblDetalhes.Visibility = Visibility.Collapsed;
-                    }
-                    else
-                    {
-                        MessageBox.Show("ERRO: Digite novamente se a vaga está 'Aberta' ou 'Fechada'");
-                    }
-                } 
+                lblErroSalario.Visibility= Visibility.Collapsed;
+                Oportunidade.CadastrarOportunidadeNova(titulo, descricao, salario, requisitos, empresa, Usuario.UsuarioLogado.CNPJEmpresa, status);
+                lblSucessoCadastro.Visibility = Visibility.Visible;
+                lblDetalhes.Visibility = Visibility.Collapsed;
+                txtTitulo.Text = "";
+                txtDescricao.Text = "";
+                txtRequisitos.Text = "";
+                txtNomeempresa.Text = "";
+                txtSalario.Text = "";
             }
         }
+        
     }
-}
+ }
+    
+

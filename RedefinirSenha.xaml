@@ -9,14 +9,12 @@
     <Grid>
         <Label x:Name="titulo" Content="CareerConnect" FontSize="36" FontWeight="SemiBold" Foreground="White" FontFamily="Poppins" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top"/>
         <Label Content="Redefinir Senha" HorizontalAlignment="Center" FontSize="26" FontWeight="SemiBold" Foreground="White" FontFamily="Poppins" Margin="0,154,0,0" VerticalAlignment="Top"/>
-        <Label Content="Informe o seu e-mail para redifinir a senha" FontSize="18" FontWeight="Medium" Foreground="White" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,297,0,0"/>
-        <Label Content="E-mail" HorizontalAlignment="Left" FontSize="16" FontFamily="Poppins" FontWeight="Light" Foreground="White" Margin="50,338,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="campoEmail" HorizontalAlignment="Center" Margin="0,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="400"/>
-        <Button Content="Redefinir" Background="#f18047" FontSize="16" FontWeight="Bold" FontFamily="Poppins" Foreground="White" HorizontalAlignment="Center" Margin="0,552,0,0" VerticalAlignment="Top" Height="35" Width="400" Click="Button_Click"/>
+        <Label Content="Informe o seu e-mail para redifinir a senha" FontSize="18" FontWeight="Medium" Foreground="White" FontFamily="Poppins" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,318,0,0"/>
+        <Label Content="E-mail" HorizontalAlignment="Left" FontSize="16" FontFamily="Poppins" FontWeight="Light" Foreground="White" Margin="50,385,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="campoEmail" HorizontalAlignment="Center" Margin="0,419,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="400"/>
+        <Button Content="Enviar" Background="#f18047" FontSize="16" FontWeight="Bold" FontFamily="Poppins" Foreground="White" HorizontalAlignment="Center" Margin="0,552,0,0" VerticalAlignment="Top" Height="35" Width="400" Click="Button_Click"/>
         <Button Content="Voltar" Background="#171d20" FontSize="16" FontWeight="Light" FontFamily="Poppins" Foreground="White" HorizontalAlignment="Center" Margin="0,603,0,0" VerticalAlignment="Top" Height="35" Width="400" Click="Button_Click_1"/>
-        <Label Content="Assunto" HorizontalAlignment="Left" FontSize="16" FontFamily="Poppins" FontWeight="Light" Foreground="White" Margin="50,442,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CampoAssunto" HorizontalAlignment="Center" Margin="0,476,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="400"/>
-        <Label x:Name="LabelSucesso" Content="Você informou a um administrador, agora resta aguardar!" Foreground="Green" FontSize="12" FontWeight="Bold" FontFamily="Poppins" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top" Width="374"/>
-        <Label x:Name="LabelFracasso" Content="E-mail inválido!" Foreground="Red" FontSize="12" FontWeight="Bold" FontFamily="Poppins" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LabelSucesso" Content="Você informou a um administrador, agora resta aguardar!" Foreground="Green" FontSize="13.5" FontWeight="Bold" FontFamily="Poppins" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top" Width="374"/>
+        <Label x:Name="LabelFracasso" Content="E-mail inválido!" Foreground="Red" FontSize="13.5" FontWeight="Bold" FontFamily="Poppins" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

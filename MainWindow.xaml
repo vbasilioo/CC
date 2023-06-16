@@ -12,8 +12,11 @@
             <ColumnDefinition />
             <ColumnDefinition Width="500" />
         </Grid.ColumnDefinitions>
+
+
         <Image Source="/Imagens/fechar.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource ImgClose}"/>
         <Border CornerRadius="10 0 0 10">
+            <Image Source="Imagens/logo.png" Margin="0,-16,0,420"/>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
                     <GradientStop Color="#171d20" />
@@ -23,26 +26,35 @@
         </Border>
         <Border Background="#ffffff" Grid.Column="1" CornerRadius="0 10 10 0" />
         <Grid>
-            <StackPanel VerticalAlignment="Center">
+            <StackPanel Margin="0 300 0 150">
                 <TextBlock Text="Registre-se" Style="{StaticResource titleText}" />
                 <TextBlock Text="Entre com seus dados pessoais e crie uma conta!" Style="{StaticResource normalText}" Opacity="0.8" Margin="20 30" />
                 <Button Content="Registre-se" Style="{StaticResource button}" Background="#f18047" Click="Button_Click_4" />
             </StackPanel>
         </Grid>
+
         <Border Background="#242f34" Grid.Column="1" CornerRadius="0 10 10 0" MouseDown="Border_MouseDown">
+
+
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Bem-vindo de volta!" Style="{StaticResource titleText}" Foreground="White" Margin="0 0 0 50" />
+                <TextBlock Text="E-MAIL" Width="355" FontWeight="SemiBold" FontFamily="Poppins" Foreground="White"/>
                 <TextBlock x:Name="lblErroUsuario" Foreground="Red" FontWeight="Bold" Visibility="Collapsed" Margin="70 7" />
                 <Border BorderThickness="1" Background="White" BorderBrush="#f18047" Margin="70 7" CornerRadius="5">
+
                     <Grid Margin="7 9">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="17*" />
+                            <ColumnDefinition Width="145*"/>
                         </Grid.ColumnDefinitions>
+
+
                         <Image Source="/Imagens/email.png" Height="20"/>
-                        <TextBox x:Name="txtEmail" TextChanged="txtEmail_TextChanged_1" Width="340" Height="20" Style="{StaticResource textBox}" />
+                        <TextBox x:Name="txtEmail" TextChanged="txtEmail_TextChanged_1" Height="20" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,0,0" />
                     </Grid>
                 </Border>
+                <TextBlock Text="SENHA" Width="356" FontWeight="SemiBold" FontFamily="Poppins" Foreground="White"/>
                 <Border BorderThickness="1" Background="White" BorderBrush="#f18047" Margin="70 7" CornerRadius="5">
                     <Grid Margin="7 9">
                         <Grid.ColumnDefinitions>
@@ -53,9 +65,49 @@
                         <PasswordBox x:Name="txtPassword" PasswordChanged="txtPassword_PasswordChanged_1" Style="{StaticResource textBox}" />
                     </Grid>
                 </Border>
-                <Button Content="Entrar" Style="{StaticResource button}" Background="#f18047" Click="Button_Click_2" />
-                <Button Content="Esqueci minha senha" Style="{StaticResource button}" Background="#242f34" Click="Button_Click_3" Margin="0 19 0 0"  Width="160"/>
+                <Button Content="Entrar" Style="{StaticResource button}" Background="#f18047" Click="Button_Click_2" Width="246" />
+                <Button   Background="#242f34" Click="Button_Click_3" Margin="0 19 0 0"  Width="150" BorderBrush="Transparent" Foreground="White" >
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <TextBlock Text="Esqueceu sua senha?" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="Padding" Value="5" />
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Content">
+                                        <Setter.Value>
+                                            <TextBlock Text="Esqueceu sua senha?" TextDecorations="Underline" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                </Button>
             </StackPanel>
         </Border>
+        <Button Grid.Column="1" HorizontalAlignment="Left" Margin="452,13,0,0" VerticalAlignment="Top" Height="30" Background="Transparent" BorderBrush="Transparent" Width="38" Style="{StaticResource Fechar}">
+
+        </Button>
     </Grid>
 </Window>

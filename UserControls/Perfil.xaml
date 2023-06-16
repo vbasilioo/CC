@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="CC.UserControls.Perfil"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CC.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" Width="1335" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Border Grid.Column="1" Padding="20" Background="#eff2f7" CornerRadius="0 25 25 0" RenderTransformOrigin="0.348,0.519" >
+            <Grid>
+                <TextBlock Text="Informações do Usuário"  HorizontalAlignment="Center" FontSize="35" Margin="0,28,0,522" Height="50" Foreground="Gray" FontFamily="Poppins" FontWeight="SemiBold"/>
+                <TextBlock Text="Nome" Margin="458,171,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
+
+                <TextBlock Text="Email" Margin="458,234,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
+                <TextBox x:Name="txtEmail"  Margin="458,260,412,0" VerticalAlignment="Top" Background="White" Height="40" FontSize="15"/>
+                <TextBox x:Name="txtNome"  Margin="458,197,412,0" VerticalAlignment="Top" Background="White" Height="40" FontSize="15" IsReadOnly="True"  />
+                <TextBox x:Name="txtCargo"  Margin="458,0,412,0" Background="White" Height="40" FontSize="15" IsReadOnly="True"  />
+
+
+                <Button Content="Salvar"  Style="{StaticResource buttonMainGreen}" Background="#FFF18047"  HorizontalAlignment="Left" Height="60" Width="238" Margin="410,696,0,54" Click="Button_Click"/>
+                <Button Content="Trocar Senha" Height="60" Margin="719,696,338,54" Style="{StaticResource buttonMain}" Width="238" Click="Button_Click_1"  />
+                <TextBox x:Name="txtEndereco"  Margin="458,323,412,0" VerticalAlignment="Top" Background="White" Height="35" FontSize="15"/>
+                <TextBlock Text="Enderço" Margin="458,297,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
+                <TextBlock Text="Cargo" Margin="458,362,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
+                <TextBlock Text="Data de Nascimento" Margin="458,427,412,0" Style="{StaticResource text}" VerticalAlignment="Top" Foreground="Gray"/>
+                <DatePicker x:Name="txtData"  Margin="458,450,412,337" BorderBrush="Transparent" RenderTransformOrigin="0.503,0.538"/>
+                
+
+            </Grid>
+
+        </Border>
+
+
+    </Grid>
+
+</UserControl>

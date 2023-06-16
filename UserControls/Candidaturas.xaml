@@ -26,7 +26,6 @@
                 <DataGridTextColumn Header="Salário" IsReadOnly="True" Width="*" Binding="{Binding SalarioVaga}" />
                 <DataGridTextColumn Header="Requisitos" IsReadOnly="True" Width="*" Binding="{Binding Requisitos}" />
                 <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding NomeFantasia}" />
-                <DataGridTextColumn Header="CNPJ" IsReadOnly="True" Width="*" Binding="{Binding CNPJ}" />
                 <DataGridTextColumn Header="Status" IsReadOnly="True" Width="*" Binding="{Binding StatusVaga}" />
 
                 <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
