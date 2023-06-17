@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="600" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Border CornerRadius="30" Background="#eff2f7">
         <!--DATAGRID-->
-        <DataGrid ItemsSource="{Binding Candidatos}" Background="#eff2f7" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridCandidatos" Margin="10,10,10,10">
+        <DataGrid ItemsSource="{Binding Candidatos}" Background="Transparent" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridCandidatos" Margin="10,10,10,35">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
                 <DataGridTextColumn Header="Curso" IsReadOnly="True" Width="*" Binding="{Binding Curso}" />

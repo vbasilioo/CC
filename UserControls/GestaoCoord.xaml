@@ -63,12 +63,27 @@
         <Label Content="Candidatos" FontSize="22" Margin="10 20 0 0" Grid.Row="2"/>
 
         <!-- segunda DataGrid -->
-            <DataGrid Grid.Row="3" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" x:Name="GridCandidaturas">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Autor" IsReadOnly="True" Width="*" Binding="{Binding Autor}" />
-                    <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
-                    <DataGridTextColumn Header="Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
-                </DataGrid.Columns>
-            </DataGrid>
+        <DataGrid Grid.Row="3" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" x:Name="GridCandidaturas">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Autor" IsReadOnly="True" Width="*" Binding="{Binding Autor}" />
+                <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
+                <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
+
+                <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="btnAssociar" Style="{StaticResource detailsButton}" Click="btnAssociar_Click">
+                                    <Icon:PackIconMaterial Kind="Details" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                                <Button x:Name="btnDesassociar" Style="{StaticResource detailsButton}" Click="btnDesassociar_Click">
+                                    <Icon:PackIconMaterial Kind="BeakerRemove" Style="{StaticResource gridButtonIcon}" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

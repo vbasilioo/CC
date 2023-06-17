@@ -1,4 +1,5 @@
 ﻿using CC.Controller;
+using CC.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,23 +20,32 @@ namespace CC
     {
 
         private string nomeCandidato;
+        private Candidato candidato;
+        private Oportunidade oportunidade;
 
         public AssociarCandidato(string nome)
         {
-            InitializeComponent();  
+            InitializeComponent(); 
+            PreencherCombobox();
             nomeCandidato = nome;
+            lblSucessoAssoc.Visibility = Visibility.Collapsed;
 
             var usuario = Candidato.ListarInscritos().FirstOrDefault(u => u.NomeCandidato == nome);
 
             if (usuario != null)
             {
                 txtNome.Text = usuario.NomeCandidato;
-                txtNomesocial.Text = usuario.NomeSocial;
                 txtComentarios.Text = usuario.Comentarios;
                 txtTelefone.Text = usuario.Telefone.ToString();
             }
         }
 
+        private void PreencherCombobox()
+        {
+            List<Oportunidade> oportunidades = Oportunidade.oportunidadesAprovadas;
+            cmbVagas.ItemsSource = oportunidades;
+            cmbVagas.DisplayMemberPath = "TituloVaga";
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -43,29 +53,38 @@ namespace CC
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if(int.TryParse(txtTelefone.Text, out int telefone))
+            if (int.TryParse(txtTelefone.Text, out int telefone))
             {
-                if(txtComentarios.Text == "") txtComentarios.Text = "N/A";
-                if(txtNomesocial.Text == "") txtNomesocial.Text = "N/A";
+                if (string.IsNullOrEmpty(txtComentarios.Text))
+                    txtComentarios.Text = "N/A";
 
-                Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorIdOuTitulo(txtNomeEmpresa.Text);
-                Candidato.AssociarCandidato(oportunidade.ID, txtNome.Text, txtNomesocial.Text, int.Parse(txtTelefone.Text), txtComentarios.Text);
+                Oportunidade oportunidade = cmbVagas.SelectedItem as Oportunidade;
+                int idVaga = oportunidade.ID;
 
-                List<Candidato> candidatos = Candidato.RetornarCandidatosPorTitulo(oportunidade.TituloVaga);
+                string tituloVaga = Oportunidade.BuscarOportunidadePorId(idVaga)?.TituloVaga;
+                if (!string.IsNullOrEmpty(tituloVaga))
+                {
+                    Candidato.AssociarCandidato(idVaga, txtNome.Text, int.Parse(txtTelefone.Text), txtComentarios.Text);
 
-                if(candidatos.Count > 0) {
-                    Candidato destinatario = candidatos.FirstOrDefault(u => u.NomeCandidato == nomeCandidato);
+                    Candidato destinatario = new Candidato
+                    {
+                        NomeCandidato = txtNome.Text
+                    };
 
-                    if(destinatario != null){
                     Notificacao notificacao = new Notificacao
                     {
                         Titulo = "Nova associação",
-                        Mensagem = $"O coordenador {Usuario.UsuarioLogado.Nome} associou você a vaga {oportunidade.TituloVaga}.",
+                        Mensagem = $"O coordenador {Usuario.UsuarioLogado.Nome} associou você à vaga {tituloVaga}.",
                         Destinatario = destinatario
                     };
 
+                    lblSucessoAssoc.Visibility = Visibility.Visible;
                     Notificacao.AdicionarNotificacao(notificacao);
-                    }
+                    Notificacao.AdicionarNotificacaoCoordenador("Nova associação", $"Você associou {destinatario} à vaga {tituloVaga}.");
+                }
+                else
+                {
+                    MessageBox.Show("A vaga selecionada não foi encontrada.");
                 }
             }
         }

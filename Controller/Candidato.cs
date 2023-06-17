@@ -40,17 +40,14 @@ namespace CC.Controller
             Curso = curso;
         }
 
-        public Candidato(string? nome, string? nomeSocial, int telefone, string? comentarios, Tuple<string, string, string> tituloCNPJnomefantasia)
+        public Candidato(string? nome, string? vaga, int telefone, string? comentarios)
         {
             IDCandidato = contador++;
             Autor = Usuario.UsuarioLogado.Nome;
             NomeCandidato = nome;
-            NomeSocial = nomeSocial;
             Telefone = telefone;
             Comentarios = comentarios;
-            TituloVaga = tituloCNPJnomefantasia.Item1;
-            CNPJ = tituloCNPJnomefantasia.Item2;
-            NomeFantasia = tituloCNPJnomefantasia.Item3;
+            TituloVaga = vaga;
         }
 
         public static void AdicionarCandidato(Oportunidade oportunidade, string titulo)
@@ -84,12 +81,16 @@ namespace CC.Controller
             MessageBox.Show("Você foi inscrito com sucesso!");
         }
 
-        public static void AssociarCandidato(int id, string nome, string nomeSocial, int telefone, string comentarios)
+        public static void AssociarCandidato(int id, string nome, int telefone, string comentarios)
         {
-            Tuple<string, string, string> dados = Oportunidade.GetTituloCNPJeNomeFantasiaById(id);
-            Candidato novaAssociacao = new Candidato(nome, nomeSocial, telefone, comentarios, dados);
-            VagasCandidato.Add(novaAssociacao);
-            MessageBox.Show($"Você associou {nome} com sucesso!");
+            Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorId(id);
+
+            if(oportunidade != null)
+            {
+                string vaga = oportunidade.TituloVaga;
+                Candidato novaAssociacao = new Candidato(nome, vaga, telefone, comentarios);
+                VagasCandidato.Add(novaAssociacao);
+            }
         }
 
         public static List<Candidato> ListarVagasInscritas(){

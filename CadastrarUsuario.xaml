@@ -91,6 +91,7 @@
                 </Grid>
                 <Label x:Name="LabelSucesso" Content="Sucesso ao cadastrar o usuario!" Foreground="Green" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18" />
                 <Label x:Name="LabelErro" Content="O usuario deve possuir nome e sobrenome." Foreground="Red" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18" />
+                <Label x:Name="LabelErroEmail" Content="Este e-mail é inválido." Foreground="Red" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18" />
             </Grid>
 
 
