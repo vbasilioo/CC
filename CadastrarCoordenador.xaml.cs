@@ -13,6 +13,7 @@ namespace CC
             InitializeComponent();
             LabelSucesso.Visibility = Visibility.Collapsed;
             LabelErrado.Visibility = Visibility.Collapsed;
+            LabelErroEmail.Visibility = Visibility.Collapsed;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -26,30 +27,37 @@ namespace CC
             string dataNascimentoString = CampoNascimento.Text;
             DateTime dataNascimento;
 
-            if(nome.Contains(" ")){
-                if (DateTime.TryParseExact(dataNascimentoString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
-                {
-                    int idade = Usuario.CalcularIdade(dataNascimento);
-
-                    Usuario novoCoordenador = new Usuario
+            if(email.Contains("@")){
+                LabelErroEmail.Visibility = Visibility.Collapsed;
+                if(nome.Contains(" ")){
+                    LabelErroEmail.Visibility = Visibility.Collapsed;
+                    if (DateTime.TryParseExact(dataNascimentoString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
                     {
-                        Nome = nome,
-                        Email = email,
-                        Senha = senha,
-                        SenhaCriptografada = senhacriptografada,
-                        Cargo = "Coordenador",
-                        DataNascimento = idade,
-                        Endereco = endereco,
-                    };
+                        int idade = Usuario.CalcularIdade(dataNascimento);
 
-                    Usuario.AdicionarUsuario(novoCoordenador);
-                    LabelSucesso.Visibility = Visibility.Visible;
-                    LabelErrado.Visibility = Visibility.Collapsed;
+                        Usuario novoCoordenador = new Usuario
+                        {
+                            Nome = nome,
+                            Email = email,
+                            Senha = senha,
+                            SenhaCriptografada = senhacriptografada,
+                            Cargo = "Coordenador",
+                            DataNascimento = idade,
+                            Endereco = endereco,
+                        };
+
+                        Usuario.AdicionarUsuario(novoCoordenador);
+                        LabelSucesso.Visibility = Visibility.Visible;
+                        LabelErroEmail.Visibility = Visibility.Collapsed;
+                        LabelErrado.Visibility = Visibility.Collapsed;
+                    }
+                }else{
+                    LabelErrado.Visibility = Visibility.Visible;
+                    LabelSucesso.Visibility = Visibility.Collapsed;
+                    LabelErroEmail.Visibility = Visibility.Collapsed;
                 }
-            }else{
-                LabelErrado.Visibility = Visibility.Visible;
-                LabelSucesso.Visibility = Visibility.Collapsed;
-            }
+            }else
+                LabelErroEmail.Visibility = Visibility.Visible;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

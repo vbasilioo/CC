@@ -58,27 +58,22 @@ namespace CC.UserControls
 
         private void btnAssociar_Click(object sender, RoutedEventArgs e)
         {
-            string nome = (GridCandidaturas.SelectedValue as Candidato)?.NomeCandidato;
-            AssociarCandidato assoc = new AssociarCandidato(nome);
-            assoc.Show();   
+            if(GridCandidaturas.SelectedItem != null){
+                string nome = (GridCandidaturas.SelectedValue as Candidato)?.NomeCandidato;
+                AssociarCandidato assoc = new AssociarCandidato(nome);
+                assoc.Show(); 
+            }
         }
 
         private void btnDesassociar_Click(object sender, RoutedEventArgs e)
         {
-            string nome = (GridCandidaturas.SelectedValue as Candidato)?.NomeCandidato;
-            Candidato candidatoSelecionado = null;  
+            Button btnDesassociar = sender as Button;
+            Candidato candidatoSelecionado = btnDesassociar.DataContext as Candidato;
 
-            foreach(Candidato cand in Candidato.ListarInscritos())
+            if (candidatoSelecionado != null)
             {
-                if(cand.NomeCandidato == nome)
-                {
-                    candidatoSelecionado = cand;
-                    break;
-                }
-            }
+                string nome = candidatoSelecionado.NomeCandidato;
 
-            if(candidatoSelecionado != null)
-            {
                 Candidato.RemoverVaga(candidatoSelecionado);
                 GridCandidaturas.Items.Refresh();
 
@@ -87,7 +82,8 @@ namespace CC.UserControls
                     NomeCandidato = candidatoSelecionado.NomeCandidato
                 };
 
-                Notificacao notificacao = new Notificacao{
+                Notificacao notificacao = new Notificacao
+                {
                     Titulo = "Desassociação de vaga",
                     Mensagem = $"O coordenador {Usuario.UsuarioLogado.Nome} desassociou você da vaga {candidatoSelecionado.TituloVaga}.",
                     Destinatario = destinatario

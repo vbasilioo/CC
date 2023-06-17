@@ -20,11 +20,10 @@ namespace CC
             LabelSucesso.Visibility = Visibility.Collapsed;
             LabelErro.Visibility = Visibility.Collapsed;
             txtCNPJ.Visibility = Visibility.Collapsed;
-           TxtBlockCNPJ.Visibility = Visibility.Collapsed;
+            TxtBlockCNPJ.Visibility = Visibility.Collapsed;
             txtCurso.Visibility = Visibility.Collapsed;
             txtBlockCurso.Visibility = Visibility.Collapsed;
-
-
+            LabelErroEmail.Visibility = Visibility.Collapsed;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -46,37 +45,42 @@ namespace CC
             string dataNascimentoString = txtIdade.Text;
             DateTime dataNascimento;
             
-            if (nome.Contains(" "))
-            {
-                if (DateTime.TryParseExact(dataNascimentoString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
+            if(txtEmail.Text.Contains("@")){
+                LabelErroEmail.Visibility = Visibility.Collapsed; 
+                if (nome.Contains(" "))
                 {
-                    int idade = Usuario.CalcularIdade(dataNascimento);
-
-                    Usuario novoUsuario = new Usuario
+                    LabelErroEmail.Visibility = Visibility.Collapsed; 
+                    if (DateTime.TryParseExact(dataNascimentoString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
                     {
-                        Nome = txtNome.Text,
-                        Email = txtEmail.Text,
-                        Senha = senha,
-                        SenhaCriptografada = senhaCriptografada,
-                        Cargo = txtCargo.Text,
-                        Curso = txtCurso.Text,
-                        DataNascimento = idade,
-                        Endereco = txtResidencia.Text,
-                        CNPJEmpresa = txtCNPJ.Text,
+                        int idade = Usuario.CalcularIdade(dataNascimento);
 
-                    };
+                        Usuario novoUsuario = new Usuario
+                        {
+                            Nome = txtNome.Text,
+                            Email = txtEmail.Text,
+                            Senha = senha,
+                            SenhaCriptografada = senhaCriptografada,
+                            Cargo = txtCargo.Text,
+                            Curso = txtCurso.Text,
+                            DataNascimento = idade,
+                            Endereco = txtResidencia.Text,
+                            CNPJEmpresa = txtCNPJ.Text,
 
-                    Usuario.AdicionarUsuario(novoUsuario);
-                   LabelSucesso.Visibility = Visibility.Visible;
-                   LabelErro.Visibility = Visibility.Collapsed;                 
+                        };
+
+                        Usuario.AdicionarUsuario(novoUsuario);
+                       LabelSucesso.Visibility = Visibility.Visible;
+                       LabelErro.Visibility = Visibility.Collapsed;                 
+                    }
                 }
-            }
-            else
-            {
-                LabelSucesso.Visibility = Visibility.Collapsed;
-                LabelErro.Visibility = Visibility.Visible;
-            }
-           
+                else
+                {
+                    LabelSucesso.Visibility = Visibility.Collapsed;
+                    LabelErro.Visibility = Visibility.Visible;
+                    LabelErroEmail.Visibility = Visibility.Collapsed;       
+                }
+            }else
+                LabelErroEmail.Visibility = Visibility.Visible;
 
         }
 
