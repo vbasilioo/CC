@@ -61,7 +61,7 @@ namespace CC.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CC;V1.0.0.0;component/usercontrols/mytextboxcad.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CC;component/usercontrols/mytextboxcad.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\MyTextBoxCad.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

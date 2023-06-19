@@ -74,10 +74,10 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Button x:Name="btnAssociar" Style="{StaticResource detailsButton}" Click="btnAssociar_Click">
-                                    <Icon:PackIconMaterial Kind="Details" Style="{StaticResource gridButtonIcon}" />
+                                    <Icon:PackIconMaterial Kind="CheckCircle" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
-                                <Button x:Name="btnDesassociar" Style="{StaticResource detailsButton}" Click="btnDesassociar_Click">
-                                    <Icon:PackIconMaterial Kind="BeakerRemove" Style="{StaticResource gridButtonIcon}" />
+                                <Button x:Name="btnDesassociar" Style="{StaticResource detailsButton}" Click="btnDesassociar_Click" Margin="5 0 0 0">
+                                    <Icon:PackIconMaterial Kind="AccountOff" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

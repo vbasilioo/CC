@@ -13,7 +13,7 @@
         <DatePicker x:Name="CampoNascimento" HorizontalAlignment="Center" Margin="0,343,0,0" VerticalAlignment="Top" Width="518" BorderBrush="Transparent"/>
         <Label Content="Nome e Sobrenome" Foreground="White" FontWeight="SemiBold" FontSize="16" FontFamily="Poppins" HorizontalAlignment="Left" Margin="41,41,0,0" VerticalAlignment="Top"/>
         <Label Content="E-mail" Foreground="White" FontWeight="SemiBold" FontSize="16" FontFamily="Poppins" HorizontalAlignment="Left" Margin="40,143,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="CampoSenha" HorizontalAlignment="Center" Margin="0,261,0,0" VerticalAlignment="Top" Width="518" Height="38" Style="{StaticResource PasswordBoxStyle2}" Background="Transparent" BorderBrush="White" Padding="7"/>
+        <PasswordBox x:Name="CampoSenha" HorizontalAlignment="Center" Margin="0,261,0,0" VerticalAlignment="Top" Width="518" Height="38" Style="{StaticResource PasswordBoxStyle2}" Background="Transparent" BorderBrush="White" Padding="7" Foreground="White"/>
         <Label Content="Senha" Foreground="White" FontWeight="SemiBold" FontSize="16" FontFamily="Poppins" HorizontalAlignment="Left" Margin="41,227,0,0" VerticalAlignment="Top"/>
         <Label Content="Data de Nascimento" Foreground="White" FontWeight="SemiBold" FontSize="16" FontFamily="Poppins" HorizontalAlignment="Left" Margin="41,304,0,0" VerticalAlignment="Top"/>
         <Label Content="Endereço" Foreground="White" FontWeight="SemiBold" FontSize="16" FontFamily="Poppins" HorizontalAlignment="Left" Margin="41,385,0,0" VerticalAlignment="Top"/>

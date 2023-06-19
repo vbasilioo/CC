@@ -52,7 +52,7 @@
 
                     </ComboBox>
 
-                    <DatePicker x:Name="txtIdade" BorderBrush="Transparent" VerticalAlignment="Top" Margin="186,372,137,0" FontSize="16" />
+                    <DatePicker x:Name="txtIdade" BorderBrush="Transparent" VerticalAlignment="Top" Margin="186,372,137,0" FontSize="16" SelectedDateFormat="Short" />
 
                     <ComboBox x:Name="txtCurso" Margin="188,498,137,278" FontSize="16">
                         <ComboBoxItem>

@@ -160,7 +160,7 @@ namespace CC.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CC;V1.0.0.0;component/usercontrols/gestaocontrole.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CC;component/usercontrols/gestaocontrole.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\GestaoControle.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

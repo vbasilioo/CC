@@ -294,6 +294,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
         <Style x:Key="DataGridRowStyle1" TargetType="{x:Type DataGridRow}">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Margin" Value="0 4 0 0" />
