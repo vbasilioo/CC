@@ -33,15 +33,15 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Título da Vaga" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
-                    <DataGridTextColumn Header="Descrição da Vaga" IsReadOnly="True" Width="*" Binding="{Binding DescricaoVaga}" />
-                    <DataGridTextColumn Header="Salário" IsReadOnly="True" Width="*" Binding="{Binding SalarioVaga}" />
-                    <DataGridTextColumn Header="Requisitos" IsReadOnly="True" Width="*" Binding="{Binding Requisitos}" />
-                    <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding NomeFantasia}" />
-                    <DataGridTextColumn Header="CNPJ" IsReadOnly="True" Width="*" Binding="{Binding CNPJ}" />
-                    <DataGridTextColumn Header="Status" IsReadOnly="True" Width="*" Binding="{Binding StatusVaga}" />
+                    <DataGridTextColumn Header="Título da Vaga" IsReadOnly="True" Width="290"  Binding="{Binding TituloVaga}" />
+                    <DataGridTextColumn Header="Descrição da Vaga" IsReadOnly="True" Width="180" Binding="{Binding DescricaoVaga}" />
+                    <DataGridTextColumn Header="Salário" IsReadOnly="True" Width="100" Binding="{Binding SalarioVaga}" />
+                    <DataGridTextColumn Header="Requisitos" IsReadOnly="True" Width="200" Binding="{Binding Requisitos}" />
+                    <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="200" Binding="{Binding NomeFantasia}" />
+                    <DataGridTextColumn Header="CNPJ" IsReadOnly="True" Width="200" Binding="{Binding CNPJ}" />
+                    <DataGridTextColumn Header="Status" IsReadOnly="True" Width="100" Binding="{Binding StatusVaga}" />
 
-                    <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

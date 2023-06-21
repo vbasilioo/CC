@@ -31,6 +31,23 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
+using Xceed.Wpf.Toolkit;
+using Xceed.Wpf.Toolkit.Chromes;
+using Xceed.Wpf.Toolkit.Converters;
+using Xceed.Wpf.Toolkit.Core;
+using Xceed.Wpf.Toolkit.Core.Converters;
+using Xceed.Wpf.Toolkit.Core.Input;
+using Xceed.Wpf.Toolkit.Core.Media;
+using Xceed.Wpf.Toolkit.Core.Utilities;
+using Xceed.Wpf.Toolkit.Mag.Converters;
+using Xceed.Wpf.Toolkit.Panels;
+using Xceed.Wpf.Toolkit.Primitives;
+using Xceed.Wpf.Toolkit.PropertyGrid;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+using Xceed.Wpf.Toolkit.PropertyGrid.Commands;
+using Xceed.Wpf.Toolkit.PropertyGrid.Converters;
+using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
+using Xceed.Wpf.Toolkit.Zoombox;
 
 
 namespace CC {
@@ -125,7 +142,7 @@ namespace CC {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CC;V1.0.0.0;component/associarcandidato.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CC;component/associarcandidato.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AssociarCandidato.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

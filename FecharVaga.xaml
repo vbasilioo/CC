@@ -7,25 +7,37 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
-    <Border CornerRadius="30" Background="#eff2f7">
-        <!--DATAGRID-->
-        <DataGrid ItemsSource="{Binding Candidatos}" Background="Transparent" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridCandidatos" Margin="10,10,10,35">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
-                <DataGridTextColumn Header="Curso" IsReadOnly="True" Width="*" Binding="{Binding Curso}" />
 
-                <DataGridTemplateColumn x:Name="colunaAcoes" Header="Ações" IsReadOnly="True" Width="auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="btnSelecionar" Style="{StaticResource detailsButton}" Click="btnSelecionar_Click" Tag="{Binding}">
-                                    <Icon:PackIconMaterial Kind="BellCheck" Style="{StaticResource gridButtonIcon}" />
-                                </Button>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Border>
+
+    <Grid>
+        <!-- Grid principal -->
+        <Border CornerRadius="30" Background="#eff2f7">
+            <!-- DATAGRID -->
+            <DataGrid ItemsSource="{Binding Candidatos}" Background="Transparent" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridCandidatos" Margin="10,10,10,35">
+                <!-- Colunas do DataGrid -->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
+                    <DataGridTextColumn Header="Curso" IsReadOnly="True" Width="*" Binding="{Binding Curso}" />
+                    <DataGridTemplateColumn x:Name="colunaAcoes" Header="Ações" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="btnSelecionar" Style="{StaticResource detailsButton}" Click="btnSelecionar_Click" Tag="{Binding}">
+                                        <Icon:PackIconMaterial Kind="BellCheck" Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Painel de sobreposição -->
+        <Grid>
+            <Button Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource buttonMain}" Margin="1300,690,0,0" Width="126" />
+        </Grid>
+    </Grid>
+
+
 </Window>

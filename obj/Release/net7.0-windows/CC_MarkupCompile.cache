@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET7_0;NETCOREAPP
 C:\Users\Eric\source\repos\CareerConnect\App.xaml
-23882568290
+24642456745
 
-30-258279367
+311015526727
 209-1475674437
-AlterarSenha.xaml;AssociarCandidato.xaml;CadastrarCoordenador.xaml;CadastrarUsuario.xaml;Dashboard.xaml;Editar_Vaga.xaml;FecharVaga.xaml;MainWindow.xaml;RedefinirSenha.xaml;TrocarSenhaUsuario.xaml;UserControls\AdministracaoUC.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;UserControls\Perfil.xaml;
+AlterarSenha.xaml;AssociarCandidato.xaml;CadastrarCoordenador.xaml;CadastrarUsuario.xaml;Dashboard.xaml;Editar_Vaga.xaml;EncerrarVaga.xaml;FecharVaga.xaml;MainWindow.xaml;RedefinirSenha.xaml;TrocarSenhaUsuario.xaml;UserControls\AdministracaoUC.xaml;UserControls\Candidaturas.xaml;UserControls\Card.xaml;UserControls\GestaoControle.xaml;UserControls\GestaoCoord.xaml;UserControls\Item.xaml;UserControls\MenuButton.xaml;UserControls\MyOption.xaml;UserControls\MyTextBox.xaml;UserControls\MyTextBoxCad.xaml;UserControls\Notificacoes.xaml;UserControls\OportunidadesAprovadas.xaml;UserControls\Perfil.xaml;
 
 True
 

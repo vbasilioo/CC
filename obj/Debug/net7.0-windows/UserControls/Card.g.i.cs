@@ -9,7 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using CC.UserControls;
 using System;
 using System.Diagnostics;
 using System.Windows;
