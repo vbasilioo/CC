@@ -31,23 +31,6 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
-using Xceed.Wpf.Toolkit;
-using Xceed.Wpf.Toolkit.Chromes;
-using Xceed.Wpf.Toolkit.Converters;
-using Xceed.Wpf.Toolkit.Core;
-using Xceed.Wpf.Toolkit.Core.Converters;
-using Xceed.Wpf.Toolkit.Core.Input;
-using Xceed.Wpf.Toolkit.Core.Media;
-using Xceed.Wpf.Toolkit.Core.Utilities;
-using Xceed.Wpf.Toolkit.Mag.Converters;
-using Xceed.Wpf.Toolkit.Panels;
-using Xceed.Wpf.Toolkit.Primitives;
-using Xceed.Wpf.Toolkit.PropertyGrid;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
-using Xceed.Wpf.Toolkit.PropertyGrid.Commands;
-using Xceed.Wpf.Toolkit.PropertyGrid.Converters;
-using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
-using Xceed.Wpf.Toolkit.Zoombox;
 
 
 namespace CC {
@@ -136,13 +119,13 @@ namespace CC {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.3.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.7.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CC;component/associarcandidato.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CC;V1.0.0.0;component/associarcandidato.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AssociarCandidato.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -152,14 +135,14 @@ namespace CC {
         }
         
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.3.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.7.0")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal System.Delegate _CreateDelegate(System.Type delegateType, string handler) {
             return System.Delegate.CreateDelegate(delegateType, this, handler);
         }
         
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.3.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.7.0")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
