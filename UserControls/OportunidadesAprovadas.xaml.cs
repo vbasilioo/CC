@@ -13,17 +13,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CC.UserControls
 {
 
     public partial class OportunidadesAprovadas : UserControl
     {
+
+        private DispatcherTimer timer;
+
         public OportunidadesAprovadas()
         {
             InitializeComponent();
             VerificarCargo();
             GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            GridOportunidadesAprovadas.Items.Refresh();
+            GridOportunidadesAprovadas.ItemsSource = Oportunidade.oportunidadesAprovadas;
+            GridOportunidadesAprovadas.Items.Refresh();
         }
 
          private void VerificarCargo()
@@ -75,14 +91,22 @@ namespace CC.UserControls
             Button button = sender as Button;
             Oportunidade oportunidade = button.DataContext as Oportunidade;
             
-            if(oportunidade.CNPJ == Usuario.UsuarioLogado.CNPJEmpresa)
-            {
-                FecharVaga fecharVaga = new FecharVaga(oportunidade.TituloVaga);   
-                fecharVaga.Show();
+            if(oportunidade != null){
+                if(oportunidade.CNPJ == Usuario.UsuarioLogado.CNPJEmpresa)
+                {
+                    FecharVaga fecharVaga = new FecharVaga(oportunidade.ID);   
+                    fecharVaga.Show();
+                    //EncerrarVaga fecharvaga = new EncerrarVaga(oportunidade.ID);
+                    //fecharvaga.Show();
+                }
+                else
+                {
+                    MessageBox.Show("A vaga não é sua para você poder fechar.");
+                }
             }
             else
             {
-                MessageBox.Show("A vaga não é sua para você poder fechar.");
+                MessageBox.Show("Oportunidade inválida.");
             }
         }
     }

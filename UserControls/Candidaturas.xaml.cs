@@ -36,7 +36,7 @@ namespace CC.UserControls
 
                 if(oportunidadeSelecionada.StatusVaga == "Aberta"){
 
-                    Candidato.AdicionarCandidato(oportunidadeSelecionada, oportunidadeSelecionada.NomeFantasia);
+                    Candidato.AdicionarCandidato(oportunidadeSelecionada, oportunidadeSelecionada.ID);
                     Notificacao notificacao = new Notificacao
                     {
                         Titulo = "Nova candidatura",
@@ -46,6 +46,7 @@ namespace CC.UserControls
 
                     Notificacao.AdicionarNotificacao(notificacao);
                     Notificacao.AdicionarNotificacaoCoordenador("Nova Inscrição", $"O candidato {Usuario.UsuarioLogado.Nome} se inscreveu para a vaga {oportunidadeSelecionada.TituloVaga}.");
+                    MessageBox.Show($"Você se candidatou para a vaga {oportunidadeSelecionada.TituloVaga}.");
                 }
                 else
                 {

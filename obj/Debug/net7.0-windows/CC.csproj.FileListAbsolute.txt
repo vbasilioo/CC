@@ -353,3 +353,5 @@ C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\Perfil.g.cs
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\TrocarSenhaUsuario.baml
 C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\UserControls\Perfil.baml
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\EncerrarVaga.g.cs
+C:\Users\vbasi\OneDrive\Área de Trabalho\CareerConnect\obj\Debug\net7.0-windows\EncerrarVaga.baml

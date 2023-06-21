@@ -46,6 +46,8 @@ namespace CC.UserControls
                 Oportunidade.CadastrarOportunidadeNova(titulo, descricao, salario, requisitos, empresa, Usuario.UsuarioLogado.CNPJEmpresa, status);
                 lblSucessoCadastro.Visibility = Visibility.Visible;
                 lblDetalhes.Visibility = Visibility.Collapsed;
+
+                // Limpar campos
                 txtTitulo.Text = "";
                 txtDescricao.Text = "";
                 txtRequisitos.Text = "";

@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "JQKnZNEqvt7cIiIgUE1q8hOKCkOCLKoQO17Wkk7Jm5ut3P9m7wvBNAL/g53jT6Y2Rq8fH1sxyy1cZn7PoWQZRg==",
+  "dgSpecHash": "i0dY+NUE5xWTJehCtAV5ckAAVPSU89f91SribKfH4HUUSKTPapk9puvd48HN2bqfovx0uNDawzVMm5/ziqjO0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eric\\Source\\Repos\\CareerConnect\\CC.csproj",
+  "projectFilePath": "C:\\Users\\vbasi\\OneDrive\\Área de Trabalho\\CareerConnect\\CC.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Eric\\.nuget\\packages\\bcrypt.net\\0.1.0\\bcrypt.net.0.1.0.nupkg.sha512",
-    "C:\\Users\\Eric\\.nuget\\packages\\extended.wpf.toolkit\\4.5.0\\extended.wpf.toolkit.4.5.0.nupkg.sha512",
-    "C:\\Users\\Eric\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
-    "C:\\Users\\Eric\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
-    "C:\\Users\\Eric\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+    "C:\\Users\\vbasi\\.nuget\\packages\\bcrypt.net\\0.1.0\\bcrypt.net.0.1.0.nupkg.sha512",
+    "C:\\Users\\vbasi\\.nuget\\packages\\extended.wpf.toolkit\\4.5.0\\extended.wpf.toolkit.4.5.0.nupkg.sha512",
+    "C:\\Users\\vbasi\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
+    "C:\\Users\\vbasi\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
+    "C:\\Users\\vbasi\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
   ],
   "logs": [
     {

@@ -7,7 +7,7 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
-    <Border CornerRadius="30" Background="#eff2f7" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border CornerRadius="30" Background="#eff2f7">
         <!--DATAGRID-->
         <DataGrid ItemsSource="{Binding Candidatos}" Background="Transparent" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle2}" Grid.Row="5" x:Name="GridCandidatos" Margin="10,10,10,35">
             <DataGrid.Columns>

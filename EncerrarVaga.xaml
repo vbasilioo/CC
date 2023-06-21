@@ -1,0 +1,35 @@
+﻿<Window x:Class="CC.EncerrarVaga"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CC"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Grid>
+        <Border CornerRadius="30" Background="#eff2f7">
+            <!--DATAGRID-->
+            <ListBox ItemsSource="{Binding Candidatos}" Background="Transparent" Style="{DynamicResource ListBoxStyle1}" Grid.Row="5" x:Name="ListBoxCandidatos" Margin="10,10,10,35">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="{Binding NomeCandidato}" />
+                            <TextBlock Grid.Column="1" Text="{Binding Curso}" />
+
+                            <Button Grid.Column="2" Style="{StaticResource detailsButton}" Click="Button_Click" Tag="{Binding}">
+                                <Icon:PackIconMaterial Kind="BellCheck" Style="{StaticResource gridButtonIcon}" />
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+    </Grid>
+</Window>

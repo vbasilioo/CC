@@ -80,7 +80,7 @@ namespace CC
 
                     lblSucessoAssoc.Visibility = Visibility.Visible;
                     Notificacao.AdicionarNotificacao(notificacao);
-                    Notificacao.AdicionarNotificacaoCoordenador("Nova associação", $"Você associou {destinatario} à vaga {tituloVaga}.");
+                    Notificacao.AdicionarNotificacaoCoordenador("Nova associação", $"Você associou {destinatario.NomeCandidato} à vaga {tituloVaga}.");
                 }
                 else
                 {

@@ -31,12 +31,12 @@ namespace CC.Controller
 
         }
 
-        public Candidato(string? nome, string? titulo, string? curso)
+        public Candidato(string? nome, int id, string? curso)
         {
             IDCandidato = contador++;
             Autor = Usuario.UsuarioLogado.Nome;
             NomeCandidato = nome;
-            TituloVaga = titulo;
+            IDVaga = id;
             Curso = curso;
         }
 
@@ -50,10 +50,10 @@ namespace CC.Controller
             TituloVaga = vaga;
         }
 
-        public static void AdicionarCandidato(Oportunidade oportunidade, string titulo)
+        public static void AdicionarCandidato(Oportunidade oportunidade, int id)
         {
             contador++;
-            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo, Usuario.UsuarioLogado.Curso);
+            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, id, Usuario.UsuarioLogado.Curso);
             VagasCandidato.Add(novaCandidatura);
         }
 
@@ -74,9 +74,9 @@ namespace CC.Controller
             return VagasCandidato;
         }
 
-        public static void AdicionarVaga(Oportunidade oportunidade, string titulo)
+        public static void AdicionarVaga(Oportunidade oportunidade, int id)
         {
-            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, titulo, Usuario.UsuarioLogado.Curso);
+            Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, id, Usuario.UsuarioLogado.Curso);
             VagasCandidato.Add(novaCandidatura);
             MessageBox.Show("Você foi inscrito com sucesso!");
         }
@@ -155,26 +155,20 @@ namespace CC.Controller
             return candidatos;
         }
 
-        public static List<Candidato> RetornarCandidatosPorTitulo(string titulo)
+        public static List<Candidato> RetornarCandidatosPorID(int id)
         {
-            //return VagasCandidato.FindAll(c => c.TituloVaga == titulo);
-            List<Candidato> candidatosComCurso = new List<Candidato>();
+            List<Candidato> candidatosFiltrados = new List<Candidato>();
 
-            foreach (var candidato in VagasCandidato)
+            foreach(Candidato candidato in VagasCandidato)
             {
-                if (candidato.TituloVaga == titulo)
+                if(candidato.IDVaga == id)
                 {
-                    Candidato candidatoComCurso = new Candidato
-                    {
-                        NomeCandidato = candidato.NomeCandidato,
-                        Curso = candidato.Curso
-                    };
-
-                    candidatosComCurso.Add(candidatoComCurso);
+                    candidatosFiltrados.Add(candidato);
                 }
             }
 
-            return candidatosComCurso;
+            return candidatosFiltrados;
         }
+
     }
 }

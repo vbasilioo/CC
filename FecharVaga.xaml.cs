@@ -18,10 +18,10 @@ namespace CC
 
     public partial class FecharVaga : Window
     {
-        public FecharVaga(string titulo)
+        public FecharVaga(int id)
         {
             InitializeComponent();
-            List<Candidato> candidatos = Candidato.RetornarCandidatosPorTitulo(titulo);
+            List<Candidato> candidatos = Candidato.RetornarCandidatosPorID(id);
             GridCandidatos.ItemsSource = candidatos;
         }
 

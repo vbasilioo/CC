@@ -90,6 +90,7 @@ namespace CC.UserControls
                 };
 
                 Notificacao.AdicionarNotificacao(notificacao);
+                Notificacao.AdicionarNotificacaoCoordenador("Desassociação", $"Você desassociou {nome} da vaga {candidatoSelecionado.TituloVaga}.");
             }
         }
 

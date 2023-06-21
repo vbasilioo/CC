@@ -69,8 +69,9 @@ namespace CC
                         };
 
                         Usuario.AdicionarUsuario(novoUsuario);
-                       LabelSucesso.Visibility = Visibility.Visible;
-                       LabelErro.Visibility = Visibility.Collapsed;                 
+                        LabelSucesso.Visibility = Visibility.Visible;
+                        LabelErro.Visibility = Visibility.Collapsed;           
+                        LimparCampos();
                     }
                 }
                 else
@@ -82,6 +83,15 @@ namespace CC
             }else
                 LabelErroEmail.Visibility = Visibility.Visible;
 
+        }
+
+        private void LimparCampos()
+        {
+            txtNome.Text = "";
+            txtEmail.Text = "";
+            txtSenha.Password = "";
+            txtResidencia.Text = "";
+            txtCNPJ.Text = "";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
