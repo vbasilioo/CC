@@ -6,7 +6,7 @@
         xmlns:uc="clr-namespace:CC.UserControls"
         MinWidth="1350" MinHeight="890" Background="Transparent">
 
-    <Border CornerRadius="7" Background="#eff2f7">
+    <Border CornerRadius="7" Background="Transparent">
         <Border.Effect>
             <DropShadowEffect BlurRadius="30" ShadowDepth="5" Direction="-130" Opacity="0.1" />
         </Border.Effect>
@@ -39,7 +39,7 @@
             <uc:MyTextBox x:Name="txtSalario" Grid.Column="0" Grid.Row="4" Caption="Salário" />
             <uc:MyTextBox x:Name="txtRequisitos" Grid.Column="1" Grid.Row="2" Caption="Requisitos" />
             <uc:MyTextBox x:Name="txtNomeempresa" Grid.Column="1" Grid.Row="3" Caption="Empresa" />
-            <ComboBox x:Name="txtStatus" Grid.Column="1" Grid.Row="4" Height="35" Margin="5,38,20,108" Background="White" FontSize="16" BorderBrush="White">
+            <ComboBox x:Name="txtStatus" Grid.Column="1" Grid.Row="4" Height="35" Margin="24,47,20,99" Background="White" FontSize="16" BorderBrush="White">
                 <ComboBoxItem>
                     Aberta
                 </ComboBoxItem>
@@ -50,13 +50,14 @@
             </ComboBox>
 
             <!--BOTÃO DE ENVIAR-->
-            <Border Grid.Row="6" Grid.ColumnSpan="2" Height="80" Background="#eff2f7" CornerRadius="0 0 10 10" Margin="-20 40 -20 0" />
+            <Border Grid.Row="6" Grid.ColumnSpan="2" Height="80" Background="Transparent" CornerRadius="0 0 10 10" Margin="-20 40 -20 0" />
             <!--MAIN-->
             <Button Grid.Column="1" Grid.Row="6" Content="Salvar" Margin="0 40 20 0" HorizontalAlignment="Right" Style="{StaticResource Mainbutton}" Click="Button_Click_1">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5" Color="#f18047" Opacity="0.3" Direction="-120" />
                 </Button.Effect>
             </Button>
+            <Label Grid.Column="1" Content="Status" FontSize="20" HorizontalAlignment="Left" Margin="24,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
         </Grid>
     </Border>
 </UserControl>

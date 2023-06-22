@@ -35,7 +35,7 @@
 
         <!-- Painel de sobreposição -->
         <Grid>
-            <Button Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource buttonMain}" Margin="1300,690,0,0" Width="126" />
+            <Button Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource buttonMain}" Margin="1300,690,0,0" Width="126" Click="Button_Click" />
         </Grid>
     </Grid>
 

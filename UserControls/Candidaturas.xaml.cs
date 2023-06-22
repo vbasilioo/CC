@@ -36,7 +36,7 @@ namespace CC.UserControls
 
                 if(oportunidadeSelecionada.StatusVaga == "Aberta"){
 
-                    Candidato.AdicionarCandidato(oportunidadeSelecionada, oportunidadeSelecionada.ID);
+                    Candidato.AdicionarCandidato(oportunidadeSelecionada, oportunidadeSelecionada.ID, oportunidadeSelecionada.TituloVaga);
                     Notificacao notificacao = new Notificacao
                     {
                         Titulo = "Nova candidatura",

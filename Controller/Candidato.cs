@@ -40,20 +40,19 @@ namespace CC.Controller
             Curso = curso;
         }
 
-        public Candidato(string? nome, string? vaga, int telefone, string? comentarios)
+        public Candidato(string? nome, string? vaga)
         {
             IDCandidato = contador++;
             Autor = Usuario.UsuarioLogado.Nome;
             NomeCandidato = nome;
-            Telefone = telefone;
-            Comentarios = comentarios;
             TituloVaga = vaga;
         }
 
-        public static void AdicionarCandidato(Oportunidade oportunidade, int id)
+        public static void AdicionarCandidato(Oportunidade oportunidade, int id, string tituloVaga)
         {
             contador++;
             Candidato novaCandidatura = new Candidato(Usuario.UsuarioLogado.Nome, id, Usuario.UsuarioLogado.Curso);
+            novaCandidatura.TituloVaga = tituloVaga;
             VagasCandidato.Add(novaCandidatura);
         }
 
@@ -81,14 +80,14 @@ namespace CC.Controller
             MessageBox.Show("Você foi inscrito com sucesso!");
         }
 
-        public static void AssociarCandidato(int id, string nome, int telefone, string comentarios)
+        public static void AssociarCandidato(int id, string nome)
         {
             Oportunidade oportunidade = Oportunidade.BuscarOportunidadePorId(id);
 
             if(oportunidade != null)
             {
                 string vaga = oportunidade.TituloVaga;
-                Candidato novaAssociacao = new Candidato(nome, vaga, telefone, comentarios);
+                Candidato novaAssociacao = new Candidato(nome, vaga);
                 VagasCandidato.Add(novaAssociacao);
             }
         }

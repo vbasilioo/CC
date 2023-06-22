@@ -67,7 +67,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Autor" IsReadOnly="True" Width="*" Binding="{Binding Autor}" />
                 <DataGridTextColumn Header="Nome" IsReadOnly="True" Width="*" Binding="{Binding NomeCandidato}" />
-                <DataGridTextColumn Header="Empresa" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
+                <DataGridTextColumn Header="Empresa ou Título" IsReadOnly="True" Width="*" Binding="{Binding TituloVaga}" />
 
                 <DataGridTemplateColumn Header="Ações" IsReadOnly="True" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>

@@ -35,8 +35,6 @@ namespace CC
             if (usuario != null)
             {
                 txtNome.Text = usuario.NomeCandidato;
-                txtComentarios.Text = usuario.Comentarios;
-                txtTelefone.Text = usuario.Telefone.ToString();
             }
         }
 
@@ -53,40 +51,36 @@ namespace CC
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(txtTelefone.Text, out int telefone))
+
+            Oportunidade oportunidade = cmbVagas.SelectedItem as Oportunidade;
+            int idVaga = oportunidade.ID;
+
+            string tituloVaga = Oportunidade.BuscarOportunidadePorId(idVaga)?.TituloVaga;
+            if (!string.IsNullOrEmpty(tituloVaga))
             {
-                if (string.IsNullOrEmpty(txtComentarios.Text))
-                    txtComentarios.Text = "N/A";
+                Candidato.AssociarCandidato(idVaga, txtNome.Text);
 
-                Oportunidade oportunidade = cmbVagas.SelectedItem as Oportunidade;
-                int idVaga = oportunidade.ID;
-
-                string tituloVaga = Oportunidade.BuscarOportunidadePorId(idVaga)?.TituloVaga;
-                if (!string.IsNullOrEmpty(tituloVaga))
+                Candidato destinatario = new Candidato
                 {
-                    Candidato.AssociarCandidato(idVaga, txtNome.Text, int.Parse(txtTelefone.Text), txtComentarios.Text);
+                    NomeCandidato = txtNome.Text
+                };
 
-                    Candidato destinatario = new Candidato
-                    {
-                        NomeCandidato = txtNome.Text
-                    };
-
-                    Notificacao notificacao = new Notificacao
-                    {
-                        Titulo = "Nova associação",
-                        Mensagem = $"O coordenador {Usuario.UsuarioLogado.Nome} associou você à vaga {tituloVaga}.",
-                        Destinatario = destinatario
-                    };
-
-                    lblSucessoAssoc.Visibility = Visibility.Visible;
-                    Notificacao.AdicionarNotificacao(notificacao);
-                    Notificacao.AdicionarNotificacaoCoordenador("Nova associação", $"Você associou {destinatario.NomeCandidato} à vaga {tituloVaga}.");
-                }
-                else
+                Notificacao notificacao = new Notificacao
                 {
-                    MessageBox.Show("A vaga selecionada não foi encontrada.");
-                }
+                    Titulo = "Nova associação",
+                    Mensagem = $"O coordenador {Usuario.UsuarioLogado.Nome} associou você à vaga {tituloVaga}.",
+                    Destinatario = destinatario
+                };
+
+                lblSucessoAssoc.Visibility = Visibility.Visible;
+                Notificacao.AdicionarNotificacao(notificacao);
+                Notificacao.AdicionarNotificacaoCoordenador("Nova associação", $"Você associou {destinatario.NomeCandidato} à vaga {tituloVaga}.");
             }
+            else
+            {
+                MessageBox.Show("A vaga selecionada não foi encontrada.");
+            }
+            
         }
     }
 }
